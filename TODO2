@@ -1,0 +1,15 @@
+
+id
+textos_posicao
+textos_titulo1
+textos_titulo2
+textos_subtitulo
+textos_texto
+textos_botao
+
+
+php artisan make:model Clientes; php artisan make:model Depoimentos; php artisan make:model Footer; php artisan make:model Form_orcamentos; php artisan make:model Header; php artisan make:model Idiomas; php artisan make:model Local; php artisan make:model Locale_en; php artisan make:model Locale_es; php artisan make:model Locale_it; php artisan make:model Locale_pt; php artisan make:model Orcamentos; php artisan make:model Tags;
+
+criar tabelas com prefix tb
+
+textos de botoes, e inuteis, devem ser components*
