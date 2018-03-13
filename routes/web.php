@@ -9,21 +9,21 @@ Auth::routes();
 Route::get('setidioma', 'SiteController@index') -> name('setidioma');
 
 Route::prefix('gerenciador/site') -> group(function(){
-    Route::get('{idioma}', 'SiteController@gerenciadorsetIdioma') -> name('gerenciador.setIdioma');
-    Route::get('inicial/{idioma}', 'SiteController@gerenciadorInicial') -> name('gerenciador.inicial');
-    Route::get('sobre/{idioma}', 'SiteController@gerenciadorSobre') -> name('gerenciador.sobre');
-    Route::get('idiomas/{idioma}', 'SiteController@gerenciadorIdiomas') -> name('gerenciador.idiomas');
-    Route::get('clientes/{idioma}', 'SiteController@gerenciadorClientes') -> name('gerenciador.clientes');
-    Route::get('depoimentos/{idioma}', 'SiteController@gerenciadorDepoimentos') -> name('gerenciador.depoimentos');
-    Route::get('cartas/{idioma}', 'SiteController@gerenciadorCartas') -> name('gerenciador.cartas');
-    Route::get('localizacao/{idioma}', 'SiteController@gerenciadorLocalizacao') -> name('gerenciador.localizacao');
-    Route::get('header/{idioma}', 'SiteController@gerenciadorHeader') -> name('gerenciador.header');
-    Route::get('footer/{idioma}', 'SiteController@gerenciadorFooter') -> name('gerenciador.footer');
+    Route::get('{lang}', 'SiteController@gerenciadorsetIdioma') -> name('gerenciador.setIdioma');
+    Route::get('inicial/{lang}', 'SiteController@gerenciadorInicial') -> name('gerenciador.inicial');
+    Route::get('sobre/{lang}', 'SiteController@gerenciadorSobre') -> name('gerenciador.sobre');
+    Route::get('idiomas/{lang}', 'SiteController@gerenciadorIdiomas') -> name('gerenciador.idiomas');
+    Route::get('clientes/{lang}', 'SiteController@gerenciadorClientes') -> name('gerenciador.clientes');
+    Route::get('depoimentos/{lang}', 'SiteController@gerenciadorDepoimentos') -> name('gerenciador.depoimentos');
+    Route::get('cartas/{lang}', 'SiteController@gerenciadorCartas') -> name('gerenciador.cartas');
+    Route::get('localizacao/{lang}', 'SiteController@gerenciadorLocalizacao') -> name('gerenciador.localizacao');
+    Route::get('header/{lang}', 'SiteController@gerenciadorHeader') -> name('gerenciador.header');
+    Route::get('footer/{lang}', 'SiteController@gerenciadorFooter') -> name('gerenciador.footer');
 });
 
 Route::prefix('gerenciador/other') -> group(function(){
-    Route::get('logs', 'SiteController@gerenciadorLogs') -> name('gerenciador.logs');
-    Route::get('orcamentos', 'SiteController@gerenciadorOrcamentos') -> name('gerenciador.orcamentos');
+    Route::get('logs', 'OtherController@otherLogs') -> name('gerenciador.logs');
+    Route::get('orcamentos', 'OtherController@otherOrcamentos') -> name('gerenciador.orcamentos');
 });
 
 Route::prefix('gerenciador/cidadania') -> group(function(){

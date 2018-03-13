@@ -2,57 +2,91 @@
 
 namespace App\Http\Controllers;
 use App\Locale_pt;
+use App\Locale_en;
+use App\Locale_es;
+use App\Locale_it;
+use App\Sobre;
+use App\Idioma;
+use App\Depoimento;
+use App\Local;
+use App\Footer;
 
 use Illuminate\Http\Request;
 
 class SiteController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+   public function __construct()
+   {
+      $this->middleware('auth');
+   }
 
-    public function index()
-    {
-        return view('setidioma');
-    }
+   public function index()
+   {
+      return view('setidioma');
+   }
 
-    public function gerenciadorsetIdioma($idioma)
-    {
-        session()->put('idioma',$idioma);
-        return view('dashboard');
-    }
-    public function gerenciadorInicial($idioma){
-        return view ('gerenciador.site.inicial');
-    }
-    public function gerenciadorSobre(){
-        return view ('gerenciador.site.sobre');
-    }
-    public function gerenciadorIdiomas(){
-        return view ('gerenciador.site.idiomas');
-    }
-    public function gerenciadorClientes(){
-        return view ('gerenciador.site.clientes');
-    }
-    public function gerenciadorDepoimentos(){
-        return view ('gerenciador.site.depoimentos');
-    }
-    public function gerenciadorCartas(){
-        return view ('gerenciador.site.cartas');
-    }
-    public function gerenciadorLocalizacao(){
-        return view ('gerenciador.site.localizacao');
-    }
-    public function gerenciadorHeader(){
-        return view ('gerenciador.site.header');
-    }
-    public function gerenciadorFooter(){
-        return view ('gerenciador.site.footer');
-    }
-    public function gerenciadorOrcamentos(){
-        return view ('gerenciador.other.orcamentos');
-    }
-    public function gerenciadorLogs(){
-        return view ('gerenciador.other.logs');
-    }
+   public function gerenciadorsetIdioma($lang)
+   {
+      session()->put('lang',$lang);
+      return view('dashboard');
+   }
+   public function gerenciadorInicial($lang)
+   {
+      if ($lang == 'pt'){
+         $inicial = Locale_pt::get();
+      }elseif ($lang == 'en') {
+         $inicial = Locale_en::get();
+      }elseif ($lang == 'es') {
+         $inicial = Locale_es::get();
+      }elseif ($lang == 'it') {
+         $inicial = Locale_it::get();
+      }
+      return view ('gerenciador.site.inicial', ['inicials' => $inicial]);
+   }
+
+   public function gerenciadorSobre($lang)
+   {
+      $sobre = Sobre::where('tab_lang', 'like', $lang) -> orderby('texto_posicao') -> get();
+      return view ('gerenciador.site.sobre', ['sobres' => $sobre]);
+   }
+
+   public function gerenciadorIdiomas($lang)
+   {
+      $idioma = Idioma::where('tab_lang', 'like', $lang) -> get();
+      return view ('gerenciador.site.idiomas' , ['idiomas' => $idioma]);
+   }
+
+   public function gerenciadorClientes($lang)
+   {
+      return view ('gerenciador.site.clientes');
+   }
+
+   public function gerenciadorDepoimentos($lang)
+   {
+      $depoimento = Depoimento::where('tab_lang', 'like', $lang) -> orderby('textos_posicao') -> get();
+      return view ('gerenciador.site.depoimentos' , ['depoimentos' => $depoimento]);
+   }
+
+   public function gerenciadorCartas($lang)
+   {
+      return view ('gerenciador.site.cartas');
+   }
+
+   public function gerenciadorLocalizacao($lang)
+   {
+      $local = Local::where('tab_lang', 'like', $lang) -> get();
+      return view ('gerenciador.site.localizacao' , ['locales' => $local]);
+   }
+
+   public function gerenciadorHeader($lang)
+   {
+      return view ('gerenciador.site.header');
+   }
+
+   public function gerenciadorFooter($lang)
+   {
+      $footer = Footer::where('tab_lang', 'like', $lang) -> get();
+      return view ('gerenciador.site.footer' , ['footers' => $footer]);
+   }
+   
 }
