@@ -5,7 +5,7 @@ use App\Locale_pt;
 
 use Illuminate\Http\Request;
 
-class GerenciadorController extends Controller
+class SiteController extends Controller
 {
     public function __construct()
     {
