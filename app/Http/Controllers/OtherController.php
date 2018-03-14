@@ -8,9 +8,14 @@ use App\Log;
 
 class OtherController extends Controller
 {
+   public function __construct()
+   {
+      $this->middleware('auth');
+   }
+
    public function otherOrcamentos()
   {
-     $orcamento = Orcamento::paginate(50);
+     $orcamento = Orcamento::paginate(20);
      return view ('gerenciador.other.orcamentos', ['orcamentos' => $orcamento]);
   }
 

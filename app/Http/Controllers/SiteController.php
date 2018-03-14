@@ -27,7 +27,7 @@ class SiteController extends Controller
 
    public function gerenciadorsetIdioma($lang)
    {
-      session()->put('lang',$lang);
+      \Session::put('lang',$lang);
       return view('dashboard');
    }
    public function gerenciadorInicial($lang)
@@ -75,7 +75,8 @@ class SiteController extends Controller
    public function gerenciadorLocalizacao($lang)
    {
       $local = Local::where('tab_lang', 'like', $lang) -> get();
-      return view ('gerenciador.site.localizacao' , ['locales' => $local]);
+      $id = $local[0]['id']; // pega id do registro
+      return view ('gerenciador.site.localizacao' , ['locales' => $local, 'id' => $id]);
    }
 
    public function gerenciadorHeader($lang)
@@ -86,7 +87,8 @@ class SiteController extends Controller
    public function gerenciadorFooter($lang)
    {
       $footer = Footer::where('tab_lang', 'like', $lang) -> get();
-      return view ('gerenciador.site.footer' , ['footers' => $footer]);
+      $id = $footer[0]['id']; // pega id do registro
+      return view ('gerenciador.site.footer' , ['footers' => $footer, 'id' => $id]);
    }
-   
+
 }

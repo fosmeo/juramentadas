@@ -4,15 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Depoimento extends Model
+class Cidadania extends Model
 {
    public $timestamps  = false ;
 
    protected $fillable = [
-      'col1'
-  ];
+      'titulo','col1'
+ ];
 
    protected $hidden = [
-    'remember_token'
-  ];
+   'remember_token'
+ ];
 }
