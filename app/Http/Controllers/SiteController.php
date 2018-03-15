@@ -10,8 +10,9 @@ use App\Idioma;
 use App\Depoimento;
 use App\Local;
 use App\Footer;
-use App\Cliente;
 
+
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class SiteController extends Controller
@@ -57,11 +58,6 @@ class SiteController extends Controller
       return view ('gerenciador.site.idiomas' , ['idiomas' => $idioma]);
    }
 
-   public function gerenciadorClientes($lang)
-   {
-      return view ('gerenciador.site.clientes');
-   }
-
    public function gerenciadorDepoimentos($lang)
    {
       $depoimento = Depoimento::where('tab_lang', 'like', $lang) -> orderby('textos_posicao') -> get();
@@ -92,9 +88,4 @@ class SiteController extends Controller
       return view ('gerenciador.site.footer' , ['footers' => $footer, 'id' => $id]);
    }
 
-   public function gerenciadorListaClientes()
-   {
-      $clientes = Cliente::get();
-      return view ('gerenciador.site.clientes' , ['clientes' => $clientes]);
-   }
 }

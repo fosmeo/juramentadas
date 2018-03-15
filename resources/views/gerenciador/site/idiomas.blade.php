@@ -10,7 +10,7 @@
 
    <div class="form-group marginsV col-md-12">
       @foreach ($idiomas as $idioma)
-         <form class="row" method="POST" action="{{route('idiomas.atualiza', $idioma -> id)}}">
+         <form class="row" method="POST" action="{{route('idiomas.atualizar', $idioma -> id)}}">
             {{csrf_field()}}
             <input name="_method" type="hidden" value="PATCH">
             <label>IDIOMAS:</label>

@@ -9,7 +9,7 @@
    @endif
 
    <div class="container-fluid">
-      <form class="" method="POST" action="{{route('local.atualiza', $id)}}">
+      <form class="" method="POST" action="{{route('local.atualizar', $id)}}">
          {{csrf_field()}}
          <input name="_method" type="hidden" value="PATCH">
          @foreach ($locales as $local)

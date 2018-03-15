@@ -20,10 +20,10 @@
             <li class="dropdown">
                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Escolher Idioma <span class="caret"></span></a>
                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="{!! url('gerenciador/site/pt') !!}">Portugues</a></li>
-                  <li><a class="dropdown-item" href="{!! url('gerenciador/site/en') !!}">English</a></li>
-                  <li><a class="dropdown-item" href="{!! url('gerenciador/site/es') !!}">Español</a></li>
-                  <li><a class="dropdown-item" href="{!! url('gerenciador/site/it') !!}">Italiano</a></li>
+                  <li><a class="dropdown-item" href="{!! url('gerenciador/pt') !!}">Portugues</a></li>
+                  <li><a class="dropdown-item" href="{!! url('gerenciador/en') !!}">English</a></li>
+                  <li><a class="dropdown-item" href="{!! url('gerenciador/es') !!}">Español</a></li>
+                  <li><a class="dropdown-item" href="{!! url('gerenciador/it') !!}">Italiano</a></li>
                   <li role="separator" class="divider"></li>
                   <li><a href="#">Separated link</a></li>
                   <li role="separator" class="divider"></li>

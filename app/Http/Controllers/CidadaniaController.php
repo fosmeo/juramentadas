@@ -11,7 +11,7 @@ class CidadaniaController extends Controller
    {
       $this->middleware('auth');
    }
-   
+
    public function cidadaniaExibir($id){
       $cidadanias = Cidadania::where('id', '=', $id) ->  get();
       return view ('gerenciador.cidadania.cid_formulario', ['cidadanias' => $cidadanias]);
@@ -21,6 +21,6 @@ class CidadaniaController extends Controller
       $atualizar = Cidadania::findorfail($id);
     	$atualizar -> update($request -> all());
       \Session::flash('flashmsg', 'CIDADANIA gravada com sucesso');
-      return redirect()->route('gerenciador.cidadania.exibir', ['id' => $id]);
+      return redirect()->route('cidadania.exibir', ['id' => $id]);
    }
 }

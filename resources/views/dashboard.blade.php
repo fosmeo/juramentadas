@@ -1,7 +1,5 @@
 @extends('layouts.layout-dashboard')
 
 @section('content')
-    <div>
-        <h4>Gerenciador do Site - JURAMENTADAS.COM</h4>
-    </div>
+    <h4>DASHBOARD</h4>
 @stop

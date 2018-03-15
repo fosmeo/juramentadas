@@ -9,7 +9,7 @@
    @endif
 
    <div class="container-fluid">
-      <form class="row" method="POST" action="{{route('footer.atualiza', $id)}}">
+      <form class="row" method="POST" action="{{route('footer.atualizar', $id)}}">
          {{csrf_field()}}
          <input name="_method" type="hidden" value="PATCH">
          @foreach ($footers as $footer)

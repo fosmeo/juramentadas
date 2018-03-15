@@ -12,7 +12,7 @@
 
       @foreach ($cidadanias as $cidadania)
 
-         <form method="POST" action="{{ route('gerenciador.cidadania.atualiza', $cidadania -> id) }}">
+         <form method="POST" action="{{ route('cidadania.atualiza', $cidadania -> id) }}">
             {{csrf_field()}}
             <input name="_method" type="hidden" value="PATCH">
 

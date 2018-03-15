@@ -13,13 +13,13 @@
       @foreach ($inicials as $inicial)
 
          @if(\Session::get('lang')=='pt')
-            <form method="POST" action="{{ route('inicial_pt.atualiza', $inicial -> id) }}">
+            <form method="POST" action="{{ route('inicial_pt.atualizar', $inicial -> id) }}">
          @elseif(\Session::get('lang')=='en')
-            <form method="POST" action="{{ route('inicial_en.atualiza', $inicial -> id) }}">
+            <form method="POST" action="{{ route('inicial_en.atualizar', $inicial -> id) }}">
          @elseif(\Session::get('lang')=='es')
-            <form method="POST" action="{{ route('inicial_es.atualiza', $inicial -> id) }}">
+            <form method="POST" action="{{ route('inicial_es.atualizar', $inicial -> id) }}">
          @elseif(\Session::get('lang')=='it')
-            <form method="POST" action="{{ route('inicial_it.atualiza', $inicial -> id) }}">
+            <form method="POST" action="{{ route('inicial_it.atualizar', $inicial -> id) }}">
          @endif
             {{csrf_field()}}
             <input name="_method" type="hidden" value="PATCH">
