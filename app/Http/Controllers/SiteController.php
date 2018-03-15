@@ -10,6 +10,7 @@ use App\Idioma;
 use App\Depoimento;
 use App\Local;
 use App\Footer;
+use App\Cliente;
 
 use Illuminate\Http\Request;
 
@@ -91,4 +92,9 @@ class SiteController extends Controller
       return view ('gerenciador.site.footer' , ['footers' => $footer, 'id' => $id]);
    }
 
+   public function gerenciadorListaClientes()
+   {
+      $clientes = Cliente::get();
+      return view ('gerenciador.site.clientes' , ['clientes' => $clientes]);
+   }
 }
