@@ -46,11 +46,12 @@ class ClientesController extends Controller
    {
       $atualizar = Cliente::findorfail($id);
 
-      if (!is_null( $atualizar -> clientes_logo )) {
-         $excluilogo = Storage::delete('imagens/img_clientes/'.$atualizar -> clientes_logo);
-      }
-
       if ( $request -> hasFile('clientes_logo') ) {
+
+         if (!is_null( $atualizar -> clientes_logo )) {
+            $excluilogo = Storage::delete('imagens/img_clientes/'.$atualizar -> clientes_logo);
+         }
+
          $path = Storage::putFile('imagens/img_clientes', $request->file('clientes_logo'));
          $string = $path;
          $pattern = '(imagens/img_clientes/)'; // <= retira essa expressão
