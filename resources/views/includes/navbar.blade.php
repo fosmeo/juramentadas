@@ -8,7 +8,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
          </button>
-         <a class="navbar-brand" href="#">Brand</a>
+         <a class="navbar-brand" href="{{ route('welcome') }}">juramentadas.com</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -30,6 +30,7 @@
                   <li><a href="#">One more separated link</a></li>
                </ul>
             </li>
+            @component('components.lang')@endcomponent
          </ul>
 
          <form class="navbar-form navbar-left">
@@ -39,14 +40,11 @@
             <button type="submit" class="btn btn-default">Submit</button>
          </form>
 
-         <!-- Authentication Links -->
-         @if (Auth::guest())
-            <li class="nav-item">
-               <a href="{{ route('login') }}">Login</a>
-            </li>
-         @else
-
             <ul class="nav navbar-nav navbar-right">
+
+               @if (Auth::guest())
+                  <li><a href="{{ route('login') }}">Login</a></li>
+               @else
 
                <li><a href="#">Link</a></li>
 
@@ -59,7 +57,7 @@
                      </li>
 
                      <li>
-                        <a href="{{ route('verificar.idioma') }}">Gerenciador</a>
+                        <a href="{{ route('gerenciador.setidioma', \Session::get('lang') ) }}">Gerenciador</a>
                      </li>
                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         {{ csrf_field() }}

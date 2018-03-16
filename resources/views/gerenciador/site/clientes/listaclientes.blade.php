@@ -16,7 +16,7 @@
          </form>
       </div>
       <br>
-      <table class="">
+      <table class="col-md-12">
          <th>ID</th>
          <th>Imagem</th>
          <th>Site</th>
@@ -45,7 +45,7 @@
       </tbody>
    </table>
 </div>
-<div style="padding:5px">
+<div class="text-center" style="padding:5px">
 {{ $clientes -> appends(Request::Input())->links() }}
 </div>
 @stop
