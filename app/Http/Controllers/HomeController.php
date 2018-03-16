@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 use App\Locale_pt;
-
 use Illuminate\Http\Request;
 
 class HomeController extends Controller

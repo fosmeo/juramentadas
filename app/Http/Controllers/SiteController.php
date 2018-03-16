@@ -10,9 +10,6 @@ use App\Idioma;
 use App\Depoimento;
 use App\Local;
 use App\Footer;
-
-
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class SiteController extends Controller

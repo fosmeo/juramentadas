@@ -35,9 +35,11 @@ Route::prefix('gerenciador/update') -> group(function(){
 
 Route::prefix('gerenciador/clientes') -> group(function(){
    Route::get('lista', 'ClientesController@gerenciadorClientesLista') -> name('clientes.lista');
-   Route::get('inserir', 'ClientesController@gerenciadorClientesInserir') -> name('clientes.inserir');
-   Route::get('atualizar/{id}', 'ClientesController@gerenciadorClientesAtualizar') -> name('clientes.atualizar');
-   Route::get('excluir/{id}', 'ClientesController@gerenciadorClientesExcluir') -> name('clientes.excluir');
+   Route::view('inserir', 'gerenciador.site.clientes.inserirclientes')-> name('clientes.inserir');
+   Route::post('gravar', 'ClientesController@gerenciadorClientesGravar') -> name('clientes.gravar');
+   Route::get('editar/{id}', 'ClientesController@gerenciadorClientesEditar') -> name('clientes.editar');
+   Route::patch('atualizar/{id}', 'ClientesController@gerenciadorClientesAtualizar') -> name('clientes.atualizar');
+   Route::delete('excluir/{id}', 'ClientesController@gerenciadorClientesExcluir') -> name('clientes.excluir');
 });
 
 Route::prefix('gerenciador/other') -> group(function(){
@@ -47,5 +49,5 @@ Route::prefix('gerenciador/other') -> group(function(){
 
 Route::prefix('gerenciador/cidadania') -> group(function(){
    Route::get('{id}', 'CidadaniaController@cidadaniaExibir') -> name('cidadania.exibir');
-   Route::patch('{id}', 'CidadaniaController@cidadaniaAtualizar') -> name('cidadania.atualiza');
+   Route::patch('{id}', 'CidadaniaController@cidadaniaAtualizar') -> name('cidadania.atualizar');
 });
