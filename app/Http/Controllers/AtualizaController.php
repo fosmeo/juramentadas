@@ -69,14 +69,6 @@ class AtualizaController extends Controller
       return redirect()->route('gerenciador.idiomas', ['lang' => $lang]);
    }
 
-   public function atualizaDepoimentos(Request $request, $id){
-      $atualizar = Depoimento::findorfail($id);
-      $atualizar -> update($request -> all());
-      $lang = \Session::get('lang');
-      \Session::flash('flashmsg', 'DEPOIMENTOS ('.$lang.') gravados com sucesso');
-      return redirect()->route('gerenciador.depoimentos', ['lang' => $lang]);
-   }
-
    public function atualizaLocal(Request $request, $id)
    {
       $atualizar = Local::findorfail($id);

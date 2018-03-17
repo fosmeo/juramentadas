@@ -17,7 +17,7 @@ class ClientesController extends Controller
    public function gerenciadorClientesLista()
    {
       $clientes = Cliente::orderBy('id', 'DESC') -> paginate(20);
-      return view ('gerenciador.site.clientes.listaclientes' , ['clientes' => $clientes]);
+      return view ('gerenciador.site.clientes.lista' , ['clientes' => $clientes]);
    }
 
    public function gerenciadorClientesGravar(Request $request)
@@ -39,7 +39,7 @@ class ClientesController extends Controller
    public function gerenciadorClientesEditar($id)
    {
       $cliente = Cliente::findorfail($id);
-      return view ('gerenciador.site.clientes.editarclientes' , ['cliente' => $cliente]);
+      return view ('gerenciador.site.clientes.editar' , ['cliente' => $cliente]);
    }
 
    public function gerenciadorClientesAtualizar(Request $request, $id)

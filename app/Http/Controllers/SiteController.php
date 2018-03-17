@@ -7,7 +7,6 @@ use App\Locale_es;
 use App\Locale_it;
 use App\Sobre;
 use App\Idioma;
-use App\Depoimento;
 use App\Local;
 use App\Footer;
 use App\Header;
@@ -54,12 +53,6 @@ class SiteController extends Controller
    {
       $idioma = Idioma::where('tab_lang', 'like', $lang) -> get();
       return view ('gerenciador.site.idiomas' , ['idiomas' => $idioma]);
-   }
-
-   public function gerenciadorDepoimentos($lang)
-   {
-      $depoimento = Depoimento::where('tab_lang', 'like', $lang) -> orderby('textos_posicao') -> get();
-      return view ('gerenciador.site.depoimentos' , ['depoimentos' => $depoimento]);
    }
 
    public function gerenciadorCartas($lang)

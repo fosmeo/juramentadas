@@ -13,7 +13,6 @@ Route::prefix('gerenciador') -> group(function(){
    Route::get('inicial/{lang}', 'SiteController@gerenciadorInicial') -> name('gerenciador.inicial');
    Route::get('sobre/{lang}', 'SiteController@gerenciadorSobre') -> name('gerenciador.sobre');
    Route::get('idiomas/{lang}', 'SiteController@gerenciadorIdiomas') -> name('gerenciador.idiomas');
-   Route::get('depoimentos/{lang}', 'SiteController@gerenciadorDepoimentos') -> name('gerenciador.depoimentos');
    Route::get('cartas/{lang}', 'SiteController@gerenciadorCartas') -> name('gerenciador.cartas');
    Route::get('localizacao/{lang}', 'SiteController@gerenciadorLocalizacao') -> name('gerenciador.localizacao');
    Route::get('header/{lang}', 'SiteController@gerenciadorHeader') -> name('gerenciador.header');
@@ -28,15 +27,21 @@ Route::prefix('gerenciador/update') -> group(function(){
    Route::patch('inicial_it/{id}', 'AtualizaController@atualizaInicial_it') -> name('inicial_it.atualizar');
    Route::patch('sobre/{id}', 'AtualizaController@atualizaSobre') -> name('sobre.atualizar');
    Route::patch('idiomas/{id}', 'AtualizaController@atualizaIdiomas') -> name('idiomas.atualizar');
-   Route::patch('depoimentos/{id}', 'AtualizaController@atualizaDepoimentos') -> name('depoimentos.atualizar');
    Route::patch('local/{id}', 'AtualizaController@atualizaLocal') -> name('local.atualizar');
    Route::patch('header/{id}', 'AtualizaController@atualizaHeader') -> name('header.atualizar');
    Route::patch('footer/{id}', 'AtualizaController@atualizaFooter') -> name('footer.atualizar');
 });
 
+Route::prefix('gerenciador/depoimentos') -> group(function(){
+   Route::view('inserir', 'gerenciador.site.depoimentos.inserirdepoimentos')-> name('depoimentos.inserir');
+   Route::get('exibir/{lang}', 'DepoimentosController@gerenciadorDepoimentosExibir') -> name('depoimentos.exibir');
+   Route::patch('atualizar/{id}/{pos}', 'DepoimentosController@gerenciadorDepoimentosAtualizar') -> name('depoimentos.atualizar');
+   Route::post('gravar', 'DepoimentosController@gerenciadorDepoimentosGravar') -> name('depoimentos.gravar');
+});
+
 Route::prefix('gerenciador/clientes') -> group(function(){
+   Route::view('inserir', 'gerenciador.site.clientes.inserir')-> name('clientes.inserir');
    Route::get('lista', 'ClientesController@gerenciadorClientesLista') -> name('clientes.lista');
-   Route::view('inserir', 'gerenciador.site.clientes.inserirclientes')-> name('clientes.inserir');
    Route::post('gravar', 'ClientesController@gerenciadorClientesGravar') -> name('clientes.gravar');
    Route::get('editar/{id}', 'ClientesController@gerenciadorClientesEditar') -> name('clientes.editar');
    Route::patch('atualizar/{id}', 'ClientesController@gerenciadorClientesAtualizar') -> name('clientes.atualizar');

@@ -16,7 +16,7 @@
             <li><a href="{!! route('gerenciador.sobre', session() -> get('lang')) !!}">Sobre a Empresa</a></li>
             <li><a href="{!! route('gerenciador.idiomas', session() -> get('lang')) !!}">Idiomas</a></li>
             <li><a href="{!! route('clientes.lista') !!}">Clientes</a></li>
-            <li><a href="{!! route('gerenciador.depoimentos', session() -> get('lang')) !!}">Depoimentos</a></li>
+            <li><a href="{!! route('depoimentos.exibir', session() -> get('lang')) !!}">Depoimentos</a></li>
             <li><a href="{!! route('gerenciador.cartas', session() -> get('lang')) !!}">Cartas</a></li>
             <li><a href="{!! route('gerenciador.localizacao', session() -> get('lang')) !!}">Localização</a></li>
             <li><a href="{!! route('gerenciador.header', session() -> get('lang')) !!}">Header</a></li>

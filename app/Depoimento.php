@@ -9,7 +9,8 @@ class Depoimento extends Model
    public $timestamps  = false ;
 
    protected $fillable = [
-      'col1'
+      'col1',
+      'logo'
   ];
 
    protected $hidden = [
