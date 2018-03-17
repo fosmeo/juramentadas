@@ -20,5 +20,6 @@
             <button type="submit" class="col-md-12 btn btn-primary">Gravar</button>
          </form>
       @endforeach
+
    </div>
 @stop

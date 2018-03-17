@@ -12,6 +12,7 @@ use App\Idioma;
 use App\Depoimento;
 use App\Local;
 use App\Footer;
+use App\Header;
 
 class AtualizaController extends Controller
 {
@@ -83,6 +84,15 @@ class AtualizaController extends Controller
       \Session::flash('flashmsg', 'LOCALIZAÇÃO gravada com sucesso');
       $lang = \Session::get('lang');
       return redirect()->route('gerenciador.localizacao', ['lang' => $lang]);
+   }
+
+   public function atualizaHeader(Request $request, $id)
+   {
+      $atualizar = Header::findorfail($id);
+      $atualizar -> update($request -> all());
+      \Session::flash('flashmsg', 'Header gravado com sucesso');
+      $lang = \Session::get('lang');
+      return redirect()->route('gerenciador.header', ['lang' => $lang]);
    }
 
    public function atualizaFooter(Request $request, $id)

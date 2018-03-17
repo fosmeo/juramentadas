@@ -15,7 +15,7 @@ class OtherController extends Controller
 
    public function otherOrcamentos()
   {
-     $orcamento = Orcamento::paginate(20);
+     $orcamento = Orcamento::orderBy('orcamentos_id', 'desc') -> paginate(20);
      return view ('gerenciador.other.orcamentos', ['orcamentos' => $orcamento]);
   }
 

@@ -10,6 +10,7 @@ use App\Idioma;
 use App\Depoimento;
 use App\Local;
 use App\Footer;
+use App\Header;
 use Illuminate\Http\Request;
 
 class SiteController extends Controller
@@ -75,7 +76,11 @@ class SiteController extends Controller
 
    public function gerenciadorHeader($lang)
    {
-      return view ('gerenciador.site.header');
+      $header = Header::where('tab_lang', 'like', $lang) -> get();
+      $id = $header[0]['id']; // pega id do registro
+      $headers = json_decode( $header );
+      return view ('gerenciador.site.header' , ['headers' => $headers, 'id' => $id]);
+
    }
 
    public function gerenciadorFooter($lang)

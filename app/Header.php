@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Header extends Model
 {
    public $timestamps  = false ;
-   
-   protected $fillable = [
 
+   protected $fillable = [
+      'col1'
   ];
 
    protected $hidden = [

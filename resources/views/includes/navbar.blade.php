@@ -61,10 +61,9 @@
                      </li>
                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         {{ csrf_field() }}
-
                      </form>
 
-                     <li><a href="#">Something else here</a></li>
+                     <li><a href="{{ route('register') }}">USER Register</a></li>
                      <li role="separator" class="divider"></li>
                      <li><a href="#">Separated link</a></li>
 

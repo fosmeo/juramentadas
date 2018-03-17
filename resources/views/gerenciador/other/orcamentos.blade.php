@@ -32,7 +32,7 @@
          </table>
       </div>
    </div>
-   <div style="padding:5px">
+   <div class="text-center" style="padding:5px">
       {{ $orcamentos -> appends(Request::Input())->links() }}
    </div>
 @stop

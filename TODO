@@ -1,23 +1,16 @@
 
+
+(X) RETIRAR HTMLS DO DB
+(X) CONSTRUIR FORMULARIOS(GERENCIADOR)
+
 TABELA DE TAGS(LINKADAS E HONESTAS)
-RETIRAR HTMLS DO DB
-CONSTRUIR FORMULARIOS(GERENCIADOR)
 SITES DOS PARCEIROS ( crosslink )
 
+CRIAR TABELAS COM PREFIX TB
+TEXTOS DE BOTOES, E INUTEIS, DEVEM SER COMPONENTS*
 
+DEPOIMENTOS INSERIR / EXCLUIR
 
-
-id
-textos_posicao
-textos_titulo1
-textos_titulo2
-textos_subtitulo
-textos_texto
-textos_botao
 
 
 php artisan make:model Cliente; php artisan make:model Depoimento; php artisan make:model Footer; php artisan make:model Form_orcamento; php artisan make:model Header; php artisan make:model Idioma; php artisan make:model Local; php artisan make:model Locale_en; php artisan make:model Locale_es; php artisan make:model Locale_it; php artisan make:model Locale_pt; php artisan make:model Orcamento; php artisan make:model Tag; php artisan make:model Log;
-
-criar tabelas com prefix tb
-
-textos de botoes, e inuteis, devem ser components*

@@ -2,7 +2,7 @@
 
 Route::get('/', function () {
    return view('welcome');
-});
+}) -> name('welcome');
 
 Auth::routes();
 
@@ -30,6 +30,7 @@ Route::prefix('gerenciador/update') -> group(function(){
    Route::patch('idiomas/{id}', 'AtualizaController@atualizaIdiomas') -> name('idiomas.atualizar');
    Route::patch('depoimentos/{id}', 'AtualizaController@atualizaDepoimentos') -> name('depoimentos.atualizar');
    Route::patch('local/{id}', 'AtualizaController@atualizaLocal') -> name('local.atualizar');
+   Route::patch('header/{id}', 'AtualizaController@atualizaHeader') -> name('header.atualizar');
    Route::patch('footer/{id}', 'AtualizaController@atualizaFooter') -> name('footer.atualizar');
 });
 
