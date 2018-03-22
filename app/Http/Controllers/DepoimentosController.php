@@ -48,14 +48,51 @@ class DepoimentosController extends Controller
   }
 
   public function gerenciadorDepoimentosGravar(Request $request){
+
      $this -> validate($request,[
-      'col1-pt' => 'required',
+      'col1_pt' => 'required',
       'depoimentos_logo' => 'required',
      ]);
 
-     $maxTextoPosicao = Depoimento::orderBy('textos_posicao', 'desc') -> first();
-     $maxTextoPosicao -> textos_posicao;
-     dd($request);
-   //   $depoimentos = Depoimento::insert(['tab_lang' => , 'textos_posicao' => , 'col1' => , 'depoimentos_logo' => , ]);
+     $path = Storage::putFile('imagens/img_depoimentos', $request->file('depoimentos_logo'));
+     $string = $path;
+     $pattern = '(imagens/img_depoimentos/)'; // <= retira essa expressão
+     $replacement = ''; // <= substituindo por essa
+     $hashlogo = preg_replace($pattern, $replacement, $string);
+
+     $maxPosicao = Depoimento::orderBy('textos_posicao', 'desc') -> first();
+     $pos = $maxPosicao -> textos_posicao + 1;
+
+     $atualizar_logo = Depoimento::insert(['col1' => $request -> col1_pt , 'tab_lang' => 'pt', 'textos_posicao' => $pos, 'depoimentos_logo' => $hashlogo]);
+
+        if (!is_null($request -> col1_en)) {
+           $atualizar_logo = Depoimento::insert(['col1' => $request -> col1_en, 'tab_lang' => 'en', 'textos_posicao' => $pos, 'depoimentos_logo' => $hashlogo]);
+        }else{
+           $atualizar_logo = Depoimento::insert(['col1' => '', 'tab_lang' => 'en', 'textos_posicao' => $pos, 'depoimentos_logo' => $hashlogo]);
+        }
+
+        if (!is_null($request -> col1_es)) {
+           $atualizar_logo = Depoimento::insert(['col1' => $request -> col1_es, 'tab_lang' => 'es', 'textos_posicao' => $pos, 'depoimentos_logo' => $hashlogo]);
+        }else{
+           $atualizar_logo = Depoimento::insert(['col1' => '', 'tab_lang' => 'es', 'textos_posicao' => $pos, 'depoimentos_logo' => $hashlogo]);
+        }
+
+        if (!is_null($request -> col1_it)) {
+           $atualizar_logo = Depoimento::insert(['col1' => $request -> col1_it, 'tab_lang' => 'it', 'textos_posicao' => $pos, 'depoimentos_logo' => $hashlogo]);
+        }else{
+           $atualizar_logo = Depoimento::insert(['col1' => '', 'tab_lang' => 'it', 'textos_posicao' => $pos, 'depoimentos_logo' => $hashlogo]);
+        }
+
+     \Session::flash('flashmsg', 'DEPOIMENTOS gravados com sucesso');
+     return redirect()->route('depoimentos.exibir', ['lang' => \Session::get('lang')]);
+  }
+
+  public function gerenciadorDepoimentosExcluir($pos){
+     $excluir = Depoimento::where('textos_posicao', '=', $pos) -> get();
+     $excluilogo = Storage::delete('imagens/img_depoimentos/'.$excluir -> depoimentos_logo);
+     $excluir -> delete();
+
+     \Session::flash('flashmsg', 'DEPOIMENTO EXCLUÍDO COM SUCESSO');
+     return redirect()->route('depoimentos.exibir');
  }
 }

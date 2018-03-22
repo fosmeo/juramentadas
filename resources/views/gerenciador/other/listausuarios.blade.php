@@ -24,7 +24,7 @@
                      <td>{{ date_format($user -> created_at, 'd/m/Y' ) }}</td>
                      <td>{{$user -> name }}</td>
                      <td>
-                        <form method="POST" action="{{ route('other.excluirusuarios', $user -> id) }}">
+                        <form method="POST" action="{{ route('other.excluirusuarios', $user -> id) }}" onsubmit = "return confirm('Tem certeza que deseja excluir?')">
                            {{csrf_field()}}
                            <input name="_method" type="hidden" value="DELETE">
                            <button type="submit" class="btn btn-danger" value="excluir">Excluir</button>

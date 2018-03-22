@@ -37,6 +37,7 @@ Route::prefix('gerenciador/depoimentos') -> group(function(){
    Route::get('exibir/{lang}', 'DepoimentosController@gerenciadorDepoimentosExibir') -> name('depoimentos.exibir');
    Route::patch('atualizar/{id}/{pos}', 'DepoimentosController@gerenciadorDepoimentosAtualizar') -> name('depoimentos.atualizar');
    Route::post('gravar', 'DepoimentosController@gerenciadorDepoimentosGravar') -> name('depoimentos.gravar');
+   Route::delete('excluir/{pos}', 'DepoimentosController@gerenciadorDepoimentosExcluir') -> name('depoimentos.excluir');
 });
 
 Route::prefix('gerenciador/clientes') -> group(function(){

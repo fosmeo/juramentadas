@@ -12,13 +12,13 @@
          {{csrf_field()}}
 
          <label>Depoimento(Português)</label>
-         <textarea name = "col1-pt" rows="5" class="form-control"></textarea>
+         <textarea name = "col1_pt" rows="5" class="form-control"></textarea>
          <label>Depoimento(Inglês)</label>
-         <textarea name = "col1-en" rows="5" class="form-control"></textarea>
+         <textarea name = "col1_en" rows="5" class="form-control"></textarea>
          <label>Depoimento(Espanhol)</label>
-         <textarea name = "col1-es" rows="5" class="form-control"></textarea>
+         <textarea name = "col1_es" rows="5" class="form-control"></textarea>
          <label>Depoimento(Italiano)</label>
-         <textarea name = "col1-it" rows="5" class="form-control"></textarea>
+         <textarea name = "col1_it" rows="5" class="form-control"></textarea>
          <label>Logo</label>
          <td><input type="file" name="depoimentos_logo"></td>
          <br>
