@@ -16,11 +16,11 @@
             <label>Titulo</label>
             <input type="text" value="{{ $local -> titulo }}" class="form-control" name="titulo">
             <label>Endereço</label>
-            <textarea rows="2" class="form-control" name="col1">
+            <textarea rows="4" class="form-control" name="col1">
                {{ $local -> col1 }}
             </textarea>
             <label>Telefones</label>
-            <textarea rows="2" class="form-control" name="col2">
+            <textarea rows="3" class="form-control" name="col2">
                {{ $local -> col2 }}
             </textarea>
             <label>Email</label>

@@ -10,7 +10,7 @@ class Depoimento extends Model
 
    protected $fillable = [
       'col1',
-      'logo'
+      'depoimentos_logo'
   ];
 
    protected $hidden = [

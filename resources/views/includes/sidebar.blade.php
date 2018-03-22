@@ -7,6 +7,8 @@
             <br>
             <li><a href="{!! route('other.orcamentos') !!}">Orçamentos</a></li>
             <li><a href="{!! route('other.logs') !!}">Logs</a></li>
+            <li><a href="{!! route('other.listausuarios') !!}">Lista de Usuários</a></li>
+            <li><a href="{!! route('other.registrarusuarios') !!}">Registrar Novo Usuário</a></li>
         </ul>
 
         <ul class="">

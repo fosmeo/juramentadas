@@ -7,6 +7,10 @@ use App\Depoimento;
 
 class DepoimentosController extends Controller
 {
+   public function __construct()
+   {
+      $this->middleware('auth');
+   }
 
    public function gerenciadorDepoimentosExibir($lang)
    {
@@ -19,20 +23,20 @@ class DepoimentosController extends Controller
 
      $atualizar = Depoimento::findorfail($id);
 
-     if ( $request -> hasFile('logo_file') ) {
+     if ( $request -> hasFile('depoimentos_logo') ) {
 
-        if (!is_null( $atualizar -> logo )) {
-           $excluilogo = Storage::delete('imagens/img_depoimentos/'.$atualizar -> logo);
+        if (!is_null( $atualizar -> depoimentos_logo )) {
+           $excluilogo = Storage::delete('imagens/img_depoimentos/'.$atualizar -> depoimentos_logo);
         }
 
-        $path = Storage::putFile('imagens/img_depoimentos', $request->file('logo_file'));
+        $path = Storage::putFile('imagens/img_depoimentos', $request->file('depoimentos_logo'));
         $string = $path;
         $pattern = '(imagens/img_depoimentos/)'; // <= retira essa expressão
         $replacement = ''; // <= substituindo por essa
         $hashlogo = preg_replace($pattern, $replacement, $string);
         $atualizar -> update(['col1' => $request -> col1]);
         $atualizar_logo = Depoimento::where('textos_posicao', '=', $pos);
-        $atualizar_logo -> update(['logo' => $hashlogo]);
+        $atualizar_logo -> update(['depoimentos_logo' => $hashlogo]);
      }else{
         $atualizar -> update(['col1' => $request -> col1]);
      }
@@ -43,7 +47,15 @@ class DepoimentosController extends Controller
 
   }
 
-  public function gerenciadorDepoimentosGravar(){
+  public function gerenciadorDepoimentosGravar(Request $request){
+     $this -> validate($request,[
+      'col1-pt' => 'required',
+      'depoimentos_logo' => 'required',
+     ]);
 
+     $maxTextoPosicao = Depoimento::orderBy('textos_posicao', 'desc') -> first();
+     $maxTextoPosicao -> textos_posicao;
+     dd($request);
+   //   $depoimentos = Depoimento::insert(['tab_lang' => , 'textos_posicao' => , 'col1' => , 'depoimentos_logo' => , ]);
  }
 }

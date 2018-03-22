@@ -73,6 +73,8 @@ class ClientesController extends Controller
       $file = $excluir -> clientes_logo;
       $excluir -> delete();
       $files = Storage::delete('imagens/img_clientes/'.$file);
+
+      \Session::flash('flashmsg', 'CLIENTE EXCLUÍDO COM SUCESSO');
       return redirect()->route('clientes.lista');
    }
 

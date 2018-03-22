@@ -51,6 +51,9 @@ Route::prefix('gerenciador/clientes') -> group(function(){
 Route::prefix('gerenciador/other') -> group(function(){
    Route::get('logs', 'OtherController@otherLogs') -> name('other.logs');
    Route::get('orcamentos', 'OtherController@otherOrcamentos') -> name('other.orcamentos');
+   Route::get('listausuarios', 'OtherController@listaUsuarios') -> name('other.listausuarios');
+   Route::get('registrarusuarios', 'OtherController@registrarUsuarios') -> name('other.registrarusuarios');
+   Route::delete('excluirusuarios/{id}', 'OtherController@excluirUsuarios') -> name('other.excluirusuarios');
 });
 
 Route::prefix('gerenciador/cidadania') -> group(function(){

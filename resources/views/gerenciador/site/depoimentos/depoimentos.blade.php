@@ -24,8 +24,8 @@
                {{ $depoimento -> col1 }}
             </textarea>
 
-            <img style="width:200px;" src="{{ asset('storage/imagens/img_depoimentos/'.$depoimento -> logo) }}" >
-            <input type="file" name="logo_file">
+            <img style="width:200px;" src="{{ asset('storage/imagens/img_depoimentos/'.$depoimento -> depoimentos_logo) }}" >
+            <input type="file" name="depoimentos_logo">
             <br>
             <button type="submit" class="col-md-12 btn btn-primary">Gravar</button>
 

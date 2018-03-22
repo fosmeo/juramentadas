@@ -37,7 +37,7 @@
                <br>
 
                <label>Texto Página Conseguinte</label>
-               <textarea rows="5" name="textos_texto" class="form-control">
+               <textarea rows="8" name="textos_texto" class="form-control">
                   {{ $inicial -> textos_texto }}
                </textarea>
                <button type="submit" class="col-md-12 btn btn-primary">Gravar</button>
