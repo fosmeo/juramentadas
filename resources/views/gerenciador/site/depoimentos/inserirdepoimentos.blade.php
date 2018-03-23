@@ -10,7 +10,11 @@
    <div class="col-md-12">
       <form method="POST" action="{{ route('depoimentos.gravar')}}" enctype="multipart/form-data">
          {{csrf_field()}}
-
+         <label>Logo da empresa:</label>
+         <input type="file" name="depoimentos_logo">
+         <br>
+         <button type="submit" class="col-md-12 btn btn-primary">Gravar</button>
+         <br>
          <label>Depoimento(Português)</label>
          <textarea name = "col1_pt" rows="5" class="form-control"></textarea>
          <label>Depoimento(Inglês)</label>
@@ -19,8 +23,6 @@
          <textarea name = "col1_es" rows="5" class="form-control"></textarea>
          <label>Depoimento(Italiano)</label>
          <textarea name = "col1_it" rows="5" class="form-control"></textarea>
-         <label>Logo</label>
-         <td><input type="file" name="depoimentos_logo"></td>
          <br>
          <td><button type="submit" class="col-md-12 btn btn-primary">Gravar</button></td>
       </form>
