@@ -61,7 +61,12 @@ class DepoimentosController extends Controller
      $hashlogo = preg_replace($pattern, $replacement, $string);
 
      $maxPosicao = Depoimento::orderBy('textos_posicao', 'desc') -> first();
-     $pos = $maxPosicao -> textos_posicao + 1;
+
+     if(is_null($maxPosicao)){
+        $pos = 1;
+     }else{
+        $pos = $maxPosicao -> textos_posicao + 1;
+     }
 
      $atualizar_logo = Depoimento::insert(['col1' => $request -> col1_pt , 'tab_lang' => 'pt', 'textos_posicao' => $pos, 'depoimentos_logo' => $hashlogo]);
 
@@ -88,11 +93,13 @@ class DepoimentosController extends Controller
   }
 
   public function gerenciadorDepoimentosExcluir($pos){
-     $excluir = Depoimento::where('textos_posicao', '=', $pos) -> get();
-     $excluilogo = Storage::delete('imagens/img_depoimentos/'.$excluir -> depoimentos_logo);
-     $excluir -> delete();
+     $fileexcluir = Depoimento::where('textos_posicao', '=', $pos) -> first();
+     $depoimentoexcluir = Depoimento::where('textos_posicao', '=', $pos);
+     $file = $fileexcluir -> depoimentos_logo;
+     $excluilogo = Storage::delete('imagens/img_depoimentos/'.$file);
+     $depoimentoexcluir -> delete();
 
      \Session::flash('flashmsg', 'DEPOIMENTO EXCLUÍDO COM SUCESSO');
-     return redirect()->route('depoimentos.exibir');
+     return redirect()->route('depoimentos.exibir', ['lang' => \Session::get('lang')]);
  }
 }
