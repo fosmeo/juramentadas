@@ -1,40 +1,35 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html>
+
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta charset="utf-8">
+   <title>Medic | Medical HTML Template</title>
 
-    <meta content="" name="description" />
-    <meta name="author" content="Fabricio Yassuda" />
-    <meta name="keywords" content="" />
+   <!-- CSRF Token -->
+   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <meta itemprop=”name” content="juramentadas.com" />
-    <meta itemprop=”description” content="" />
-    <meta itemprop=”image” content="" />
 
-    <!-- Fonts -->
-    {{-- <link href="https://fonts.googleapis.com/css?family=Raleway:100" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Tauri" rel="stylesheet"> --}}
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+   <!-- mobile responsive meta -->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    {{-- <title>{{ config('app.name', 'Projeto Afeto') }}</title> --}}
-    <title>juramentadas.com</title>
+   <!-- Slick Carousel -->
+   <link rel="stylesheet" href="{{ asset('theme-assets/plugins/slick/slick.css ') }}">
+   <link rel="stylesheet" href="{{ asset('theme-assets/plugins/slick/slick-theme.css ') }}">
+   <!-- FancyBox -->
+   <link rel="stylesheet" href="{{ asset('theme-assets/plugins/fancybox/jquery.fancybox.min.css ') }}">
 
-    <!-- Styles -->
-    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> --}}
-    <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
+   <!-- Stylesheets -->
+   <link href="{{ asset('theme-assets/css/style.css') }}" rel="stylesheet">
 
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+   {{-- <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
 
-    <!-- Scripts -->
-    {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
-    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> --}}
-    {{-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> --}}
-    <script src="{{ asset('bootstrap/jquery.min.js') }}"></script>
-    <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+   <link href="{{ asset('css/style.css') }}" rel="stylesheet"> --}}
+
+   <!--Favicon-->
+   <link rel="shortcut icon" href="{{ asset('theme-assets/images/favicon.ico ') }}" type="image/x-icon">
+   <link rel="icon" href="{{ asset('theme-assets/images/favicon.ico ') }}" type="image/x-icon">
 
 </head>

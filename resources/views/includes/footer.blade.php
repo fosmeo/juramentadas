@@ -1,2 +1,1 @@
-
-<h2>Este é o FOOTER</h2>
+<div class="footers"><h3>FOOTER</h3></div>

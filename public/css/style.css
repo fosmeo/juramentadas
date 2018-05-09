@@ -1,7 +1,10 @@
 body{
-   margin:20px !important;
+
 }
 
+*{
+   box-sizing: border-box;
+}
 table tr td{
       border: 1px solid #d2d4d5;
       padding:20px;
@@ -9,4 +12,34 @@ table tr td{
 
 .edicao-idioma{
    font-weight: bold;
+}
+
+.centered {
+   text-align: center;
+   /* font-size: 0;  REMOVE MALDITO TEXT NODE*/
+}
+.centered > div {
+   float: none;
+   display: inline-block;
+   text-align: left;
+}
+
+.border-1{
+   border:1px solid;
+   height:200px;
+}
+
+#main{
+   /*border:2px solid;*/
+}
+.h-5{
+   height:500px;
+}
+
+.headers{
+   margin-top:60px;
+}
+.footers{
+   border:1px solid;
+   padding:30px;
 }

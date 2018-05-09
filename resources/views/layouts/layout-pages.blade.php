@@ -1,30 +1,35 @@
 <!DOCTYPE HTML>
 <html>
 
-    <head>
-        @include('includes.head')
-    </head>
+<head>
+   @include('includes.head')
+</head>
 
-    <body>
+<body>
 
-        <div class="container-fluid">
+   <div class="container-fluid">
 
-            <div class="row">
-                @include('includes.navbar')
-            </div>
+      <header id="main" class="row headers">
+         @include('includes.header')
+      </header>
 
-            <header class="row" style="padding:20px;border:1px solid">
-                @include('includes.header')
-            </header>
+      <div class="row">
+         @include('includes.navbar')
+      </div>
 
-            <div id="main" class="row">
-                @yield('content')
-            </div>
+      <header id="main" class="row headers">
+         @include('includes.slider')
+      </header>
 
-            <footer class="row" style="padding:20px;border:1px solid">
-                @include('includes.footer')
-            </footer>
+      <div id="main" class="row">
+         @yield('content')
+      </div>
 
-        </div>
-    </body>
+      {{-- <footer class="row">
+         @include('includes.footer')
+      </footer> --}}
+
+   </div>
+
+</body>
 </html>
