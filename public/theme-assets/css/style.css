@@ -695,8 +695,8 @@ li {
 }
 
 .cta .cta-block .emmergency {
-  /*background: #132646;*/
   background: #00794e;
+  border: 1px solid #ccc;
 
 }
 
@@ -710,13 +710,15 @@ li {
 }
 
 .cta .cta-block .top-doctor {
-  /*background: #5bc4cb;*/
-  background: #132646;
+
+  background: #ffffff;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
 }
 
 .cta .cta-block .top-doctor .btn-main {
   margin-top: 10px;
-  color: #fff;
+  color: #ccc;
   border: 1px solid #fff;
   padding: 10px 20px;
   transition: all .3s ease;
@@ -724,11 +726,12 @@ li {
 
 .cta .cta-block .top-doctor .btn-main:hover {
   background: #fff;
-  color: #132646;
+  color: #ccc;
 }
 
 .cta .cta-block .working-time {
-  background: #6fcbd1;
+  background: #d11f32;
+  border: 1px solid #ccc;
 }
 
 .cta .cta-block .working-time ul {
@@ -758,7 +761,7 @@ li {
 
 .cta .cta-block .item i, .cta .cta-block .item h2, .cta .cta-block .item p {
   transition: all .2s ease;
-  color: #fff;
+  /*color: #fff;*/
 }
 
 .cta .cta-block .item i {

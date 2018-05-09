@@ -3,12 +3,10 @@
 
 <head>
    <meta charset="utf-8">
-   <title>Medic | Medical HTML Template</title>
+   <title>Juramentadas.com</title>
 
    <!-- CSRF Token -->
    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-
 
    <!-- mobile responsive meta -->
    <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,9 +21,9 @@
    <!-- Stylesheets -->
    <link href="{{ asset('theme-assets/css/style.css') }}" rel="stylesheet">
 
-   {{-- <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
+   {{-- <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}"> --}}
 
-   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+   {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet">
    <link href="{{ asset('css/style.css') }}" rel="stylesheet"> --}}
 
    <!--Favicon-->

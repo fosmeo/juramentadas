@@ -14,15 +14,16 @@
         <ul class="">
             <h5>Gerenciador Site</h5>
             <br>
-            <li><a href="{!! route('gerenciador.inicial', session() -> get('lang')) !!}">Página Inicial</a></li>
-            <li><a href="{!! route('gerenciador.sobre', session() -> get('lang')) !!}">Sobre a Empresa</a></li>
-            <li><a href="{!! route('gerenciador.idiomas', session() -> get('lang')) !!}">Idiomas</a></li>
+            <li><a href="{!! route('gerenciador.inicial', \Session::get('lang')) !!}">Página Inicial</a></li>
+            <li><a href="{!! route('gerenciador.sobre', \Session::get('lang')) !!}">Sobre a Empresa</a></li>
+            <li><a href="{!! route('gerenciador.idiomas', \Session::get('lang')) !!}">Idiomas</a></li>
             <li><a href="{!! route('clientes.lista') !!}">Editar Clientes</a></li>
-            <li><a href="{!! route('depoimentos.exibir', session() -> get('lang')) !!}">Editar Depoimentos</a></li>
-            <li><a href="{!! route('gerenciador.cartas', session() -> get('lang')) !!}">Cartas</a></li>
-            <li><a href="{!! route('gerenciador.localizacao', session() -> get('lang')) !!}">Localização</a></li>
-            <li><a href="{!! route('gerenciador.header', session() -> get('lang')) !!}">Header</a></li>
-            <li><a href="{!! route('gerenciador.footer', session() -> get('lang')) !!}">Footer</a></li>
+            <li><a href="{!! route('depoimentos.exibir', \Session::get('lang')) !!}">Editar Depoimentos</a></li>
+            <li><a href="{!! route('gerenciador.cartas', \Session::get('lang')) !!}">Cartas</a></li>
+            <li><a href="{!! route('gerenciador.localizacao', \Session::get('lang')) !!}">Localização</a></li>
+            <li><a href="{!! route('gerenciador.navbar', \Session::get('lang')) !!}">Menu</a></li>
+            <li><a href="{!! route('gerenciador.header', \Session::get('lang')) !!}">Header</a></li>
+            <li><a href="{!! route('gerenciador.footer', \Session::get('lang')) !!}">Footer</a></li>
         </ul>
 
         <ul class="">

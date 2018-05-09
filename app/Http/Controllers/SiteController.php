@@ -10,77 +10,106 @@ use App\Idioma;
 use App\Local;
 use App\Footer;
 use App\Header;
+use App\Navbar;
 use Illuminate\Http\Request;
 
 class SiteController extends Controller
 {
-   public function __construct()
+
+   public function Index()
    {
-      $this->middleware('auth');
+      $lang = \Session::get('lang');
+      $menu = $this -> TraduzMenu($lang);
+      $headerTop = $this -> TraduzHeaderTop($lang);
+      $headerUpperMail = $this -> TraduzHeaderUpperMail($lang);
+      $headerUpperTel = $this -> TraduzHeaderUpperTel($lang);
+      $footers = $this -> TraduzFooter();
+
+      // print_r($menu);
+      // echo $headerTop;
+      // echo $headerUpperMail;
+      // echo $headerUpperTel;
+
+      return view('welcome',
+      ['menu' => $menu,
+      'headerTop' => $headerTop,
+      'headerUpperMail' => $headerUpperMail,
+      'headerUpperTel' => $headerUpperTel,
+      'footer' => $footers
+      ]);
    }
 
-   public function index()
-   {
-      return view('setidioma');
+   public function TraduzMenu($lang){
+      $navbars = Navbar::where('tab_lang', 'like', $lang) -> get();
+      $nav =  $navbars[0]['itens'];
+      $menu = $array = explode(';', $nav);
+      return $menu;
    }
 
-   public function gerenciadorsetIdioma($lang)
-   {
-      \Session::put('lang',$lang);
-      return view('dashboard');
-   }
-   public function gerenciadorInicial($lang)
-   {
-      if ($lang == 'pt'){
-         $inicial = Locale_pt::get();
-      }elseif ($lang == 'en') {
-         $inicial = Locale_en::get();
-      }elseif ($lang == 'es') {
-         $inicial = Locale_es::get();
-      }elseif ($lang == 'it') {
-         $inicial = Locale_it::get();
-      }
-      return view ('gerenciador.site.inicial', ['inicials' => $inicial]);
+   public function TraduzHeaderTop($lang){
+      $headers = Header::where('tab_lang', 'like', $lang) -> get();
+      $headerTop =  $headers[0]['header_top'];
+      return $headerTop;
    }
 
-   public function gerenciadorSobre($lang)
-   {
-      $sobre = Sobre::where('tab_lang', 'like', $lang) -> orderby('texto_posicao') -> get();
-      return view ('gerenciador.site.sobre', ['sobres' => $sobre]);
+   public function TraduzHeaderUpperMail($lang){
+      $headers = Header::where('tab_lang', 'like', $lang) -> get();
+      $headerUpperMail =  $headers[0]['upper_email'];
+      return $headerUpperMail;
    }
 
-   public function gerenciadorIdiomas($lang)
-   {
-      $idioma = Idioma::where('tab_lang', 'like', $lang) -> get();
-      return view ('gerenciador.site.idiomas' , ['idiomas' => $idioma]);
+   public function TraduzHeaderUpperTel($lang){
+      $headers = Header::where('tab_lang', 'like', $lang) -> get();
+      $headerUpperTel =  $headers[0]['upper_tel'];
+      return $headerUpperTel;
    }
 
-   public function gerenciadorCartas($lang)
-   {
-      return view ('gerenciador.site.cartas');
+   public function TraduzFooter(){
+      $lang = \Session::get('lang');
+      $footers = Footer::where('tab_lang', 'like', $lang) -> get();
+      $footer = json_decode($footers);
+      return $footer;
    }
 
-   public function gerenciadorLocalizacao($lang)
+   public function SitesetIdioma($lang)
    {
-      $local = Local::where('tab_lang', 'like', $lang) -> get();
-      $id = $local[0]['id']; // pega id do registro
-      return view ('gerenciador.site.localizacao' , ['locales' => $local, 'id' => $id]);
+      \Session::put('lang', $lang);
+      return redirect('/');
    }
 
-   public function gerenciadorHeader($lang)
-   {
-      $header = Header::where('tab_lang', 'like', $lang) -> get();
-      $id = $header[0]['id']; // pega id do registro
-      $headers = json_decode( $header );
-      return view ('gerenciador.site.header' , ['headers' => $headers, 'id' => $id]);
+    public function SiteSobre(){
 
+      dd($this -> TraduzFooter());
+      // return view('paginas.sobre' );
    }
 
-   public function gerenciadorFooter($lang)
-   {
-      $footer = Footer::where('tab_lang', 'like', $lang) -> get();
-      $id = $footer[0]['id']; // pega id do registro
-      return view ('gerenciador.site.footer' , ['footers' => $footer, 'id' => $id]);
+   public function SiteServicos(){
+
+      return view('paginas.servicos' );
    }
 
+   public function SiteIdiomas(){
+
+      return view('paginas.idiomas' );
+   }
+
+   public function SiteQuemSomos(){
+
+      return view('paginas.quemsomos' );
+   }
+
+   public function SiteParceiros(){
+
+      return view('paginas.parceiros' );
+   }
+
+   public function SiteCartas(){
+
+      return view('paginas.cartas' );
+   }
+
+   public function SiteLocalizacao(){
+
+      return view('paginas.localizacao' );
+   }
 }

@@ -17,6 +17,10 @@
          @include('includes.navbar-paginas')
       </div>
 
+      <header id="main" class="row headers">
+         @include('includes.slider')
+      </header>
+
       <div id="main" class="row">
          @yield('content')
       </div>

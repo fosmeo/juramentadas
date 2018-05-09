@@ -1,22 +1,35 @@
 <?php
 
-Route::get('/', function () {
-   return view('welcome');
-}) -> name('welcome');
+// Route::get('/', function () {
+// }) -> name('welcome');
 
 Auth::routes();
 
-Route::get('idioma', 'SiteController@index') -> name('verificar.idioma');
+Route::get('/', 'SiteController@Index') -> name('welcome');
+
+Route::get('idioma', 'GerenciadorController@index') -> name('verificar.idioma');
+
+Route::prefix('site') -> group(function(){
+   Route::get('{lang}', 'SiteController@SitesetIdioma') -> name('site.setidioma');
+   Route::get('{lang}/sobre', 'SiteController@SiteSobre') -> name('site.sobre');
+   Route::get('{lang}/servicos', 'SiteController@SiteServicos') -> name('site.servicos');
+   Route::get('{lang}/idiomas', 'SiteController@SiteIdiomas') -> name('site.idiomas');
+   Route::get('{lang}/quemsomos', 'SiteController@SiteQuemSomos') -> name('site.quemsomos');
+   Route::get('{lang}/parceiros', 'SiteController@SiteParceiros') -> name('site.parceiros');
+   Route::get('{lang}/cartas', 'SiteController@SiteCartas') -> name('site.cartas');
+   Route::get('{lang}/localizacao', 'SiteController@SiteLocalizacao') -> name('site.localizacao');
+});
 
 Route::prefix('gerenciador') -> group(function(){
-   Route::get('{lang}', 'SiteController@gerenciadorsetIdioma') -> name('gerenciador.setidioma');
-   Route::get('inicial/{lang}', 'SiteController@gerenciadorInicial') -> name('gerenciador.inicial');
-   Route::get('sobre/{lang}', 'SiteController@gerenciadorSobre') -> name('gerenciador.sobre');
-   Route::get('idiomas/{lang}', 'SiteController@gerenciadorIdiomas') -> name('gerenciador.idiomas');
-   Route::get('cartas/{lang}', 'SiteController@gerenciadorCartas') -> name('gerenciador.cartas');
-   Route::get('localizacao/{lang}', 'SiteController@gerenciadorLocalizacao') -> name('gerenciador.localizacao');
-   Route::get('header/{lang}', 'SiteController@gerenciadorHeader') -> name('gerenciador.header');
-   Route::get('footer/{lang}', 'SiteController@gerenciadorFooter') -> name('gerenciador.footer');
+   Route::get('{lang}', 'GerenciadorController@gerenciadorsetIdioma') -> name('gerenciador.setidioma');
+   Route::get('inicial/{lang}', 'GerenciadorController@gerenciadorInicial') -> name('gerenciador.inicial');
+   Route::get('sobre/{lang}', 'GerenciadorController@gerenciadorSobre') -> name('gerenciador.sobre');
+   Route::get('idiomas/{lang}', 'GerenciadorController@gerenciadorIdiomas') -> name('gerenciador.idiomas');
+   Route::get('cartas/{lang}', 'GerenciadorController@gerenciadorCartas') -> name('gerenciador.cartas');
+   Route::get('localizacao/{lang}', 'GerenciadorController@gerenciadorLocalizacao') -> name('gerenciador.localizacao');
+   Route::get('navbar/{lang}', 'GerenciadorController@gerenciadorNavbar') -> name('gerenciador.navbar');
+   Route::get('header/{lang}', 'GerenciadorController@gerenciadorHeader') -> name('gerenciador.header');
+   Route::get('footer/{lang}', 'GerenciadorController@gerenciadorFooter') -> name('gerenciador.footer');
 });
 
 // Rotas de atualização textos do site
@@ -29,6 +42,7 @@ Route::prefix('gerenciador/update') -> group(function(){
    Route::patch('idiomas/{id}', 'AtualizaController@atualizaIdiomas') -> name('idiomas.atualizar');
    Route::patch('local/{id}', 'AtualizaController@atualizaLocal') -> name('local.atualizar');
    Route::patch('header/{id}', 'AtualizaController@atualizaHeader') -> name('header.atualizar');
+   Route::patch('navbar/{id}', 'AtualizaController@atualizaNavbar') -> name('navbar.atualizar');
    Route::patch('footer/{id}', 'AtualizaController@atualizaFooter') -> name('footer.atualizar');
 });
 

@@ -4,14 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Header extends Model
+class Navbar extends Model
 {
    public $timestamps  = false ;
+   protected $table = 'navbar';
 
    protected $fillable = [
-      'header_top',
-      'upper_email',
-      'upper_tel',
+      'itens'
   ];
 
    protected $hidden = [

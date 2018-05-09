@@ -1,11 +1,26 @@
 <!--header top-->
 <div class="header-top">
+
    <div class="container clearfix">
+
       <div class="top-left">
-         <h6>Aberto : Segunda a Sexta - 9am to 18pm</h6>
+         <h6>{!! $headerTop !!}</h6>
       </div>
+
       <div class="top-right">
+
          <ul class="social-links">
+            <li class="dropdown" style="margin-right:10px">
+               <a class="dropdown-toggle" type="button" data-toggle="dropdown">Escolha o Idioma
+                  <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                     <li><a class="dropdown-item" href="{!! url('site/pt') !!}">Portugues</a></li>
+                     <li><a class="dropdown-item" href="{!! url('site/en') !!}">English</a></li>
+                     <li><a class="dropdown-item" href="{!! url('site/es') !!}">Español</a></li>
+                     <li><a class="dropdown-item" href="{!! url('site/it') !!}">Italiano</a></li>
+                  </ul>
+            </li>
+
             <li>
                <a href="#">
                   <i class="fa fa-facebook" aria-hidden="true"></i>
@@ -56,7 +71,7 @@
                <strong>Email</strong>
                <br>
                <a href="#">
-                  <span>contato@juramentadas.com</span>
+                  <span>{!! $headerUpperMail !!}</span>
                </a>
             </li>
             <li class="item">
@@ -65,7 +80,7 @@
                </div>
                <strong>Ligue Agora</strong>
                <br>
-               <span>+ 55 11 3262.2273 / </span>
+               <span>{!! $headerUpperTel !!} </span>
             </li>
          </ul>
          <div class="link-btn">

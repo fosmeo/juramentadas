@@ -13,6 +13,7 @@ use App\Depoimento;
 use App\Local;
 use App\Footer;
 use App\Header;
+use App\Navbar;
 
 class AtualizaController extends Controller
 {
@@ -85,6 +86,14 @@ class AtualizaController extends Controller
       \Session::flash('flashmsg', 'Header gravado com sucesso');
       $lang = \Session::get('lang');
       return redirect()->route('gerenciador.header', ['lang' => $lang]);
+   }
+   public function atualizaNavbar(Request $request, $id)
+   {
+      $atualizar = Navbar::findorfail($id);
+      $atualizar -> update($request -> all());
+      \Session::flash('flashmsg', 'MENU gravado com sucesso');
+      $lang = \Session::get('lang');
+      return redirect()->route('gerenciador.navbar', ['lang' => $lang]);
    }
 
    public function atualizaFooter(Request $request, $id)

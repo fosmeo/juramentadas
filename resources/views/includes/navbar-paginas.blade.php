@@ -13,26 +13,29 @@
    <!-- Collect the nav links, forms, and other content for toggling -->
    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-         <li class="active">
-            <a href="index.html">Página Inicial</a>
+         <li>
+            <a href="{!! route('welcome') !!}">{!! $menu[0] !!}</a>
          </li>
          <li>
-            <a href="about.html">Sobre a Empresa</a>
+            <a href="{!! route('site.sobre', session() -> get('lang')) !!}">{!! $menu[1] !!}</a>
          </li>
          <li>
-            <a href="service.html">Serviços</a>
+            <a href="{!! route('site.servicos', session() -> get('lang')) !!}">{!! $menu[2] !!}</a>
          </li>
          <li>
-            <a href="gallery.html">Parceiros</a>
+            <a href="{!! route('site.idiomas', session() -> get('lang')) !!}">{!! $menu[3] !!}</a>
          </li>
          <li>
-            <a href="team.html">Quem Somos</a>
+            <a href="{!! route('site.quemsomos', session() -> get('lang')) !!}">{!! $menu[4] !!}</a>
          </li>
          <li>
-            <a href="appointment.html">Orçamentos</a>
+            <a href="{!! route('site.parceiros', session() -> get('lang')) !!}">{!! $menu[5] !!}</a>
          </li>
          <li>
-            <a href="contact.html">Contato</a>
+            <a href="{!! route('site.cartas', session() -> get('lang')) !!}">{!! $menu[6] !!}</a>
+         </li>
+         <li>
+            <a href="{!! route('site.localizacao', session() -> get('lang')) !!}">{!! $menu[7] !!}</a>
          </li>
       </ul>
    </div>
