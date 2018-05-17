@@ -2,7 +2,7 @@
 <html>
 
 <head>
-   @include('includes.head')
+   @include('includes.inc-head')
 </head>
 
 <body>
@@ -10,11 +10,11 @@
    <div class="container-fluid">
 
       <header id="main" class="row headers">
-         @include('includes.header')
+         @include('includes.inc-header')
       </header>
 
       <div class="row">
-         @include('includes.navbar-paginas')
+         @include('includes.inc-navbar-paginas')
       </div>
 
       <div id="main" class="row">
@@ -22,7 +22,7 @@
       </div>
 
       <footer class="footer-main">
-         @include('includes.footer')
+         @include('includes.inc-footer')
       </footer>
 
    </div>

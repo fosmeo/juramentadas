@@ -1,4 +1,4 @@
-@extends('layouts.layout-pages')
+@extends('layouts.layout-auth')
 
 @section('content')
 <div class="container">

@@ -14,6 +14,7 @@ use App\Local;
 use App\Footer;
 use App\Header;
 use App\Navbar;
+use App\Slider;
 
 class AtualizaController extends Controller
 {

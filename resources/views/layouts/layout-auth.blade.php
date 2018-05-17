@@ -3,6 +3,13 @@
 
 <head>
    @include('includes.inc-head')
+
+   <style>
+      li a{
+         color:black !important;
+      }
+   </style>
+   
 </head>
 
 <body>
@@ -10,24 +17,12 @@
    <div class="container-fluid">
 
       <header id="main" class="row headers">
-         @include('includes.inc-header')
-      </header>
-
-      <div class="row">
-         @include('includes.inc-navbar-paginas')
-      </div>
-
-      <header id="main" class="row headers">
-         @include('includes.inc-slider')
+         @include('includes.inc-navbar-gerenciador')
       </header>
 
       <div id="main" class="row">
          @yield('content')
       </div>
-
-      <footer class="footer-main">
-         @include('includes.inc-footer')
-      </footer>
 
    </div>
 

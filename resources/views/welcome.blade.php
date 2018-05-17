@@ -12,6 +12,7 @@
                   <h2>
                      {!! \Session::get('lang') !!}
                   </h2>
+
                   <div class="cta-block">
                      <div class="emmergency item">
                         <i class="fa fa-phone"></i>
@@ -356,7 +357,7 @@
                                     </div>
                                     <!--End single tab content-->
 
-                                    @include('includes.depoimentos')
+                                    {{-- @include('includes.depoimentos') --}}
 
                                     <!--Start single tab content-->
                                     <div class="service-box tab-pane fade in" id="diagnostic">

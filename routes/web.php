@@ -11,13 +11,13 @@ Route::get('idioma', 'GerenciadorController@index') -> name('verificar.idioma');
 
 Route::prefix('site') -> group(function(){
    Route::get('{lang}', 'SiteController@SitesetIdioma') -> name('site.setidioma');
-   Route::get('{lang}/sobre', 'SiteController@SiteSobre') -> name('site.sobre');
-   Route::get('{lang}/servicos', 'SiteController@SiteServicos') -> name('site.servicos');
-   Route::get('{lang}/idiomas', 'SiteController@SiteIdiomas') -> name('site.idiomas');
-   Route::get('{lang}/quemsomos', 'SiteController@SiteQuemSomos') -> name('site.quemsomos');
-   Route::get('{lang}/parceiros', 'SiteController@SiteParceiros') -> name('site.parceiros');
-   Route::get('{lang}/cartas', 'SiteController@SiteCartas') -> name('site.cartas');
-   Route::get('{lang}/localizacao', 'SiteController@SiteLocalizacao') -> name('site.localizacao');
+   Route::get('sobre/{lang}', 'SiteController@SiteSobre') -> name('site.sobre');
+   Route::get('servicos/{lang}', 'SiteController@SiteServicos') -> name('site.servicos');
+   Route::get('idiomas/{lang}', 'SiteController@SiteIdiomas') -> name('site.idiomas');
+   Route::get('quemsomos/{lang}', 'SiteController@SiteQuemSomos') -> name('site.quemsomos');
+   Route::get('parceiros/{lang}', 'SiteController@SiteParceiros') -> name('site.parceiros');
+   Route::get('cartas/{lang}', 'SiteController@SiteCartas') -> name('site.cartas');
+   Route::get('localizacao/{lang}', 'SiteController@SiteLocalizacao') -> name('site.localizacao');
 });
 
 Route::prefix('gerenciador') -> group(function(){
@@ -46,12 +46,21 @@ Route::prefix('gerenciador/update') -> group(function(){
    Route::patch('footer/{id}', 'AtualizaController@atualizaFooter') -> name('footer.atualizar');
 });
 
+Route::prefix('gerenciador/sliders') -> group(function(){
+   Route::view('inserir', 'gerenciador.site.sliders.inserir')-> name('sliders.inserir');
+   Route::get('{lang}', 'SlidersController@gerenciadorSlidersExibir') -> name('sliders.exibir');
+   Route::post('gravar', 'SlidersController@gerenciadorSlidersGravar') -> name('sliders.gravar');
+   Route::get('editar/{id}', 'SlidersController@gerenciadorSlidersEditar') -> name('sliders.editar');
+   Route::patch('atualizar/{id}', 'SlidersController@gerenciadorSlidersAtualizar') -> name('sliders.atualizar');
+   Route::delete('excluir/{id}', 'SlidersController@gerenciadorSlidersExcluir') -> name('sliders.excluir');
+});
+
 Route::prefix('gerenciador/depoimentos') -> group(function(){
    Route::view('inserir', 'gerenciador.site.depoimentos.inserirdepoimentos')-> name('depoimentos.inserir');
-   Route::get('exibir/{lang}', 'DepoimentosController@gerenciadorDepoimentosExibir') -> name('depoimentos.exibir');
-   Route::patch('atualizar/{id}/{pos}', 'DepoimentosController@gerenciadorDepoimentosAtualizar') -> name('depoimentos.atualizar');
+   Route::get('exibir', 'DepoimentosController@gerenciadorDepoimentosExibir') -> name('depoimentos.exibir');
+   Route::patch('atualizar/{id}', 'DepoimentosController@gerenciadorDepoimentosAtualizar') -> name('depoimentos.atualizar');
    Route::post('gravar', 'DepoimentosController@gerenciadorDepoimentosGravar') -> name('depoimentos.gravar');
-   Route::delete('excluir/{pos}', 'DepoimentosController@gerenciadorDepoimentosExcluir') -> name('depoimentos.excluir');
+   Route::delete('excluir/{id}', 'DepoimentosController@gerenciadorDepoimentosExcluir') -> name('depoimentos.excluir');
 });
 
 Route::prefix('gerenciador/clientes') -> group(function(){
@@ -60,7 +69,7 @@ Route::prefix('gerenciador/clientes') -> group(function(){
    Route::post('gravar', 'ClientesController@gerenciadorClientesGravar') -> name('clientes.gravar');
    Route::get('editar/{id}', 'ClientesController@gerenciadorClientesEditar') -> name('clientes.editar');
    Route::patch('atualizar/{id}', 'ClientesController@gerenciadorClientesAtualizar') -> name('clientes.atualizar');
-   Route::delete('excluir/{id}', 'ClientesController@gerenciadorClientesExcluir') -> name('clientes.excluir');
+   Route::delete('excluir/{id}', 'SlidersController@gerenciadorClientesExcluir') -> name('clientes.excluir');
 });
 
 Route::prefix('gerenciador/other') -> group(function(){

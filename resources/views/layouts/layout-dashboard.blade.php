@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-   @include('includes.head')
+   @include('includes.inc-head')
 
 <style>
    li a{
@@ -14,7 +14,7 @@
    <div class="container-fluid">
 
       <div class="row">
-         @include('includes.navbar-gerenciador')
+         @include('includes.inc-navbar-gerenciador')
       </div>
 
       <div class="row" style="margin-top:70px;border:1px solid #d2d4d5">
@@ -22,7 +22,7 @@
 
       <div class="row">
          <div class="col-md-2" style="padding:10px; margin-right:0px;border:1px solid #d2d4d5">
-            @include('includes.sidebar')
+            @include('includes.inc-sidebar-gerenciador')
          </div>
          <div class="col-md-10" style="padding:10px; margin-left:0px;border:1px solid #d2d4d5">
             @yield('content')

@@ -71,7 +71,7 @@
                <strong>Email</strong>
                <br>
                <a href="#">
-                  <span>{!! $headerUpperMail !!}</span>
+                  <span>{!! $headerUpper[0] !!}</span>
                </a>
             </li>
             <li class="item">
@@ -80,11 +80,11 @@
                </div>
                <strong>Ligue Agora</strong>
                <br>
-               <span>{!! $headerUpperTel !!} </span>
+               <span>{!! $headerUpper[1] !!}</span>
             </li>
          </ul>
          <div class="link-btn">
-            <a href="#" class="btn-style-one">Solicite seu Orçamento</a>
+            <a href="#" class="btn-style-one"><span>{!! $headerUpper[2] !!}</span></a>
          </div>
       </div>
    </div>

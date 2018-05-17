@@ -17,13 +17,9 @@
             <textarea name = "header_top" rows="2" class="form-control">
                {{ $header -> header_top }}
             </textarea>
-            <label>EMAIL UPPER:</label>
-            <textarea name = "upper_email" rows="3" class="form-control">
-               {{ $header -> upper_email }}
-            </textarea>
-            <label>TEL UPPER:</label>
-            <textarea name = "upper_tel" rows="3" class="form-control">
-               {{ $header -> upper_tel }}
+            <label>HEADER UPPER:</label>
+            <textarea name = "header_upper" rows="3" class="form-control">
+               {{ $header -> header_upper }}
             </textarea>
             <button type="submit" class="col-md-12 btn btn-primary">Gravar</button>
          </form>

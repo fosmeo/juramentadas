@@ -20,11 +20,17 @@ class SiteController extends Controller
 
    public function Index()
    {
-      $lang = \Session::get('lang');
+      if( \Session::get('lang') !== null){
+         $lang = \Session::get('lang');
+         $this->SitesetIdioma($lang);
+      }else{
+         $lang = 'pt';
+         $this->SitesetIdioma($lang);
+      }
+
       $menu = $this -> TraduzMenu($lang);
       $headerTop = $this -> TraduzHeaderTop($lang);
-      $headerUpperMail = $this -> TraduzHeaderUpperMail($lang);
-      $headerUpperTel = $this -> TraduzHeaderUpperTel($lang);
+      $headerUpper = $this -> TraduzHeaderUpper($lang);
       $footers = $this -> TraduzFooter();
       $depoimentos = $this -> TraduzDepoimentos();
 
@@ -36,8 +42,7 @@ class SiteController extends Controller
       return view('welcome',
       ['menu' => $menu,
       'headerTop' => $headerTop,
-      'headerUpperMail' => $headerUpperMail,
-      'headerUpperTel' => $headerUpperTel,
+      'headerUpper' => $headerUpper,
       'footer' => $footers,
       'depoimentos' => $depoimentos,
       ]);
@@ -56,16 +61,10 @@ class SiteController extends Controller
       return $headerTop;
    }
 
-   public function TraduzHeaderUpperMail($lang){
+   public function TraduzHeaderUpper($lang){
       $headers = Header::where('tab_lang', 'like', $lang) -> get();
-      $headerUpperMail =  $headers[0]['upper_email'];
-      return $headerUpperMail;
-   }
-
-   public function TraduzHeaderUpperTel($lang){
-      $headers = Header::where('tab_lang', 'like', $lang) -> get();
-      $headerUpperTel =  $headers[0]['upper_tel'];
-      return $headerUpperTel;
+      $headerUpper = $array = explode(';', $headers[0]['header_upper']);
+      return $headerUpper;
    }
 
    public function TraduzFooter(){

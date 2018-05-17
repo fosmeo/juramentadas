@@ -13,7 +13,7 @@
          <form class="row" method="POST" action="{{route('navbar.atualizar', $navbar -> id)}}">
             {{csrf_field()}}
             <input name="_method" type="hidden" value="PATCH">
-            <label>MENU:</label>
+            <label>MENU: (USAR PONTO E VÍRGULA PARA DELIMITAR O MENU)</label>
             <textarea name = "itens" rows="10" class="form-control">
                {{ $navbar -> itens }}
             </textarea>

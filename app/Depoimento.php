@@ -9,10 +9,11 @@ class Depoimento extends Model
    public $timestamps  = false ;
 
    protected $fillable = [
-      'depoimento',
+      'depoimento_pt',
+      'depoimento_en',
+      'depoimento_es',
+      'depoimento_it',
       'depoimentos_logo',
-      'textos_posicao',
-      'tab_lang',
   ];
 
    protected $hidden = [
