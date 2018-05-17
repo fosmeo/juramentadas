@@ -11,6 +11,8 @@ use App\Local;
 use App\Footer;
 use App\Header;
 use App\Navbar;
+use App\Depoimento;
+
 use Illuminate\Http\Request;
 
 class SiteController extends Controller
@@ -24,6 +26,7 @@ class SiteController extends Controller
       $headerUpperMail = $this -> TraduzHeaderUpperMail($lang);
       $headerUpperTel = $this -> TraduzHeaderUpperTel($lang);
       $footers = $this -> TraduzFooter();
+      $depoimentos = $this -> TraduzDepoimentos();
 
       // print_r($menu);
       // echo $headerTop;
@@ -35,7 +38,8 @@ class SiteController extends Controller
       'headerTop' => $headerTop,
       'headerUpperMail' => $headerUpperMail,
       'headerUpperTel' => $headerUpperTel,
-      'footer' => $footers
+      'footer' => $footers,
+      'depoimentos' => $depoimentos,
       ]);
    }
 
@@ -65,10 +69,18 @@ class SiteController extends Controller
    }
 
    public function TraduzFooter(){
+      // GAMBIARRA DE LANG
       $lang = \Session::get('lang');
       $footers = Footer::where('tab_lang', 'like', $lang) -> get();
       $footer = json_decode($footers);
       return $footer;
+   }
+
+   public function TraduzDepoimentos(){
+      // GAMBIARRA DE LANG
+      $lang = \Session::get('lang');
+      $depoimentos = Depoimento::where('tab_lang', 'like', $lang) -> get();
+      return $depoimentos;
    }
 
    public function SitesetIdioma($lang)
@@ -79,7 +91,8 @@ class SiteController extends Controller
 
     public function SiteSobre(){
 
-      dd($this -> TraduzFooter());
+      dd($this -> TraduzDepoimentos());
+
       // return view('paginas.sobre' );
    }
 

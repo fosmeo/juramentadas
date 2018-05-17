@@ -22,8 +22,8 @@
             <input name="_method" type="hidden" value="PATCH">
 
             <label>Depoimento {!! $depoimento -> textos_posicao !!}</label>
-            <textarea name = "col1" rows="5" class="form-control">
-               {{ $depoimento -> col1 }}
+            <textarea name = "depoimento" rows="5" class="form-control">
+               {{ $depoimento -> depoimento }}
             </textarea>
 
             <img style="width:200px;" src="{{ asset('storage/imagens/img_depoimentos/'.$depoimento -> depoimentos_logo) }}" >
