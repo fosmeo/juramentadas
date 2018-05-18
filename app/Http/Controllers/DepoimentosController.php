@@ -14,8 +14,16 @@ class DepoimentosController extends Controller
 
    public function gerenciadorDepoimentosExibir()
    {
-      $depoimento = Depoimentos::select() -> orderby('id') -> get();
+    $depoimento = Depoimentos::select() -> orderby('id') -> get();
+
+    if ($depoimento -> isEmpty()){
+      $languser = \Session::get('languser');
+      \Session::flash('flashmsg', 'NÃO HÁ DEPOIMENTOS NO IDIOMA "'. $languser .'" A SEREM EXIBIDOS');
       return view ('gerenciador.site.depoimentos.depoimentos' , ['depoimentos' => $depoimento]);
+    }else{
+      return view ('gerenciador.site.depoimentos.depoimentos' , ['depoimentos' => $depoimento]);
+    }
+    
    }
 
    public function gerenciadorDepoimentosAtualizar(Request $request, $id)

@@ -50,7 +50,7 @@ class SiteController extends Controller
 
    public function TraduzMenu($lang){
       $navbars = Navbar::where('tab_lang', 'like', $lang) -> get();
-      $nav =  $navbars[0]['itens'];
+      $nav =  $navbars[0]['navbar_itens'];
       $menu = $array = explode(';', $nav);
       return $menu;
    }

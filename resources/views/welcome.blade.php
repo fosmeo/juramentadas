@@ -8,11 +8,6 @@
          <div class="container">
             <div class="row">
                <div class="col-md-12">
-
-                  <h2>
-                     {!! \Session::get('lang') !!}
-                  </h2>
-
                   <div class="cta-block">
                      <div class="emmergency item">
                         <i class="fa fa-phone"></i>

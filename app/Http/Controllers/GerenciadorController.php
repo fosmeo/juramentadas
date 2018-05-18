@@ -35,13 +35,13 @@ public function gerenciadorsetIdioma($languser)
 public function gerenciadorInicial($languser)
 {
   if ($languser == 'pt'){
-   $inicial = Locale_pt::get();
- }elseif ($languser == 'en') {
-   $inicial = Locale_en::get();
+   $inicial = Locale_pt::orderby('textos_posicao') -> get();
+ }elseif ($languser == 'en'){
+   $inicial = Locale_en::orderby('textos_posicao') -> get();
  }elseif ($languser == 'es') {
-   $inicial = Locale_es::get();
+   $inicial = Locale_es::orderby('textos_posicao') -> get();
  }elseif ($languser == 'it') {
-   $inicial = Locale_it::get();
+   $inicial = Locale_it::orderby('textos_posicao') -> get();
  }
  return view ('gerenciador.site.inicial', ['inicials' => $inicial]);
 }

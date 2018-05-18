@@ -16,9 +16,17 @@ class SlidersController extends Controller
 
    public function gerenciadorSlidersExibir($languser)
    {
+
       $slider = Slider::where('tab_lang', 'like', $languser) -> get();
-      $id = $slider[0]['id']; // pega id do registro
-      return view ('gerenciador.site.sliders.sliders' , ['sliders' => $slider, 'id' => $id]);
+      
+      if($slider -> isEmpty()){
+        \Session::flash('flashmsg', 'NÃO HÁ SLIDERS NO IDIOMA "'. $languser .'" A SEREM EXIBIDOS');
+        $id='';
+        return view ('gerenciador.site.sliders.sliders' , ['sliders' => $slider, 'id' => $id]);
+      }else{
+        $id = $slider[0]['id']; // pega id do registro
+        return view ('gerenciador.site.sliders.sliders' , ['sliders' => $slider, 'id' => $id]);
+      }      
    }
 
    public function gerenciadorSlidersAtualizar(Request $request, $id)

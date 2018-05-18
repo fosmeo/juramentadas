@@ -10,6 +10,9 @@
    <div class="container-fluid">
 
       <header id="main" class="row headers">
+      LANG: {!! \Session::get('lang') !!}
+      LANGUSER: {!! \Session::get('languser') !!}
+
          @include('includes.inc-header')
       </header>
 

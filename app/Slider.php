@@ -14,6 +14,7 @@ class Slider extends Model
       'slider_texto',
       'slider_botao',
       'slider_imagem',
+      'tab_lang',
  ];
 
  protected $hidden = [
