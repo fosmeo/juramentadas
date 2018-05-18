@@ -12,13 +12,13 @@
 
       @foreach ($inicials as $inicial)
 
-         @if(\Session::get('lang')=='pt')
+         @if(\Session::get('languser')=='pt')
             <form method="POST" action="{{ route('inicial_pt.atualizar', $inicial -> id) }}">
-         @elseif(\Session::get('lang')=='en')
+         @elseif(\Session::get('languser')=='en')
             <form method="POST" action="{{ route('inicial_en.atualizar', $inicial -> id) }}">
-         @elseif(\Session::get('lang')=='es')
+         @elseif(\Session::get('languser')=='es')
             <form method="POST" action="{{ route('inicial_es.atualizar', $inicial -> id) }}">
-         @elseif(\Session::get('lang')=='it')
+         @elseif(\Session::get('languser')=='it')
             <form method="POST" action="{{ route('inicial_it.atualizar', $inicial -> id) }}">
          @endif
             {{csrf_field()}}

@@ -8,9 +8,9 @@ use App\Locale_en;
 use App\Locale_es;
 use App\Locale_it;
 use App\Sobre;
-use App\Idioma;
+use App\Idiomas;
 use App\Depoimento;
-use App\Local;
+use App\Localizacao;
 use App\Footer;
 use App\Header;
 use App\Navbar;
@@ -27,57 +27,57 @@ class AtualizaController extends Controller
       $atualizar = Locale_pt::findorfail($id);
     	$atualizar -> update($request -> all());
       \Session::flash('flashmsg', 'PAGINA INICIAL (Português) gravada com sucesso');
-      $lang = \Session::get('lang');
-      return redirect()->route('gerenciador.inicial', ['lang' => $lang]);
+      $languser = \Session::get('languser');
+      return redirect()->route('gerenciador.inicial', ['languser' => $languser]);
    }
 
    public function atualizaInicial_en(Request $request, $id){
       $atualizar = Locale_en::findorfail($id);
     	$atualizar -> update($request -> all());
       \Session::flash('flashmsg', 'PAGINA INICIAL (Inglês) gravada com sucesso');
-      $lang = \Session::get('lang');
-      return redirect()->route('gerenciador.inicial', ['lang' => $lang]);
+      $languser = \Session::get('languser');
+      return redirect()->route('gerenciador.inicial', ['languser' => $languser]);
    }
 
    public function atualizaInicial_es(Request $request, $id){
       $atualizar = Locale_es::findorfail($id);
     	$atualizar -> update($request -> all());
       \Session::flash('flashmsg', 'PAGINA INICIAL (Espanhol) gravada com sucesso');
-      $lang = \Session::get('lang');
-      return redirect()->route('gerenciador.inicial', ['lang' => $lang]);
+      $languser = \Session::get('languser');
+      return redirect()->route('gerenciador.inicial', ['languser' => $languser]);
    }
 
    public function atualizaInicial_it(Request $request, $id){
       $atualizar = Locale_it::findorfail($id);
     	$atualizar -> update($request -> all());
       \Session::flash('flashmsg', 'PAGINA INICIAL (Italiano) gravada com sucesso');
-      $lang = \Session::get('lang');
-      return redirect()->route('gerenciador.inicial', ['lang' => $lang]);
+      $languser = \Session::get('languser');
+      return redirect()->route('gerenciador.inicial', ['languser' => $languser]);
    }
 
    public function atualizaSobre(Request $request, $id){
       $atualizar = Sobre::findorfail($id);
     	$atualizar -> update($request -> all());
-      $lang = \Session::get('lang');
-      \Session::flash('flashmsg', 'TEXTO SOBRE A EMPRESA ('.$lang.') gravado com sucesso');
-      return redirect()->route('gerenciador.sobre', ['lang' => $lang]);
+      $languser = \Session::get('languser');
+      \Session::flash('flashmsg', 'TEXTO SOBRE A EMPRESA ('.$languser.') gravado com sucesso');
+      return redirect()->route('gerenciador.sobre', ['languser' => $languser]);
    }
 
    public function atualizaIdiomas(Request $request, $id){
-      $atualizar = Idioma::findorfail($id);
+      $atualizar = Idiomas::findorfail($id);
       $atualizar -> update($request -> all());
-      $lang = \Session::get('lang');
-      \Session::flash('flashmsg', 'IDIOMAS ('.$lang.') gravados com sucesso');
-      return redirect()->route('gerenciador.idiomas', ['lang' => $lang]);
+      $languser = \Session::get('languser');
+      \Session::flash('flashmsg', 'IDIOMAS ('.$languser.') gravados com sucesso');
+      return redirect()->route('gerenciador.idiomas', ['languser' => $languser]);
    }
 
    public function atualizaLocal(Request $request, $id)
    {
-      $atualizar = Local::findorfail($id);
+      $atualizar = Localizacao::findorfail($id);
     	$atualizar -> update($request -> all());
       \Session::flash('flashmsg', 'LOCALIZAÇÃO gravada com sucesso');
-      $lang = \Session::get('lang');
-      return redirect()->route('gerenciador.localizacao', ['lang' => $lang]);
+      $languser = \Session::get('languser');
+      return redirect()->route('gerenciador.localizacao', ['languser' => $languser]);
    }
 
    public function atualizaHeader(Request $request, $id)
@@ -85,16 +85,16 @@ class AtualizaController extends Controller
       $atualizar = Header::findorfail($id);
       $atualizar -> update($request -> all());
       \Session::flash('flashmsg', 'Header gravado com sucesso');
-      $lang = \Session::get('lang');
-      return redirect()->route('gerenciador.header', ['lang' => $lang]);
+      $languser = \Session::get('languser');
+      return redirect()->route('gerenciador.header', ['languser' => $languser]);
    }
    public function atualizaNavbar(Request $request, $id)
    {
       $atualizar = Navbar::findorfail($id);
       $atualizar -> update($request -> all());
       \Session::flash('flashmsg', 'MENU gravado com sucesso');
-      $lang = \Session::get('lang');
-      return redirect()->route('gerenciador.navbar', ['lang' => $lang]);
+      $languser = \Session::get('languser');
+      return redirect()->route('gerenciador.navbar', ['languser' => $languser]);
    }
 
    public function atualizaFooter(Request $request, $id)
@@ -102,7 +102,7 @@ class AtualizaController extends Controller
       $atualizar = Footer::findorfail($id);
     	$atualizar -> update($request -> all());
       \Session::flash('flashmsg', 'FOOTER gravado com sucesso');
-      $lang = \Session::get('lang');
-      return redirect()->route('gerenciador.footer', ['lang' => $lang]);
+      $languser = \Session::get('languser');
+      return redirect()->route('gerenciador.footer', ['languser' => $languser]);
    }
 }

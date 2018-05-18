@@ -8,6 +8,12 @@
       <div class="alert alert-success">{{ Session::get('flashmsg') }}</div>
    @endif
 
+   <div class="row">
+      <form class="col-md-12" style="float:left" method="GET" action="{{ route('sliders.inserir')}}">
+         <input type="submit" class="btn btn-success col-md-12" value="Inserir Novo Slider">
+      </form>
+   </div>
+
    <div class="form-group marginsV col-md-12">
       @foreach ($sliders as $slider)
          <form class="form-group" enctype="multipart/form-data" method="POST" action="{{ route('sliders.atualizar', $slider -> id) }}">

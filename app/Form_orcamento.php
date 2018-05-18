@@ -7,9 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Form_orcamento extends Model
 {
    public $timestamps  = false ;
-   
-   protected $fillable = [
+   protected $table ='form_orcamentos';
 
+   protected $fillable = [
+      'orcamentos_titulo',
+      'orcamentos_itens',
   ];
 
    protected $hidden = [

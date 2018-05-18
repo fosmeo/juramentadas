@@ -4,12 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Orcamento extends Model
+class Idiomas extends Model
 {
    public $timestamps  = false ;
-   
-   protected $fillable = [
 
+   protected $fillable = [
+      'idiomas_texto',
   ];
 
    protected $hidden = [

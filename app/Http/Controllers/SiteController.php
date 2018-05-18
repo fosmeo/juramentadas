@@ -6,8 +6,8 @@ use App\Locale_en;
 use App\Locale_es;
 use App\Locale_it;
 use App\Sobre;
-use App\Idioma;
-use App\Local;
+use App\Idiomas;
+use App\Localizacao;
 use App\Footer;
 use App\Header;
 use App\Navbar;
@@ -32,7 +32,7 @@ class SiteController extends Controller
       $headerTop = $this -> TraduzHeaderTop($lang);
       $headerUpper = $this -> TraduzHeaderUpper($lang);
       $footers = $this -> TraduzFooter();
-      $depoimentos = $this -> TraduzDepoimentos();
+      // $depoimentos = $this -> TraduzDepoimentos();
 
       // print_r($menu);
       // echo $headerTop;
@@ -44,7 +44,7 @@ class SiteController extends Controller
       'headerTop' => $headerTop,
       'headerUpper' => $headerUpper,
       'footer' => $footers,
-      'depoimentos' => $depoimentos,
+      // 'depoimentos' => $depoimentos,
       ]);
    }
 

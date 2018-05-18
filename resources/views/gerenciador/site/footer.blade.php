@@ -15,26 +15,26 @@
          @foreach ($footers as $footer)
             <div class="col-md-3">
                <label>Links (Coluna1)</label>
-               <textarea rows="10" class="form-control" name="col1">
-                  {{ $footer -> col1 }}
+               <textarea rows="10" class="form-control" name="footer_col1">
+                  {{ $footer -> footer_col1 }}
                </textarea>
             </div>
             <div class="col-md-3">
                <label>Endereço (Coluna2)</label>
-               <textarea rows="10" class="form-control" name="col2">
-                  {{ $footer -> col2 }}
+               <textarea rows="10" class="form-control" name="footer_col2">
+                  {{ $footer -> footer_col2 }}
                </textarea>
             </div>
             <div class="col-md-3">
                <label>Contatos (Coluna3)</label>
-               <textarea rows="10" class="form-control" name="col3">
-                  {{ $footer -> col3 }}
+               <textarea rows="10" class="form-control" name="footer_col3">
+                  {{ $footer -> footer_col3 }}
                </textarea>
             </div>
             <div class="col-md-3">
                <label>Redes Sociais (Coluna4)</label>
-               <textarea rows="10" class="form-control" name="col4">
-                  {{ $footer -> col4 }}
+               <textarea rows="10" class="form-control" name="footer_col4">
+                  {{ $footer -> footer_col4 }}
                </textarea>
             </div>
          @endforeach

@@ -7,9 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Sobre extends Model
 {
    public $timestamps  = false ;
+   protected $table = 'sobre';
+
 
    protected $fillable = [
-      'col1'
+      'id_lang',
+      'sobre_texto',
+      'tab_lang',
   ];
 
    protected $hidden = [

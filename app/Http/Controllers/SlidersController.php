@@ -23,6 +23,10 @@ class SlidersController extends Controller
 
    public function gerenciadorSlidersAtualizar(Request $request, $id)
    {
+      $this -> validate($request,[
+         'slider_imagem' => ['required']
+      ]);
+
       $atualizar = Slider::findorfail($id);
       $hasfile = $request -> hasFile('slider_imagem');
 
@@ -31,8 +35,10 @@ class SlidersController extends Controller
          Storage::delete('imagens/img_sliders/'.$arquivo_anterior);
          $arquivo_novo = $request->file('slider_imagem') -> getClientOriginalName();
          Storage::putFileAs('imagens/img_sliders/', $request->file('slider_imagem'), $arquivo_novo);
+      }else{
+         $arquivo_novo = null;
       }
-      $arquivo_novo = null;
+
       $atualizar -> update(['slider_titulo' => $request -> slider_titulo, 'slider_texto' => $request -> slider_texto, 'slider_botao' => $request -> slider_botao, 'slider_imagem' => $arquivo_novo]);
 
       \Session::flash('flashmsg', 'SLIDERS ATUALIZADOS COM SUCESSO');
@@ -41,6 +47,10 @@ class SlidersController extends Controller
 
    public function gerenciadorSlidersGravar(Request $request)
    {
+    $this -> validate($request,[
+        'slider_imagem' => ['required']
+     ]);
+
       $hasfile = $request -> hasFile('slider_imagem');
 
       if($hasfile){

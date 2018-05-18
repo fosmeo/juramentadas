@@ -14,8 +14,8 @@
             {{csrf_field()}}
             <input name="_method" type="hidden" value="PATCH">
             <label>MENU: (USAR PONTO E VÍRGULA PARA DELIMITAR O MENU)</label>
-            <textarea name = "itens" rows="10" class="form-control">
-               {{ $navbar -> itens }}
+            <textarea name = "navbar_itens" rows="10" class="form-control">
+               {{ $navbar -> navbar_itens }}
             </textarea>
             <button type="submit" class="col-md-12 btn btn-primary">Gravar</button>
          </form>

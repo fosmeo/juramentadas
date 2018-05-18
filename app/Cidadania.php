@@ -7,9 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Cidadania extends Model
 {
    public $timestamps  = false ;
+   protected $table ='cidadania';
 
    protected $fillable = [
-      'titulo','col1'
+      'cidadania_titulo',
+      'cidadania_texto'
  ];
 
    protected $hidden = [

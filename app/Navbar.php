@@ -10,7 +10,7 @@ class Navbar extends Model
    protected $table = 'navbar';
 
    protected $fillable = [
-      'itens'
+      'navbar_itens'
   ];
 
    protected $hidden = [

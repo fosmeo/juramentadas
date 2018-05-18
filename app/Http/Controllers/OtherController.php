@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Orcamento;
+use App\Orcamentos;
 use App\Log;
 use App\User;
 
@@ -16,7 +16,7 @@ class OtherController extends Controller
 
    public function otherOrcamentos()
    {
-      $orcamento = Orcamento::orderBy('orcamentos_id', 'desc') -> paginate(20);
+      $orcamento = Orcamentos::orderBy('orcamentos_id', 'desc') -> paginate(20);
       return view ('gerenciador.other.orcamentos', ['orcamentos' => $orcamento]);
    }
 

@@ -1,19 +1,16 @@
 <?php
 
 namespace App;
-
 use Illuminate\Database\Eloquent\Model;
 
-class Depoimento extends Model
+class Depoimentos extends Model
 {
    public $timestamps  = false ;
 
    protected $fillable = [
-      'depoimento_pt',
-      'depoimento_en',
-      'depoimento_es',
-      'depoimento_it',
-      'depoimentos_logo',
+      'id_lang',
+      'depoimentos_texto',
+      'tab_lang',
   ];
 
    protected $hidden = [

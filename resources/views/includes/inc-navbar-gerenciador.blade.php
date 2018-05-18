@@ -14,11 +14,13 @@
    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
          <li>
+            LANGUSER: {{ \Session::get('languser') }}
+            LANG: {{ \Session::get('lang') }}
             <a href="{!! route('welcome') !!}">Início</a>
          </li>
 
          <li class="dropdown" style="margin-right:10px">
-            <a class="dropdown-toggle" type="button" data-toggle="dropdown">Escolha o Idioma
+            <a class="dropdown-toggle" type="button" data-toggle="dropdown">Mudar Idioma
                <span class="caret"></span></a>
                <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="{!! url('gerenciador/pt') !!}">Portugues</a></li>

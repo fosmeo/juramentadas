@@ -14,8 +14,8 @@
             {{csrf_field()}}
             <input name="_method" type="hidden" value="PATCH">
             <label>IDIOMAS:</label>
-            <textarea name = "col1" rows="20" class="form-control">
-               {{ $idioma -> col1 }}
+            <textarea name = "idiomas_texto" rows="20" class="form-control">
+               {{ $idioma -> idiomas_texto }}
             </textarea>
             <button type="submit" class="col-md-12 btn btn-primary">Gravar</button>
          </form>

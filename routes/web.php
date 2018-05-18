@@ -21,6 +21,7 @@ Route::prefix('site') -> group(function(){
 });
 
 Route::prefix('gerenciador') -> group(function(){
+   Route::get('/', 'GerenciadorController@gerenciadorIndex') -> name('gerenciador.index');
    Route::get('{lang}', 'GerenciadorController@gerenciadorsetIdioma') -> name('gerenciador.setidioma');
    Route::get('inicial/{lang}', 'GerenciadorController@gerenciadorInicial') -> name('gerenciador.inicial');
    Route::get('sobre/{lang}', 'GerenciadorController@gerenciadorSobre') -> name('gerenciador.sobre');
