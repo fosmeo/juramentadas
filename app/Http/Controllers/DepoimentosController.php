@@ -7,73 +7,118 @@ use App\Depoimentos;
 
 class DepoimentosController extends Controller
 {
-   public function __construct()
-   {
-      $this->middleware('auth');
-   }
 
-   public function gerenciadorDepoimentosExibir()
-   {
-    $depoimento = Depoimentos::select() -> orderby('id') -> get();
+  public function __construct()
+  {
+    $this->middleware('auth');
+  }
 
-    if ($depoimento -> isEmpty()){
-      $languser = \Session::get('languser');
-      \Session::flash('flashmsg', 'NÃO HÁ DEPOIMENTOS NO IDIOMA "'. $languser .'" A SEREM EXIBIDOS');
-      return view ('gerenciador.site.depoimentos.depoimentos' , ['depoimentos' => $depoimento]);
-    }else{
-      return view ('gerenciador.site.depoimentos.depoimentos' , ['depoimentos' => $depoimento]);
-    }
+  public function gerenciadorDepoimentosEditar($id_depoimento)
+  {
+    $depoimentos = Depoimentos::where('id_depoimento', '=', $id_depoimento) -> get();
+    $array_depoimentos = $depoimentos-> toArray();
+    $caminho_imagem = $array_depoimentos[0]['depoimentos_imagem']; //pega o nome da imagem(pelo array) para enviar para a view
+    return view ('gerenciador.site.depoimentos.editar' , ['depoimentos' => $depoimentos, 'caminho_imagem' => $caminho_imagem, 'id_depoimento' => $id_depoimento]);
+  }
+
+  public function gerenciadorDepoimentosLista()
+  {
+
+    $depoimentos = Depoimentos::select() -> groupBy('id_depoimento') -> get();
+    return view ('gerenciador.site.depoimentos.lista' , ['depoimentos' => $depoimentos]);
+  }
+
+  public function gerenciadorDepoimentosAtualizar(Request $request, $id)
+  {
     
-   }
+  }
 
-   public function gerenciadorDepoimentosAtualizar(Request $request, $id)
-   {
-      $this -> validate($request,[
-         'depoimentos_logo' => ['required']
-      ]);
-      
-      $atualizar = Depoimentos::findorfail($id);
-      $hasfile = $request -> hasFile('depoimentos_logo');
+  public function gerenciadorDepoimentosAtualizar(Request $request, $id)
+  {
+    
+    $atualizar = Depoimentos::findorfail($id);
+    $hasfile = $request -> hasFile('depoimentos_imagem');
 
-      if($hasfile){
-         $arquivo_anterior = $atualizar -> depoimentos_logo;
-         Storage::delete('imagens/img_depoimentos/'.$arquivo_anterior);
-         $arquivo_novo = $request->file('depoimentos_logo') -> getClientOriginalName();
-         Storage::putFileAs('imagens/img_depoimentos/', $request->file('depoimentos_logo'), $arquivo_novo);
-      }else{
-         $arquivo_novo = null;
-      }
-         $atualizar -> update(['depoimento_pt' => $request -> depoimento_pt, 'depoimento_en' => $request -> depoimento_en, 'depoimento_es' => $request -> depoimento_es, 'depoimento_it' => $request -> depoimento_it, 'depoimentos_logo' => $arquivo_novo]);
+    if($hasfile){
+      $arquivo_anterior = $atualizar -> depoimentos_imagem;
+      Storage::delete('imagens/img_depoimentos/'.$arquivo_anterior);
+      $arquivo_novo = $request->file('depoimentos_imagem') -> getClientOriginalName();
 
-      \Session::flash('flashmsg', 'DEPOIMENTOS ATUALIZADOS COM SUCESSO');
-      return redirect()->route('depoimentos.exibir', ['lang' => \Session::get('lang')]);
-   }
+      Storage::putFileAs('imagens/img_depoimentos/', $request->file('depoimentos_imagem'), $arquivo_novo);
+    }else{
+      $arquivo_novo = $atualizar -> depoimentos_imagem;;
+    }
 
-   public function gerenciadorDepoimentosGravar(Request $request)
-   {
-      $hasfile = $request -> hasFile('depoimentos_logo');
+    
+    $atualizar -> update([
+      'depoimentos_texto' => $request -> depoimentos_texto,
+      'depoimentos_imagem' => $arquivo_novo
+    ]);
+    
+    $depoimentos = Depoimentos::select() -> groupBy('id_depoimento') -> get();
 
-      if($hasfile){
-         $arquivo_novo = $request->file('depoimentos_logo') -> getClientOriginalName();
-         Storage::putFileAs('imagens/img_depoimentos/', $request -> file('depoimentos_logo'), $arquivo_novo);
-         $gravar = Depoimentos::insert(['depoimento_pt' => $request -> depoimento_pt, 'depoimento_en' => $request -> depoimento_en, 'depoimento_es' => $request -> depoimento_es, 'depoimento_it' => $request -> depoimento_it, 'depoimentos_logo' => $arquivo_novo]);
-      }else{
-         $gravar = Depoimentos::insert(['depoimento_pt' => $request -> depoimento_pt, 'depoimento_en' => $request -> depoimento_en, 'depoimento_es' => $request -> depoimento_es, 'depoimento_it' => $request -> depoimento_it]);
-      }
+    \Session::flash('flashmsg', 'DEPOIMENTOS ATUALIZADOS COM SUCESSO');
+    return view('gerenciador.site.depoimentos.lista', ['depoimentos' => $depoimentos]);
+  }
 
-      \Session::flash('flashmsg', 'DEPOIMENTOS GRAVADOS COM SUCESSO');
-      return redirect()->route('depoimentos.exibir', ['lang' => \Session::get('lang')]);
-   }
 
-   public function gerenciadorDepoimentosExcluir($id){
+  public function gerenciadorDepoimentosGravar(Request $request)
+  {
+    $this -> validate($request,[
+      'depoimentos_imagem' => ['required']
+    ]);
 
-      $depoimento_excluir = Depoimentos::findorfail($id);
-      $arquivo_existe = $depoimento_excluir -> depoimentos_logo;
-      if($arquivo_existe){
-         Storage::delete('imagens/img_depoimentos/'.$arquivo_existe);
-      }
-      $depoimento_excluir -> delete();
-      \Session::flash('flashmsg', 'DEPOIMENTO EXCLUÍDO COM SUCESSO');
-      return redirect()->route('depoimentos.exibir', ['lang' => \Session::get('lang')]);
-   }
+    $id_ultimo = Depoimentos::select('id_depoimento') -> orderby('id_depoimento', 'DESC') -> first();
+    $id_proximo = $id_ultimo -> id_depoimento + 1;
+    $arquivo_novo = $request->file('depoimentos_imagem') -> getClientOriginalName();
+    $gravar = Depoimentos::insert([
+      [
+        'id_depoimento' => $id_proximo,
+        'id_lang' => 1,
+        'depoimentos_texto' => $request -> depoimento_pt,
+        'depoimentos_imagem' => $arquivo_novo,
+        'tab_lang' => 'pt'
+      ],
+      [
+        'id_depoimento' => $id_proximo,
+        'id_lang' => 2,
+        'depoimentos_texto' => $request -> depoimento_en,
+        'depoimentos_imagem' => $arquivo_novo,
+        'tab_lang' => 'en'
+      ],
+      [
+        'id_depoimento' => $id_proximo,
+        'id_lang' => 3,
+        'depoimentos_texto' => $request -> depoimento_es,
+        'depoimentos_imagem' => $arquivo_novo,
+        'tab_lang' => 'es'
+      ],
+      [
+        'id_depoimento' => $id_proximo,
+        'id_lang' => 4,
+        'depoimentos_texto' => $request -> depoimento_it,
+        'depoimentos_imagem' => $arquivo_novo,
+        'tab_lang' => 'it'
+      ]
+    ]);
+
+    Storage::putFileAs('imagens/img_depoimentos/', $request -> file('depoimentos_imagem'), $arquivo_novo);
+    \Session::flash('flashmsg', 'DEPOIMENTOS GRAVADOS COM SUCESSO');
+    return redirect()->route('depoimentos.lista', ['lang' => \Session::get('languser')]);
+  }
+
+  public function gerenciadorDepoimentosExcluir($id){
+
+    // $depoimento_excluir = Depoimentos::where('id_depoimento', '=', $id_depoimento) -> get();
+    $depoimento_excluir = Depoimentos::findorfail($id);
+
+    dd($depoimento_excluir);
+    // $arquivo_existe = $depoimento_excluir -> depoimentos_imagem;
+    // if($arquivo_existe){
+      // Storage::delete('imagens/img_depoimentos/'.$arquivo_existe);
+    // }
+    // $depoimento_excluir -> delete();
+    // \Session::flash('flashmsg', 'DEPOIMENTO EXCLUÍDO COM SUCESSO');
+    // return redirect()->route('depoimentos.lista', ['lang' => \Session::get('languser')]);
+  }
 }

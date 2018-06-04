@@ -8,7 +8,7 @@
             <li><a href="{!! route('gerenciador.sobre', \Session::get('languser')) !!}">Sobre a Empresa</a></li>
             <li><a href="{!! route('gerenciador.idiomas', \Session::get('languser')) !!}">Idiomas</a></li>
             <li><a href="{!! route('clientes.lista') !!}">Editar Clientes</a></li>
-            <li><a href="{!! route('depoimentos.exibir') !!}">Editar Depoimentos</a></li>
+            <li><a href="{!! route('depoimentos.lista') !!}">Editar Depoimentos</a></li>
             <li><a href="{!! route('gerenciador.cartas', \Session::get('languser')) !!}">Cartas</a></li>
             <li><a href="{!! route('gerenciador.localizacao', \Session::get('languser')) !!}">Localização</a></li>
             <li><a href="{!! route('gerenciador.navbar', \Session::get('languser')) !!}">Menu</a></li>

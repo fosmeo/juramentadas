@@ -1,17 +1,12 @@
 @extends('layouts.layout-dashboard')
 
 @section('content')
-   @if (!empty($errors -> all()))
-      <div class="alert alert-danger">{{ $errors -> first() }}</div>
-   @elseif (Session::has('flashmsg'))
-      <div class="alert alert-success">{{ Session::get('flashmsg') }}</div>
-   @endif
 
    <div class="col-md-12">
       <form method="POST" action="{{ route('depoimentos.gravar')}}" enctype="multipart/form-data">
          {{csrf_field()}}
          <label>Logo da empresa:</label>
-         <input type="file" name="depoimentos_logo">
+         <input type="file" name="depoimentos_imagem">
          <br>
          <button type="submit" class="col-md-12 btn btn-primary">Gravar</button>
          <br>

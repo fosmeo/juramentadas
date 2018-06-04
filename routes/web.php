@@ -57,11 +57,13 @@ Route::prefix('gerenciador/sliders') -> group(function(){
 });
 
 Route::prefix('gerenciador/depoimentos') -> group(function(){
-   Route::view('inserir', 'gerenciador.site.depoimentos.inserirdepoimentos')-> name('depoimentos.inserir');
-   Route::get('exibir', 'DepoimentosController@gerenciadorDepoimentosExibir') -> name('depoimentos.exibir');
-   Route::patch('atualizar/{id}', 'DepoimentosController@gerenciadorDepoimentosAtualizar') -> name('depoimentos.atualizar');
+   Route::view('inserir', 'gerenciador.site.depoimentos.inserir')-> name('depoimentos.inserir');
+   Route::get('lista', 'DepoimentosController@gerenciadorDepoimentosLista') -> name('depoimentos.lista');
    Route::post('gravar', 'DepoimentosController@gerenciadorDepoimentosGravar') -> name('depoimentos.gravar');
-   Route::delete('excluir/{id}', 'DepoimentosController@gerenciadorDepoimentosExcluir') -> name('depoimentos.excluir');
+   Route::get('editar/{id}', 'DepoimentosController@gerenciadorDepoimentosEditar') -> name('depoimentos.editar');
+   Route::patch('atualizar/{id}', 'DepoimentosController@gerenciadorDepoimentosAtualizar') -> name('depoimentos.atualizar');
+   Route::patch('atualizarlogo/{id}', 'DepoimentosController@gerenciadorDepoimentosAtualizarLogo') -> name('depoimentos.atualizar.logo');
+   Route::post('excluir/{id}', 'DepoimentosController@gerenciadorDepoimentosExcluir') -> name('depoimentos.excluir');
 });
 
 Route::prefix('gerenciador/clientes') -> group(function(){
@@ -70,7 +72,7 @@ Route::prefix('gerenciador/clientes') -> group(function(){
    Route::post('gravar', 'ClientesController@gerenciadorClientesGravar') -> name('clientes.gravar');
    Route::get('editar/{id}', 'ClientesController@gerenciadorClientesEditar') -> name('clientes.editar');
    Route::patch('atualizar/{id}', 'ClientesController@gerenciadorClientesAtualizar') -> name('clientes.atualizar');
-   Route::delete('excluir/{id}', 'SlidersController@gerenciadorClientesExcluir') -> name('clientes.excluir');
+   Route::delete('excluir/{id}', 'ClientesController@gerenciadorClientesExcluir') -> name('clientes.excluir');
 });
 
 Route::prefix('gerenciador/other') -> group(function(){

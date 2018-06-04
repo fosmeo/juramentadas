@@ -16,8 +16,8 @@
       <div class="row">
          @include('includes.inc-navbar-gerenciador')
       </div>
-
-      <div class="row" style="margin-top:70px;border:1px solid #d2d4d5">
+      <div class="row text-center">
+         @include('includes.inc-alerts')
       </div>
 
       <div class="row">

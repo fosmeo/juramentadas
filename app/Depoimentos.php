@@ -10,6 +10,7 @@ class Depoimentos extends Model
    protected $fillable = [
       'id_lang',
       'depoimentos_texto',
+      'depoimentos_imagem',
       'tab_lang',
   ];
 

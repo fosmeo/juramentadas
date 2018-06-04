@@ -2,12 +2,6 @@
 
 @section('content')
 
-   @if (!empty($errors -> all()))
-      <div class="alert alert-danger">{{ $errors -> first() }}</div>
-   @elseif (Session::has('flashmsg'))
-      <div class="alert alert-success">{{ Session::get('flashmsg') }}</div>
-   @endif
-
    <div class="row">
       <form class="col-md-12" style="float:left" method="GET" action="{{ route('sliders.inserir')}}">
          <input type="submit" class="btn btn-success col-md-12" value="Inserir Novo Slider">

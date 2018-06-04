@@ -1,11 +1,6 @@
 @extends('layouts.layout-dashboard')
 
 @section('content')
-   @if (!empty($errors -> all()))
-      <div class="alert alert-danger">{{ $errors -> first() }}</div>
-   @elseif (Session::has('flashmsg'))
-      <div class="alert alert-success">{{ Session::get('flashmsg') }}</div>
-   @endif
 
    <div class="container-fluid">
             <form method="POST" action="{{ route('clientes.atualizar', $cliente -> id) }}" enctype="multipart/form-data">

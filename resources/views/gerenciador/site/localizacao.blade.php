@@ -2,12 +2,6 @@
 
 @section('content')
 
-   @if (!empty($errors -> all()))
-      <div class="alert alert-danger">{{ $errors -> first() }}</div>
-   @elseif (Session::has('flashmsg'))
-      <div class="alert alert-success">{{ Session::get('flashmsg') }}</div>
-   @endif
-
    <div class="form-group marginsV col-md-12">
       <form class="" method="POST" action="{{ route('local.atualizar', $id) }}">
          {{csrf_field()}}
