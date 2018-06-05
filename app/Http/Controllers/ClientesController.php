@@ -9,73 +9,81 @@ use App\Http\Controllers\Controller;
 
 class ClientesController extends Controller
 {
-   public function __construct()
-   {
-      $this->middleware('auth');
-   }
+ public function __construct()
+ {
+  $this->middleware('auth');
+}
 
-   public function gerenciadorClientesLista()
-   {
-      $clientes = Cliente::orderBy('id', 'DESC') -> paginate(20);
-      return view ('gerenciador.site.clientes.lista' , ['clientes' => $clientes]);
-   }
+public function gerenciadorClientesLista()
+{
+  $clientes = Cliente::orderBy('id', 'DESC') -> paginate(20);
+  return view ('gerenciador.site.clientes.lista' , ['clientes' => $clientes]);
+}
 
-   public function gerenciadorClientesGravar(Request $request)
-   {
-      if ( $request -> hasFile('clientes_logo') ) {
-         $path = Storage::putFile('imagens/img_clientes', $request->file('clientes_logo'));
-         $string = $path;
-         $pattern = '(imagens/img_clientes/)'; // <= retira essa expressão
-         $replacement = ''; // <= substituindo por essa
-         $hashlogo = preg_replace($pattern, $replacement, $string);
-         $cliente = Cliente::insert(['clientes_site' => $request -> clientes_site, 'clientes_logo' => $hashlogo]);
-      }else{
-         $cliente = Cliente::insert($request->except('_token'));
-      }
-      \Session::flash('flashmsg', 'CLIENTE INSERIDO COM SUCESSO');
-      return redirect()->route('clientes.lista');
-   }
+public function gerenciadorClientesGravar(Request $request)
+{
 
-   public function gerenciadorClientesEditar($id)
-   {
-      $cliente = Cliente::findorfail($id);
-      return view ('gerenciador.site.clientes.editar' , ['cliente' => $cliente]);
-   }
+  $this -> validate($request,[
+    'clientes_logo' => ['required']
+  ]);
 
-   public function gerenciadorClientesAtualizar(Request $request, $id)
-   {
-      $atualizar = Cliente::findorfail($id);
+  $arquivo_novo = $request->file('clientes_logo') -> getClientOriginalName();
+  $gravar = Cliente::insert(
+    [
+      'clientes_logo' => $arquivo_novo,
+      'clientes_site' => $request -> clientes_site
+    ]);
+  
+  Storage::putFileAs('imagens/img_clientes/', $request -> file('clientes_logo'), $arquivo_novo);
+  \Session::flash('flashmsg', 'CLIENTE GRAVADO COM SUCESSO');
+  return redirect()->route('clientes.lista', ['lang' => \Session::get('languser')]);
+}
 
-      if ( $request -> hasFile('clientes_logo') ) {
+public function gerenciadorClientesAtualizar(Request $request, $id)
+{
 
-         if (!is_null( $atualizar -> clientes_logo )) {
-            $excluilogo = Storage::delete('imagens/img_clientes/'.$atualizar -> clientes_logo);
-         }
+  $atualizar = Cliente::findorfail($id);
 
-         $path = Storage::putFile('imagens/img_clientes', $request->file('clientes_logo'));
-         $string = $path;
-         $pattern = '(imagens/img_clientes/)'; // <= retira essa expressão
-         $replacement = ''; // <= substituindo por essa
-         $hashlogo = preg_replace($pattern, $replacement, $string);
-         $atualizar -> update(['clientes_site' => $request -> clientes_site , 'clientes_logo' => $hashlogo ] );
-      }else{
-         $atualizar -> update(['clientes_site' => $request -> clientes_site]);
-      }
+  if ($request -> hasFile('clientes_logo')) {
 
-      \Session::flash('flashmsg', 'CLIENTE ATUALIZADO COM SUCESSO');
-      return redirect()->route('clientes.lista');
+    $arquivo_anterior = $atualizar -> clientes_logo;
+    Storage::delete('imagens/img_clientes/'.$arquivo_anterior);
+    $arquivo_novo = $request->file('clientes_logo') -> getClientOriginalName();
+    Storage::putFileAs('imagens/img_clientes/', $request->file('clientes_logo'), $arquivo_novo);
 
-   }
+    $atualizar -> update(
+    [
+      'clientes_logo' => $arquivo_novo,
+      'clientes_site' => $request -> clientes_site
+    ]);
 
-   public function gerenciadorClientesExcluir($id)
-   {
-      $excluir = Cliente::find($id);
-      $file = $excluir -> clientes_logo;
-      $excluir -> delete();
-      $files = Storage::delete('imagens/img_clientes/'.$file);
+  }else{
+    $atualizar -> update(
+    [
+      'clientes_site' => $request -> clientes_site
+    ]);    
+  }  
 
-      \Session::flash('flashmsg', 'CLIENTE EXCLUÍDO COM SUCESSO');
-      return redirect()->route('clientes.lista');
-   }
+  \Session::flash('flashmsg', 'CLIENTE GRAVADO COM SUCESSO');
+  return redirect()->route('clientes.lista', ['lang' => \Session::get('languser')]);
+
+}
+
+public function gerenciadorClientesEditar($id)
+{
+  $cliente = Cliente::findorfail($id);
+  return view ('gerenciador.site.clientes.editar' , ['cliente' => $cliente]);
+}
+
+public function gerenciadorClientesExcluir($id)
+{
+  $excluir = Cliente::find($id);
+  $file = $excluir -> clientes_logo;
+  $excluir -> delete();
+  $files = Storage::delete('imagens/img_clientes/'.$file);
+
+  \Session::flash('flashmsg', 'CLIENTE EXCLUÍDO COM SUCESSO');
+  return redirect()->route('clientes.lista');
+}
 
 }

@@ -60,10 +60,10 @@ Route::prefix('gerenciador/depoimentos') -> group(function(){
    Route::view('inserir', 'gerenciador.site.depoimentos.inserir')-> name('depoimentos.inserir');
    Route::get('lista', 'DepoimentosController@gerenciadorDepoimentosLista') -> name('depoimentos.lista');
    Route::post('gravar', 'DepoimentosController@gerenciadorDepoimentosGravar') -> name('depoimentos.gravar');
-   Route::get('editar/{id}', 'DepoimentosController@gerenciadorDepoimentosEditar') -> name('depoimentos.editar');
-   Route::patch('atualizar/{id}', 'DepoimentosController@gerenciadorDepoimentosAtualizar') -> name('depoimentos.atualizar');
-   Route::patch('atualizarlogo/{id}', 'DepoimentosController@gerenciadorDepoimentosAtualizarLogo') -> name('depoimentos.atualizar.logo');
-   Route::post('excluir/{id}', 'DepoimentosController@gerenciadorDepoimentosExcluir') -> name('depoimentos.excluir');
+   Route::get('editar/{id_depoimento}', 'DepoimentosController@gerenciadorDepoimentosEditar') -> name('depoimentos.editar');
+   Route::patch('atualizar/{id_depoimento}', 'DepoimentosController@gerenciadorDepoimentosAtualizar') -> name('depoimentos.atualizar');
+   Route::patch('atualizarlogo/{id_depoimento}', 'DepoimentosController@gerenciadorDepoimentosAtualizarLogo') -> name('depoimentos.atualizar.logo');
+   Route::delete('excluir/{id_depoimento}', 'DepoimentosController@gerenciadorDepoimentosExcluir') -> name('depoimentos.excluir');
 });
 
 Route::prefix('gerenciador/clientes') -> group(function(){

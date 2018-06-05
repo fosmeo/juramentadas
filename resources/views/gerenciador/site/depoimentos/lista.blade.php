@@ -26,12 +26,12 @@
                      <form style="float:left" method="POST" action="{{ route('depoimentos.excluir', $depoimento -> id_depoimento) }}" onsubmit = "return confirm('Tem certeza que deseja excluir todos esses depoimentos?')">
                         {{csrf_field()}}
                         <input name="_method" type="hidden" value="DELETE">
-                        <button type="submit" class="btn btn-danger">Excluir Todos</button>
+                        <button type="submit" class="btn btn-danger">Excluir</button>
                      </form>
-               </td>
-            </tr>
-         @endforeach
-      </tbody>
-   </table>
-</div>
+                  </td>
+               </tr>
+            @endforeach
+         </tbody>
+      </table>
+   </div>
 @stop
