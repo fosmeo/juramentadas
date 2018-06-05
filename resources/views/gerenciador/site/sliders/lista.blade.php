@@ -23,11 +23,11 @@
                      <form style="float:left" method="GET" action="{{ route('sliders.editar', $slider -> id_slider) }}">
                         <button type="submit" class="btn btn-primary">Editar</button>
                      </form>
-                     {{-- <form style="float:left" method="POST" action="{{ route('sliders.excluir', $slider -> id_slider) }}" onsubmit = "return confirm('Tem certeza que deseja excluir todos esses sliders?')">
+                     <form style="float:left" method="POST" action="{{ route('sliders.excluir', $slider -> id_slider) }}" onsubmit = "return confirm('Tem certeza que deseja excluir esse slider?')">
                         {{csrf_field()}}
                         <input name="_method" type="hidden" value="DELETE">
                         <button type="submit" class="btn btn-danger">Excluir</button>
-                     </form> --}}
+                     </form>
                   </td>
                </tr>
             @endforeach

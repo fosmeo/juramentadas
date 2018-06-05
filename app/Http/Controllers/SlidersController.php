@@ -16,19 +16,86 @@ class SlidersController extends Controller
 
    public function gerenciadorSlidersLista()
    {
-    $sliders = Slider::select() -> groupBy('id_slider') -> get();
-    return view ('gerenciador.site.sliders.lista' , ['sliders' => $sliders]);
+      $sliders = Slider::select() -> groupBy('id_slider') -> get();
+      return view ('gerenciador.site.sliders.lista' , ['sliders' => $sliders]);
    }
 
 
    public function gerenciadorSlidersEditar($id_slider)
    {
 
-    $sliders = Slider::where('id_slider', '=', $id_slider) -> get();
-    $array_imagem = $sliders-> toArray();
-    $caminho_imagem = $array_imagem[0]['slider_imagem']; //pega o nome da imagem(pelo array) para enviar para a view
-    return view ('gerenciador.site.sliders.editar' , ['sliders' => $sliders, 'caminho_imagem' => $caminho_imagem, 'id_slider' => $id_slider]);
+      $sliders = Slider::where('id_slider', '=', $id_slider) -> get();
+      $array_imagem = $sliders-> toArray();
+      $caminho_imagem = $array_imagem[0]['slider_imagem']; //pega o nome da imagem(pelo array) para enviar para a view
+      return view ('gerenciador.site.sliders.editar' , ['sliders' => $sliders, 'caminho_imagem' => $caminho_imagem, 'id_slider' => $id_slider]);
    }
+
+   public function gerenciadorSlidersGravar(Request $request)
+   {
+
+      // $this -> validate($request,[
+      //   'slider_imagem' => ['required']
+      // ]);
+
+      if($request -> hasfile('slider_imagem')){
+         $arquivo_novo = $request->file('slider_imagem') -> getClientOriginalName();
+         Storage::putFileAs('imagens/img_sliders/', $request -> file('slider_imagem'), $arquivo_novo);
+      }else{
+         $arquivo_novo = null;
+      }
+
+      $id_ultimo = Slider::select('id_slider') -> orderby('id_slider', 'DESC') -> first();
+
+      if(is_null($id_ultimo)){
+         $id_proximo = 1;
+      }else{
+         $id_proximo = $id_ultimo -> id_slider + 1;
+      }
+
+      $gravar = Slider::insert([
+         [
+            'id_slider' => $id_proximo,
+            'slider_titulo' => $request -> slider_titulo_pt,
+            'slider_texto' => $request -> slider_texto_pt,
+            'slider_botao' => $request -> slider_botao_pt,
+            'slider_link_botao' => $request -> slider_link_botao_pt,
+            'slider_imagem' => $arquivo_novo,
+            'tab_lang' => 'pt'
+         ],
+         [
+            'id_slider' => $id_proximo,
+            'slider_titulo' => $request -> slider_titulo_en,
+            'slider_texto' => $request -> slider_texto_en,
+            'slider_botao' => $request -> slider_botao_en,
+            'slider_link_botao' => $request -> slider_link_botao_en,
+            'slider_imagem' => $arquivo_novo,
+            'tab_lang' => 'en'
+         ],
+         [
+            'id_slider' => $id_proximo,
+            'slider_titulo' => $request -> slider_titulo_es,
+            'slider_texto' => $request -> slider_texto_es,
+            'slider_botao' => $request -> slider_botao_es,
+            'slider_link_botao' => $request -> slider_link_botao_es,
+            'slider_imagem' => $arquivo_novo,
+            'tab_lang' => 'es'
+         ],
+         [
+            'id_slider' => $id_proximo,
+            'slider_titulo' => $request -> slider_titulo_it,
+            'slider_texto' => $request -> slider_texto_it,
+            'slider_botao' => $request -> slider_botao_it,
+            'slider_link_botao' => $request -> slider_link_botao_it,
+            'slider_imagem' => $arquivo_novo,
+            'tab_lang' => 'it'
+         ]
+      ]);
+
+
+      \Session::flash('flashmsg', 'SLIDERS GRAVADOS COM SUCESSO');
+      return redirect()->route('sliders.lista');
+   }
+
 
    public function gerenciadorSlidersAtualizar(Request $request, $id)
    {
@@ -54,36 +121,16 @@ class SlidersController extends Controller
       return redirect()->route('sliders.exibir', ['lang' => \Session::get('lang')]);
    }
 
-   public function gerenciadorSlidersGravar(Request $request)
-   {
-    $this -> validate($request,[
-        'slider_imagem' => ['required']
-     ]);
 
-      $hasfile = $request -> hasFile('slider_imagem');
 
-      if($hasfile){
-         $arquivo_novo = $request->file('slider_imagem') -> getClientOriginalName();
-         Storage::putFileAs('imagens/img_sliders/', $request -> file('slider_imagem'), $arquivo_novo);
-         $gravar = Slider::insert(['slider_imagem' => $arquivo_novo]);
-      }else{
-         $gravar = Slider::insert(['slider_pt' => $request -> slider_pt, 'slider_en' => $request -> slider_en, 'slider_es' => $request -> slider_es, 'slider_it' => $request -> slider_it]);
-      }
+   public function gerenciadorSlidersExcluir($id_slider){
 
-      \Session::flash('flashmsg', 'SLIDERS GRAVADOS COM SUCESSO');
-      return redirect()->route('sliders.exibir', ['lang' => \Session::get('lang')]);
-   }
-
-   public function gerenciadorSlidersExcluir($id){
-
-      $slider_excluir = Slider::findorfail($id);
-      $arquivo_existe = $slider_excluir -> slider_imagem;
-      if($arquivo_existe){
-         Storage::delete('imagens/img_sliders/'.$arquivo_existe);
-      }
-      $slider_excluir -> delete();
+      $slider_imagem = Slider::select('slider_imagem') -> where('id_slider', '=', $id_slider) -> first();
+      $exclui_imagem = $slider_imagem -> slider_imagem;
+      Storage::delete('imagens/img_sliders/'.$exclui_imagem);
+      $slider_excluir = Slider::where('id_slider', '=', $id_slider) -> delete();
       \Session::flash('flashmsg', 'SLIDER EXCLUÍDO COM SUCESSO');
-      return redirect()->route('sliders.exibir', ['lang' => \Session::get('lang')]);
-   }
+      return redirect()->route('sliders.lista');
 
+   }
 }
