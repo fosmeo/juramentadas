@@ -11,7 +11,7 @@
                <table class="col-md-12">
                   <th>ID</th>
                   <th>Logo</th>
-                  <th>Site</th>
+                  <th>Site (USAR HTTP://)</th>
                   <tbody>
                         <tr class="table">
                            <td>{{$cliente -> id}}</td>

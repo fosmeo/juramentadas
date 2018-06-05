@@ -9,8 +9,10 @@
    </div>
 
    <div class="form-group marginsV col-md-12">
-      @foreach ($sliders as $slider)
-         <form class="form-group" enctype="multipart/form-data" method="POST" action="{{ route('sliders.atualizar', $slider -> id) }}">
+      <form class="form-group" enctype="multipart/form-data" method="POST" action="{{ route('sliders.atualizar', $id_slider) }}">
+
+         @foreach ($sliders as $slider)
+
             {{csrf_field()}}
             <input name="_method" type="hidden" value="PATCH">
             <label>Slider Título</label>
@@ -23,7 +25,9 @@
             <img style="width:200px;" src="{{ asset('storage/imagens/img_sliders/'.$slider -> slider_imagem) }}" >
             <input type="file" name="slider_imagem">
             <button type="submit" class="col-md-12 btn btn-primary">Atualizar</button>
-         </form>
-      @endforeach
+
+         @endforeach
+
+      </form>
    </div>
 @stop

@@ -14,19 +14,20 @@ class SlidersController extends Controller
       $this->middleware('auth');
    }
 
-   public function gerenciadorSlidersExibir($languser)
+   public function gerenciadorSlidersLista()
+   {
+    $sliders = Slider::select() -> groupBy('id_slider') -> get();
+    return view ('gerenciador.site.sliders.lista' , ['sliders' => $sliders]);
+   }
+
+
+   public function gerenciadorSlidersEditar($id_slider)
    {
 
-      $slider = Slider::where('tab_lang', 'like', $languser) -> get();
-      
-      if($slider -> isEmpty()){
-        \Session::flash('flashmsg', 'NÃO HÁ SLIDERS NO IDIOMA "'. $languser .'" A SEREM EXIBIDOS');
-        $id='';
-        return view ('gerenciador.site.sliders.sliders' , ['sliders' => $slider, 'id' => $id]);
-      }else{
-        $id = $slider[0]['id']; // pega id do registro
-        return view ('gerenciador.site.sliders.sliders' , ['sliders' => $slider, 'id' => $id]);
-      }      
+    $sliders = Slider::where('id_slider', '=', $id_slider) -> get();
+    $array_imagem = $sliders-> toArray();
+    $caminho_imagem = $array_imagem[0]['slider_imagem']; //pega o nome da imagem(pelo array) para enviar para a view
+    return view ('gerenciador.site.sliders.editar' , ['sliders' => $sliders, 'caminho_imagem' => $caminho_imagem, 'id_slider' => $id_slider]);
    }
 
    public function gerenciadorSlidersAtualizar(Request $request, $id)

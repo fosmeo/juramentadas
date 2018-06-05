@@ -14,7 +14,7 @@
             <li><a href="{!! route('gerenciador.navbar', \Session::get('languser')) !!}">Menu</a></li>
             <li><a href="{!! route('gerenciador.header', \Session::get('languser')) !!}">Header</a></li>
             <li><a href="{!! route('gerenciador.footer', \Session::get('languser')) !!}">Footer</a></li>
-            <li><a href="{!! route('sliders.exibir', \Session::get('languser')) !!}">Slider</a></li>
+            <li><a href="{!! route('sliders.lista') !!}">Editar Sliders</a></li>
         </ul>
         <hr>
         <ul class="">

@@ -49,11 +49,12 @@ Route::prefix('gerenciador/update') -> group(function(){
 
 Route::prefix('gerenciador/sliders') -> group(function(){
    Route::view('inserir', 'gerenciador.site.sliders.inserir')-> name('sliders.inserir');
-   Route::get('{lang}', 'SlidersController@gerenciadorSlidersExibir') -> name('sliders.exibir');
+   Route::get('lista', 'SlidersController@gerenciadorSlidersLista') -> name('sliders.lista');
    Route::post('gravar', 'SlidersController@gerenciadorSlidersGravar') -> name('sliders.gravar');
-   Route::get('editar/{id}', 'SlidersController@gerenciadorSlidersEditar') -> name('sliders.editar');
-   Route::patch('atualizar/{id}', 'SlidersController@gerenciadorSlidersAtualizar') -> name('sliders.atualizar');
-   Route::delete('excluir/{id}', 'SlidersController@gerenciadorSlidersExcluir') -> name('sliders.excluir');
+   Route::get('editar/{id_slider}', 'SlidersController@gerenciadorSlidersEditar') -> name('sliders.editar');
+   Route::patch('atualizar/{id_slider}', 'SlidersController@gerenciadorSlidersAtualizar') -> name('sliders.atualizar');
+   Route::patch('atualizarimagem/{id_slider}', 'DepoimentosController@gerenciadorsliderAtualizarImagem') -> name('slider.atualizar.imagem');
+   Route::delete('excluir/{id_slider}', 'SlidersController@gerenciadorSlidersExcluir') -> name('sliders.excluir');
 });
 
 Route::prefix('gerenciador/depoimentos') -> group(function(){
