@@ -12,7 +12,7 @@
    <br><br>
 
    <form class="form-group col-md-12" method="POST" action="{{ route( 'sliders.atualizar.imagem', $id_slider ) }}" enctype="multipart/form-data">
-      <input type="file" name="slider_imagem">
+      <input type="file" name="slider_imagem" style="float:left">
       {{csrf_field()}}
       <input name="_method" type="hidden" value="PATCH">
       <button type="submit" class="btn btn-primary">Atualizar Imagem</button>
@@ -27,11 +27,13 @@
             <input name="_method" type="hidden" value="PATCH">
             <h4 class="text-center">IDIOMA : {{ $slider -> tab_lang}}</h4>
             <label>Slider Título</label>
-            <input type="text" value="{{ $slider -> slider_titulo }}" class="form-control" name="slider_titulo">
+            <input type="text" value="{{ $slider -> slider_titulo }}" class="form-control" name="slider_titulo[]">
             <label>Slider Texto</label>
-            <input type="text" value="{{ $slider -> slider_texto }}" class="form-control" name="slider_texto">
+            <input type="text" value="{{ $slider -> slider_texto }}" class="form-control" name="slider_texto[]">
             <label>Slider Botão</label>
-            <input type="text" value="{{ $slider -> slider_botao }}" class="form-control" name="slider_botao">
+            <input type="text" value="{{ $slider -> slider_botao }}" class="form-control" name="slider_botao[]">
+            <label>Slider Link Botão</label>
+            <input type="text" value="{{ $slider -> slider_link_botao }}" class="form-control" name="slider_link_botao[]">
             <br>
          @endforeach
 

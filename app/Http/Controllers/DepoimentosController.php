@@ -13,20 +13,20 @@ class DepoimentosController extends Controller
     $this->middleware('auth');
   }
 
-  public function gerenciadorDepoimentosEditar($id_depoimento)
-  {
-    $depoimentos = Depoimentos::where('id_depoimento', '=', $id_depoimento) -> get();
-    $array_imagem = $depoimentos-> toArray();
-    $caminho_imagem = $array_imagem[0]['depoimentos_imagem']; //pega o nome da imagem(pelo array) para enviar para a view
-    return view ('gerenciador.site.depoimentos.editar' , ['depoimentos' => $depoimentos, 'caminho_imagem' => $caminho_imagem, 'id_depoimento' => $id_depoimento]);
-  }
-
   public function gerenciadorDepoimentosLista()
   {
 
     $depoimentos = Depoimentos::select() -> groupBy('id_depoimento') -> get();
     return view ('gerenciador.site.depoimentos.lista' , ['depoimentos' => $depoimentos]);
   }
+
+  public function gerenciadorDepoimentosEditar($id_depoimento)
+  {
+    $depoimentos = Depoimentos::where('id_depoimento', '=', $id_depoimento) -> get();
+    $array_imagem = $depoimentos-> toArray();
+    $caminho_imagem = $array_imagem[0]['depoimentos_imagem']; //pega o nome da imagem(pelo array) para enviar para a view
+    return view ('gerenciador.site.depoimentos.editar' , ['depoimentos' => $depoimentos, 'caminho_imagem' => $caminho_imagem, 'id_depoimento' => $id_depoimento]);
+  }  
 
   public function gerenciadorDepoimentosAtualizarLogo(Request $request, $id_depoimento)
   {
@@ -45,13 +45,11 @@ class DepoimentosController extends Controller
       $exclui_logo = $depoimento_logo -> depoimentos_imagem;
       Storage::delete('imagens/img_depoimentos/'.$exclui_logo);
     // 
-
     
     $atualizar_logo = Depoimentos::where('id_depoimento', '=', $id_depoimento) -> update(['depoimentos_imagem' => $arquivo_novo]);
 
     \Session::flash('flashmsg', 'LOGO ATUALIZADO COM SUCESSO');
-    $depoimentos = Depoimentos::select() -> groupBy('id_depoimento') -> get();
-    return view('gerenciador.site.depoimentos.lista', ['depoimentos' => $depoimentos]);
+    return redirect()->route('depoimentos.lista');
 
   }
 
@@ -65,7 +63,7 @@ class DepoimentosController extends Controller
 
     \Session::flash('flashmsg', 'DEPOIMENTOS ATUALIZADOS COM SUCESSO');
     $depoimentos = Depoimentos::select() -> groupBy('id_depoimento') -> get();
-    return view('gerenciador.site.depoimentos.lista', ['depoimentos' => $depoimentos]);
+    return redirect()->route('depoimentos.lista');
   }
 
 
@@ -117,7 +115,7 @@ class DepoimentosController extends Controller
 
     Storage::putFileAs('imagens/img_depoimentos/', $request -> file('depoimentos_imagem'), $arquivo_novo);
     \Session::flash('flashmsg', 'DEPOIMENTOS GRAVADOS COM SUCESSO');
-    return redirect()->route('depoimentos.lista', ['lang' => \Session::get('languser')]);
+    return redirect()->route('depoimentos.lista');
   }
 
   public function gerenciadorDepoimentosExcluir($id_depoimento){
@@ -127,6 +125,6 @@ class DepoimentosController extends Controller
     Storage::delete('imagens/img_depoimentos/'.$exclui_logo);
     $depoimento_excluir = Depoimentos::where('id_depoimento', '=', $id_depoimento) -> delete();
     \Session::flash('flashmsg', 'DEPOIMENTOS EXCLUÍDOS COM SUCESSO');
-    return redirect()->route('depoimentos.lista', ['lang' => \Session::get('languser')]);
+    return redirect()->route('depoimentos.lista');
   }
 }

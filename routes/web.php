@@ -53,7 +53,7 @@ Route::prefix('gerenciador/sliders') -> group(function(){
    Route::post('gravar', 'SlidersController@gerenciadorSlidersGravar') -> name('sliders.gravar');
    Route::get('editar/{id_slider}', 'SlidersController@gerenciadorSlidersEditar') -> name('sliders.editar');
    Route::patch('atualizar/{id_slider}', 'SlidersController@gerenciadorSlidersAtualizar') -> name('sliders.atualizar');
-   Route::patch('atualizarimagem/{id_slider}', 'DepoimentosController@gerenciadorsliderAtualizarImagem') -> name('sliders.atualizar.imagem');
+   Route::patch('atualizarimagem/{id_slider}', 'DepoimentosController@gerenciadorSliderAtualizarImagem') -> name('sliders.atualizar.imagem');
    Route::delete('excluir/{id_slider}', 'SlidersController@gerenciadorSlidersExcluir') -> name('sliders.excluir');
 });
 
