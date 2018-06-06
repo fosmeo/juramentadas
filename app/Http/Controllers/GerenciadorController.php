@@ -24,7 +24,9 @@ class GerenciadorController extends Controller
 
 public function gerenciadorIndex()
 {
-  return view('setidioma');
+  // return view('setidioma');
+  \Session::put('languser','pt');
+  return view('dashboard');
 }
 
 public function gerenciadorsetIdioma($languser)
@@ -32,9 +34,11 @@ public function gerenciadorsetIdioma($languser)
   \Session::put('languser',$languser);
   return view('dashboard');
 }
+
 public function gerenciadorInicial($languser)
 {
-  if ($languser == 'pt'){
+
+ if ($languser == 'pt'){
    $inicial = Locale_pt::orderby('textos_posicao') -> get();
  }elseif ($languser == 'en'){
    $inicial = Locale_en::orderby('textos_posicao') -> get();
@@ -66,29 +70,29 @@ public function gerenciadorCartas($languser)
 public function gerenciadorLocalizacao($languser)
 {
   $local = Localizacao::where('tab_lang', 'like', $languser) -> get();
-      $id = $local[0]['id']; // pega id do registro
-      return view ('gerenciador.site.localizacao' , ['locales' => $local, 'id' => $id]);
-    }
+  $id = $local[0]['id']; // pega id do registro
+  return view ('gerenciador.site.localizacao' , ['locales' => $local, 'id' => $id]);
+}
 
-    public function gerenciadorNavbar($languser)
-    {
-      $navbars = Navbar::where('tab_lang', 'like', $languser) -> get();
-      $id = $navbars[0]['id']; // pega id do registro
-      return view ('gerenciador.site.navbar' , ['navbars' => $navbars, 'id' => $id]);
-    }
+public function gerenciadorNavbar($languser)
+{
+  $navbars = Navbar::where('tab_lang', 'like', $languser) -> get();
+  $id = $navbars[0]['id']; // pega id do registro
+  return view ('gerenciador.site.navbar' , ['navbars' => $navbars, 'id' => $id]);
+}
 
-    public function gerenciadorHeader($languser)
-    {
-      $headers = Header::where('tab_lang', 'like', $languser) -> get();
-      $id = $headers[0]['id']; // pega id do registro
-      return view ('gerenciador.site.header' , ['headers' => $headers, 'id' => $id]);
-    }
+public function gerenciadorHeader($languser)
+{
+  $headers = Header::where('tab_lang', 'like', $languser) -> get();
+  $id = $headers[0]['id']; // pega id do registro
+  return view ('gerenciador.site.header' , ['headers' => $headers, 'id' => $id]);
+}
 
-    public function gerenciadorFooter($languser)
-    {
-      $footer = Footer::where('tab_lang', 'like', $languser) -> get();
-      $id = $footer[0]['id']; // pega id do registro
-      return view ('gerenciador.site.footer' , ['footers' => $footer, 'id' => $id]);
-    }
+public function gerenciadorFooter($languser)
+{
+  $footer = Footer::where('tab_lang', 'like', $languser) -> get();
+  $id = $footer[0]['id']; // pega id do registro
+  return view ('gerenciador.site.footer' , ['footers' => $footer, 'id' => $id]);
+}
 
   }

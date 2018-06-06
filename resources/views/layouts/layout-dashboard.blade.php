@@ -14,15 +14,15 @@
    <div class="container-fluid">
 
       <div class="row">
-         @include('includes.inc-navbar-gerenciador')
+         @include('includes.gerenciador.inc-navbar-gerenciador')
       </div>
       <div class="row text-center">
-         @include('includes.inc-alerts')
+         @include('includes.gerenciador.inc-alerts')
       </div>
 
       <div class="row">
          <div class="col-md-2" style="padding:10px; margin-right:0px;border:1px solid #d2d4d5">
-            @include('includes.inc-sidebar-gerenciador')
+            @include('includes.gerenciador.inc-sidebar-gerenciador')
          </div>
          <div class="col-md-10" style="padding:10px; margin-left:0px;border:1px solid #d2d4d5">
             @yield('content')

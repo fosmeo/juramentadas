@@ -10,9 +10,8 @@
    <div class="container-fluid">
 
       <header id="main" class="row headers">
-      LANG: {!! \Session::get('lang') !!}
-      LANGUSER: {!! \Session::get('languser') !!}
-
+         LANG: {!! \Session::get('lang') !!}
+         LANGUSER: {!! \Session::get('languser') !!}
          @include('includes.inc-header')
       </header>
 
@@ -25,8 +24,28 @@
       </header>
 
       <div id="main" class="row">
-         @yield('content')
-      </div>
+         <div class="page-wrapper">
+
+            <!-- Painel Section -->
+            <section class="cta">
+            </section>
+            <!-- SERVICOS Section -->
+            <section class="feature-section section bg-gray">
+            </section>
+            <!-- EMPRESA Section -->
+            <section class="service-tab-section section">
+            </section>
+            <!-- ORCAMENTOS AND FAQ Section -->
+            <section class="appoinment-section section">
+            </section>
+            <!-- End Contact Section -->
+            </div>
+            <!--End pagewrapper-->
+            <!--Scroll to top-->
+            <div class="scroll-to-top scroll-to-target" data-target=".header-top">
+               <span class="icon fa fa-angle-up"></span>
+            </div>
+         </div>
 
       <footer class="footer-main">
          @include('includes.inc-footer')

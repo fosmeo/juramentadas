@@ -1,7 +1,9 @@
 <!--footer-main-->
 <div class="footer-top">
    <div class="container">
+
       <div class="row">
+
          <div class="col-md-3 col-sm-5 col-xs-11">
             <div class="about-widget">
                <div class="footer-logo">
@@ -36,6 +38,7 @@
                </ul>
             </div>
          </div>
+
          <div class="col-md-3 col-sm-5 col-xs-11">
             <div class="about-widget">
                <div class="footer-logo">
@@ -70,6 +73,7 @@
                </ul>
             </div>
          </div>
+
          <div class="col-md-3 col-sm-5 col-xs-11">
             <h6>Services</h6>
             <ul class="menu-link">
@@ -77,66 +81,28 @@
                   <a href="#">
                   <i class="fa fa-angle-right" aria-hidden="true"></i>Orthopadic Liabilities</a>
                </li>
-                  <li>
-                     <a href="#">
-                        <i class="fa fa-angle-right" aria-hidden="true"></i>Dental Clinic</a>
-                     </li>
-                     <li>
-                        <a href="#">
-                           <i class="fa fa-angle-right" aria-hidden="true"></i>Dormamu Clinic</a>
-                        </li>
-                        <li>
-                           <a href="#">
-                              <i class="fa fa-angle-right" aria-hidden="true"></i>Psycological Clinic</a>
-                           </li>
-                           <li>
-                              <a href="#">
-                                 <i class="fa fa-angle-right" aria-hidden="true"></i>Gynaecological Clinic</a>
-                              </li>
-                           </ul>
-                        </div>
+               <li>
+                  <a href="#">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i>Dental Clinic</a>
+               </li>
+               <li>
+                  <a href="#">
+                     <i class="fa fa-angle-right" aria-hidden="true"></i>Dormamu Clinic</a>
+               </li>
+               <li>
+                  <a href="#">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i>Psycological Clinic</a>
+               </li>
+               <li>
+                  <a href="#">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i>Gynaecological Clinic</a>
+               </li>
+            </ul>
+         </div>
 
-
-                        <div class="col-md-4 col-sm-6 col-xs-12">
-                           <div class="social-links">
-                              <h6>Recent Posts</h6>
-                              <ul>
-                                 <li class="item">
-                                    <div class="media">
-                                       <div class="media-left">
-                                          <a href="#">
-                                             <img class="media-object" src="images/blog/post-thumb-small.jpg" alt="post-thumb">
-                                          </a>
-                                       </div>
-                                       <div class="media-body">
-                                          <h4 class="media-heading"><a href="#">Post Title</a></h4>
-                                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, dolorem.</p>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="item">
-                                    <div class="media">
-                                       <div class="media-left">
-                                          <a href="#">
-                                             <img class="media-object" src="images/blog/post-thumb-small.jpg" alt="post-thumb">
-                                          </a>
-                                       </div>
-                                       <div class="media-body">
-                                          <h4 class="media-heading">
-                                             <a href="#">Post Title</a>
-                                          </h4>
-                                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, dolorem.</p>
-                                       </div>
-                                    </div>
-                                 </li>
-                              </ul>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-
-
+      </div>
+   </div>
+</div>
 
                   <div class="footer-bottom">
                      <div class="container clearfix">

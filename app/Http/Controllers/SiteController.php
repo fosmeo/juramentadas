@@ -11,7 +11,8 @@ use App\Localizacao;
 use App\Footer;
 use App\Header;
 use App\Navbar;
-use App\Depoimento;
+use App\Slider;
+use App\Depoimentos;
 
 use Illuminate\Http\Request;
 
@@ -31,8 +32,9 @@ class SiteController extends Controller
       $menu = $this -> TraduzMenu($lang);
       $headerTop = $this -> TraduzHeaderTop($lang);
       $headerUpper = $this -> TraduzHeaderUpper($lang);
-      $footers = $this -> TraduzFooter();
-      // $depoimentos = $this -> TraduzDepoimentos();
+      $footers = $this -> TraduzFooter($lang);
+      $sliders = $this -> TraduzSliders($lang);
+      $depoimentos = $this -> TraduzDepoimentos();
 
       // print_r($menu);
       // echo $headerTop;
@@ -40,12 +42,25 @@ class SiteController extends Controller
       // echo $headerUpperTel;
 
       return view('welcome',
-      ['menu' => $menu,
+      [
+      'menu' => $menu,
       'headerTop' => $headerTop,
       'headerUpper' => $headerUpper,
       'footer' => $footers,
-      // 'depoimentos' => $depoimentos,
+      'sliders' => $sliders,
+      'depoimentos' => $depoimentos,
       ]);
+   }
+
+   public function SitesetIdioma($lang)
+   {
+      \Session::put('lang', $lang);
+      return redirect('/');
+   }
+
+   public function TraduzSliders($lang){
+      $sliders = Slider::where('tab_lang', 'like', $lang) -> get();
+      return $sliders;
    }
 
    public function TraduzMenu($lang){
@@ -78,15 +93,11 @@ class SiteController extends Controller
    public function TraduzDepoimentos(){
       // GAMBIARRA DE LANG
       $lang = \Session::get('lang');
-      $depoimentos = Depoimento::where('tab_lang', 'like', $lang) -> get();
+      $depoimentos = Depoimentos::where('tab_lang', 'like', $lang) -> get();
       return $depoimentos;
    }
 
-   public function SitesetIdioma($lang)
-   {
-      \Session::put('lang', $lang);
-      return redirect('/');
-   }
+
 
     public function SiteSobre(){
 
