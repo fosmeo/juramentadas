@@ -196,7 +196,7 @@ li {
 }
 
 .section {
-  padding: 100px 0;
+  padding: 40px 0;
 }
 
 .pb-0 {
@@ -1727,7 +1727,7 @@ li {
 .testimonial-section {
   position: relative;
   background-size: cover !important;
-  padding: 110px 0px;
+  padding: 50px 0px;
   background-repeat: no-repeat !important;
 }
 
@@ -1801,7 +1801,7 @@ li {
 }
 
 .testimonial-section .inner-box .image-box img {
-  width: 90px;
+  width: 150px;
   height: 90px;
   border-radius: 50%;
 }

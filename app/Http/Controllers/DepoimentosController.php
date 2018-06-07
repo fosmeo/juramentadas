@@ -26,11 +26,11 @@ class DepoimentosController extends Controller
     $array_imagem = $depoimentos-> toArray();
     $caminho_imagem = $array_imagem[0]['depoimentos_imagem']; //pega o nome da imagem(pelo array) para enviar para a view
     return view ('gerenciador.site.depoimentos.editar' , ['depoimentos' => $depoimentos, 'caminho_imagem' => $caminho_imagem, 'id_depoimento' => $id_depoimento]);
-  }  
+  }
 
   public function gerenciadorDepoimentosAtualizarLogo(Request $request, $id_depoimento)
   {
-    
+
     $this -> validate($request,[
       'depoimentos_imagem' => ['required']
     ]);
@@ -44,8 +44,8 @@ class DepoimentosController extends Controller
       $depoimento_logo = Depoimentos::select('depoimentos_imagem') -> where('id_depoimento', '=', $id_depoimento) -> first();
       $exclui_logo = $depoimento_logo -> depoimentos_imagem;
       Storage::delete('imagens/img_depoimentos/'.$exclui_logo);
-    // 
-    
+    //
+
     $atualizar_logo = Depoimentos::where('id_depoimento', '=', $id_depoimento) -> update(['depoimentos_imagem' => $arquivo_novo]);
 
     \Session::flash('flashmsg', 'LOGO ATUALIZADO COM SUCESSO');
@@ -56,10 +56,10 @@ class DepoimentosController extends Controller
   public function gerenciadorDepoimentosAtualizar(Request $request, $id_depoimento)
   {
     // RECEBE ARRAY INPUT DO REQUEST 0 ='pt' | 1 = 'en' | 2 = 'es' | 3 = 'it'
-      Depoimentos::where('tab_lang', 'LIKE', 'pt', 'AND', 'id_depoimento', '=', $id_depoimento) -> update(['depoimentos_texto' => $request -> depoimentos_texto[0]]);  
-      Depoimentos::where('tab_lang', 'LIKE', 'en', 'AND', 'id_depoimento', '=', $id_depoimento) -> update(['depoimentos_texto' => $request -> depoimentos_texto[1]]);
-      Depoimentos::where('tab_lang', 'LIKE', 'es', 'AND', 'id_depoimento', '=', $id_depoimento) -> update(['depoimentos_texto' => $request -> depoimentos_texto[2]]);
-      Depoimentos::where('tab_lang', 'LIKE', 'it', 'AND', 'id_depoimento', '=', $id_depoimento) -> update(['depoimentos_texto' => $request -> depoimentos_texto[3]]);
+      Depoimentos::where(['id_depoimento' => $id_depoimento, 'tab_lang' => 'pt']) -> update(['depoimentos_texto' => $request -> depoimentos_texto[0]]);
+      Depoimentos::where(['id_depoimento' => $id_depoimento, 'tab_lang' => 'en']) -> update(['depoimentos_texto' => $request -> depoimentos_texto[1]]);
+      Depoimentos::where(['id_depoimento' => $id_depoimento, 'tab_lang' => 'es']) -> update(['depoimentos_texto' => $request -> depoimentos_texto[2]]);
+      Depoimentos::where(['id_depoimento' => $id_depoimento, 'tab_lang' => 'it']) -> update(['depoimentos_texto' => $request -> depoimentos_texto[3]]);
 
     \Session::flash('flashmsg', 'DEPOIMENTOS ATUALIZADOS COM SUCESSO');
     $depoimentos = Depoimentos::select() -> groupBy('id_depoimento') -> get();
@@ -78,9 +78,9 @@ class DepoimentosController extends Controller
     if(is_null($id_ultimo)){
       $id_proximo = 1;
     }else{
-      $id_proximo = $id_ultimo -> id_depoimento + 1;  
+      $id_proximo = $id_ultimo -> id_depoimento + 1;
     }
-    
+
     $arquivo_novo = $request->file('depoimentos_imagem') -> getClientOriginalName();
     $gravar = Depoimentos::insert([
       [

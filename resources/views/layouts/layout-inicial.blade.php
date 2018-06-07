@@ -39,13 +39,18 @@
                @include('includes.inc-sobre')
             </section>
 
+            <!-- DEPOIMENTOS Section -->
+            <section class="testimonial-section" style="background: url(images/testimonials/1.jpg);">
+               @include('includes.inc-depoimentos')
+            </section>
+
             <!-- CIDADANIA Section -->
-            <section class="feature-section section bg-gray">
+            <section class="feature-section section ">
                @include('includes.inc-cidadania')
             </section>
 
             <!-- ORCAMENTOS AND FAQ Section -->
-            <section class="appoinment-section section">
+            <section class="appoinment-section section bg-gray">
                <div class="container">
                   <div class="row">
                         @include('includes.inc-FAQ')
