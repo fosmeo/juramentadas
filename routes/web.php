@@ -7,17 +7,17 @@ Auth::routes();
 
 Route::get('/', 'SiteController@Index') -> name('welcome');
 
-Route::get('idioma', 'GerenciadorController@index') -> name('verificar.idioma');
+Route::get('idioma', 'GerenciadorController@indedddx') -> name('verificar.idioma');
 
 Route::prefix('site') -> group(function(){
    Route::get('{lang}', 'SiteController@SitesetIdioma') -> name('site.setidioma');
-   Route::get('sobre/{lang}', 'SiteController@SiteSobre') -> name('site.sobre');
    Route::get('servicos/{lang}', 'SiteController@SiteServicos') -> name('site.servicos');
    Route::get('idiomas/{lang}', 'SiteController@SiteIdiomas') -> name('site.idiomas');
-   Route::get('quemsomos/{lang}', 'SiteController@SiteQuemSomos') -> name('site.quemsomos');
    Route::get('parceiros/{lang}', 'SiteController@SiteParceiros') -> name('site.parceiros');
    Route::get('cartas/{lang}', 'SiteController@SiteCartas') -> name('site.cartas');
    Route::get('localizacao/{lang}', 'SiteController@SiteLocalizacao') -> name('site.localizacao');
+   // Route::get('sobre/{lang}', 'SiteController@SiteSobre') -> name('site.sobre');
+   // Route::get('quemsomos/{lang}', 'SiteController@SiteQuemSomos') -> name('site.quemsomos');
 });
 
 Route::prefix('gerenciador') -> group(function(){

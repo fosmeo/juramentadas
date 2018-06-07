@@ -14,16 +14,13 @@
                   <a href="{!! route('site.idiomas', session() -> get('lang')) !!}"><i class="fa fa-angle-right" aria-hidden="true"></i>{!! $menu[1] !!}</a>
                </li>
                <li>
-                  <a href="{!! route('site.quemsomos', session() -> get('lang')) !!}"><i class="fa fa-angle-right" aria-hidden="true"></i>{!! $menu[2] !!}</a>
-               </li>
-               <li>
-                  <a href="{!! route('site.parceiros', session() -> get('lang')) !!}"><i class="fa fa-angle-right" aria-hidden="true"></i>{!! $menu[3] !!}</a>
+                  <a href="{!! route('site.parceiros', session() -> get('lang')) !!}"><i class="fa fa-angle-right" aria-hidden="true"></i>{!! $menu[2] !!}</a>
                </li>
                <li>
                   <a href="{!! route('site.cartas', session() -> get('lang')) !!}"><i class="fa fa-angle-right" aria-hidden="true"></i>{!! $menu[4] !!}</a>
                </li>
                <li>
-                  <a href="{!! route('site.localizacao', session() -> get('lang')) !!}"><i class="fa fa-angle-right" aria-hidden="true"></i>{!! $menu[5] !!}</a>
+                  <a href="{!! route('site.localizacao', session() -> get('lang')) !!}"><i class="fa fa-angle-right" aria-hidden="true"></i>{!! $menu[3] !!}</a>
                </li>
             </ul>
          </div>

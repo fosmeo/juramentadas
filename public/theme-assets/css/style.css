@@ -565,9 +565,11 @@ li {
   position: relative;
 }
 
+
 .hero-slider .slider-item:before {
   position: absolute;
   background: rgba(0, 0, 0, 0.5);
+  opacity:0.5;
   content: '';
   top: 0;
   height: 100%;
@@ -1738,13 +1740,16 @@ li {
   content: '';
   width: 100%;
   height: 100%;
-  background: rgba(72, 189, 197, 0.7);
+  /*background: rgba(72, 189, 197, 0.7);*/
+  /*background:rgba(55, 171, 126, 0.2);*/
+  /*background:rgba(90, 169, 0, 0.2);*/
+  background:rgba(250, 250, 250, 0.2);
 }
 
 .testimonial-section .section-title h3 {
   position: relative;
   padding-bottom: 30px;
-  color: #ffffff;
+  color: #222222;
 }
 
 .testimonial-section .section-title h3 span {
@@ -1762,8 +1767,9 @@ li {
 
 .testimonial-section .inner-box {
   position: relative;
-  padding: 60px 30px;
+  padding: 50px 30px;
   background: #fff;
+  opacity:0.8;
   margin-top: 50px;
   margin-bottom: 20px;
   margin-left: 20px;

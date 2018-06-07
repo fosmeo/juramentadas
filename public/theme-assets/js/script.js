@@ -153,7 +153,7 @@
 		autoplay: true,
 		slidesToShow: 2,
 		dots: true,
-		slidesToScroll: 2,
+		slidesToScroll: 1,
 		responsive: [
 			{
 				breakpoint: 991,

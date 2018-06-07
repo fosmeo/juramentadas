@@ -7,7 +7,7 @@
 
    @foreach ($sliders as $slider)
 
-   <div class="slider-item slide1" style="background-image:url({{ asset('storage/imagens/img_sliders/'.$slider -> slider_imagem) }}">
+   <div class="slider-item" style="background-image:url({{ asset('storage/imagens/img_sliders/'.$slider -> slider_imagem) }}">
       <div class="container">
          <div class="row">
             <div class="col-12">

@@ -20,16 +20,13 @@
             <a href="{!! route('site.idiomas', session() -> get('lang')) !!}">{!! $menu[1] !!}</a>
          </li>
          <li>
-            <a href="{!! route('site.quemsomos', session() -> get('lang')) !!}">{!! $menu[2] !!}</a>
+            <a href="{!! route('site.parceiros', session() -> get('lang')) !!}">{!! $menu[2] !!}</a>
          </li>
          <li>
-            <a href="{!! route('site.parceiros', session() -> get('lang')) !!}">{!! $menu[3] !!}</a>
+            <a href="{!! route('site.cartas', session() -> get('lang')) !!}">{!! $menu[3] !!}</a>
          </li>
          <li>
-            <a href="{!! route('site.cartas', session() -> get('lang')) !!}">{!! $menu[4] !!}</a>
-         </li>
-         <li>
-            <a href="{!! route('site.localizacao', session() -> get('lang')) !!}">{!! $menu[5] !!}</a>
+            <a href="{!! route('site.localizacao', session() -> get('lang')) !!}">{!! $menu[4] !!}</a>
          </li>
       </ul>
    </div>

@@ -1,5 +1,5 @@
 @extends('layouts.layout-dashboard')
 
 @section('content')
-    <h4>DASHBOARD</h4>
+    <h3 class"text-center">BEM VINDO AO GERENCIADOR JURAMENTADAS.COM</h3>
 @stop
