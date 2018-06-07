@@ -5,7 +5,7 @@
         <ul class="">
             <h4>Gerenciador Site</h4>
             <li><a href="{!! route('gerenciador.inicial', \Session::get('languser')) !!}">Página Inicial</a></li>
-            <li><a href="{!! route('gerenciador.sobre', \Session::get('languser')) !!}">Sobre a Empresa</a></li>
+            <li><a href="{!! route('sobre.editar', \Session::get('languser')) !!}">Sobre a Empresa</a></li>
             <li><a href="{!! route('gerenciador.idiomas', \Session::get('languser')) !!}">Idiomas</a></li>
             <li><a href="{!! route('clientes.lista') !!}">Editar Clientes</a></li>
             <li><a href="{!! route('depoimentos.lista') !!}">Editar Depoimentos</a></li>

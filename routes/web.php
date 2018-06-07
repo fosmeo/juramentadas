@@ -24,7 +24,6 @@ Route::prefix('gerenciador') -> group(function(){
    Route::get('/', 'GerenciadorController@gerenciadorIndex') -> name('gerenciador.index');
    Route::get('{lang}', 'GerenciadorController@gerenciadorsetIdioma') -> name('gerenciador.setidioma');
    Route::get('inicial/{lang}', 'GerenciadorController@gerenciadorInicial') -> name('gerenciador.inicial');
-   Route::get('sobre/{lang}', 'GerenciadorController@gerenciadorSobre') -> name('gerenciador.sobre');
    Route::get('idiomas/{lang}', 'GerenciadorController@gerenciadorIdiomas') -> name('gerenciador.idiomas');
    Route::get('cartas/{lang}', 'GerenciadorController@gerenciadorCartas') -> name('gerenciador.cartas');
    Route::get('localizacao/{lang}', 'GerenciadorController@gerenciadorLocalizacao') -> name('gerenciador.localizacao');
@@ -39,12 +38,19 @@ Route::prefix('gerenciador/update') -> group(function(){
    Route::patch('inicial_en/{id}', 'AtualizaController@atualizaInicial_en') -> name('inicial_en.atualizar');
    Route::patch('inicial_es/{id}', 'AtualizaController@atualizaInicial_es') -> name('inicial_es.atualizar');
    Route::patch('inicial_it/{id}', 'AtualizaController@atualizaInicial_it') -> name('inicial_it.atualizar');
-   Route::patch('sobre/{id}', 'AtualizaController@atualizaSobre') -> name('sobre.atualizar');
    Route::patch('idiomas/{id}', 'AtualizaController@atualizaIdiomas') -> name('idiomas.atualizar');
    Route::patch('local/{id}', 'AtualizaController@atualizaLocal') -> name('local.atualizar');
    Route::patch('header/{id}', 'AtualizaController@atualizaHeader') -> name('header.atualizar');
    Route::patch('navbar/{id}', 'AtualizaController@atualizaNavbar') -> name('navbar.atualizar');
    Route::patch('footer/{id}', 'AtualizaController@atualizaFooter') -> name('footer.atualizar');
+});
+
+Route::prefix('gerenciador/sobre') -> group(function(){
+   Route::view('inserir', 'gerenciador.site.sobre.inserir')-> name('sobre.inserir');
+   Route::post('gravar', 'SobreController@gerenciadorSobreGravar') -> name('sobre.gravar');
+   Route::get('editar/{lang}', 'SobreController@gerenciadorSobreEditar') -> name('sobre.editar');
+   Route::patch('atualizar/{id}', 'SobreController@gerenciadorSobreAtualizar') -> name('sobre.atualizar');
+   Route::delete('excluir/{id}', 'SobreController@gerenciadorSobreExcluir') -> name('sobre.excluir');
 });
 
 Route::prefix('gerenciador/sliders') -> group(function(){

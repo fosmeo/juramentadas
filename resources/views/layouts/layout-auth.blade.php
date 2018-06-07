@@ -9,7 +9,7 @@
          color:black !important;
       }
    </style>
-   
+
 </head>
 
 <body>
@@ -17,7 +17,7 @@
    <div class="container-fluid">
 
       <header id="main" class="row headers">
-         @include('includes.inc-navbar-gerenciador')
+         @include('includes.gerenciador.inc-navbar-gerenciador')
       </header>
 
       <div id="main" class="row">

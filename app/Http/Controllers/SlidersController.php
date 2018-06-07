@@ -117,7 +117,8 @@ class SlidersController extends Controller
    {
 
     // RECEBE ARRAY INPUT DO REQUEST 0 ='pt' | 1 = 'en' | 2 = 'es' | 3 = 'it'
-    Slider::where('tab_lang', 'LIKE', 'pt', 'AND', 'id_slider', '=', $id_slider) -> update(
+    Slider::where(['tab_lang' => 'pt', 'id_slider' => $id_slider]) -> update(
+
       [
         'slider_titulo' => $request -> slider_titulo[0],
         'slider_texto' => $request -> slider_texto[0],
@@ -125,21 +126,21 @@ class SlidersController extends Controller
         'slider_link_botao' => $request -> slider_link_botao[0]
       ]);
 
-    Slider::where('tab_lang', 'LIKE', 'en', 'AND', 'id_slider', '=', $id_slider) -> update(
+    Slider::where(['tab_lang' => 'en', 'id_slider' => $id_slider]) -> update(
       [
         'slider_titulo' => $request -> slider_titulo[1],
         'slider_texto' => $request -> slider_texto[1],
         'slider_botao' => $request -> slider_botao[1],
         'slider_link_botao' => $request -> slider_link_botao[1]
       ]);
-    Slider::where('tab_lang', 'LIKE', 'es', 'AND', 'id_slider', '=', $id_slider) -> update(
+    Slider::where(['tab_lang' => 'es', 'id_slider' => $id_slider]) -> update(
       [
         'slider_titulo' => $request -> slider_titulo[2],
         'slider_texto' => $request -> slider_texto[2],
         'slider_botao' => $request -> slider_botao[2],
         'slider_link_botao' => $request -> slider_link_botao[2]
       ]);
-    Slider::where('tab_lang', 'LIKE', 'it', 'AND', 'id_slider', '=', $id_slider) -> update(
+    Slider::where(['tab_lang' => 'it', 'id_slider' => $id_slider]) -> update(
       [
         'slider_titulo' => $request -> slider_titulo[3],
         'slider_texto' => $request -> slider_texto[3],
@@ -148,7 +149,6 @@ class SlidersController extends Controller
       ]);
 
     \Session::flash('flashmsg', 'SLIDER ATUALIZADO COM SUCESSO');
-    $sliders = Slider::select() -> groupBy('id_slider') -> get();
     return redirect()->route('sliders.lista');
 
    }
@@ -158,9 +158,10 @@ class SlidersController extends Controller
       $slider_imagem = Slider::select('slider_imagem') -> where('id_slider', '=', $id_slider) -> first();
       $exclui_imagem = $slider_imagem -> slider_imagem;
       if (!is_null($exclui_imagem)){
-        Storage::delete('imagens/img_sliders/'.$exclui_imagem);
-      }      
+         Storage::delete('imagens/img_sliders/'.$exclui_imagem);
+      }
       $slider_excluir = Slider::where('id_slider', '=', $id_slider) -> delete();
+
       \Session::flash('flashmsg', 'SLIDER EXCLUÍDO COM SUCESSO');
       return redirect()->route('sliders.lista');
    }

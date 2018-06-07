@@ -11,8 +11,10 @@ class Sobre extends Model
 
 
    protected $fillable = [
-      'id_lang',
+      'id_sobre',
+      'sobre_titulo',
       'sobre_texto',
+      'sobre_imagem',
       'tab_lang',
   ];
 

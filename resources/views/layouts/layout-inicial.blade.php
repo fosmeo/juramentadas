@@ -10,8 +10,6 @@
    <div class="container-fluid">
 
       <header id="main" class="row headers">
-         LANG: {!! \Session::get('lang') !!}
-         LANGUSER: {!! \Session::get('languser') !!}
          @include('includes.inc-header')
       </header>
 
@@ -28,24 +26,40 @@
 
             <!-- Painel Section -->
             <section class="cta">
+               @include('includes.inc-painel')
             </section>
+
             <!-- SERVICOS Section -->
             <section class="feature-section section bg-gray">
+               @include('includes.inc-servicos')
             </section>
+
             <!-- EMPRESA Section -->
             <section class="service-tab-section section">
+               @include('includes.inc-sobre')
             </section>
+
+            <!-- CIDADANIA Section -->
+            <section class="feature-section section bg-gray">
+               @include('includes.inc-cidadania')
+            </section>
+
             <!-- ORCAMENTOS AND FAQ Section -->
             <section class="appoinment-section section">
+               <div class="container">
+                  <div class="row">
+                        @include('includes.inc-FAQ')
+                        @include('includes.inc-orcamento')
+                  </div>
+               </div>
             </section>
-            <!-- End Contact Section -->
-            </div>
-            <!--End pagewrapper-->
-            <!--Scroll to top-->
-            <div class="scroll-to-top scroll-to-target" data-target=".header-top">
-               <span class="icon fa fa-angle-up"></span>
-            </div>
+
          </div>
+         <!--Scroll to top-->
+         <div class="scroll-to-top scroll-to-target" data-target=".header-top">
+            <span class="icon fa fa-angle-up"></span>
+         </div>
+      </div>
 
       <footer class="footer-main">
          @include('includes.inc-footer')

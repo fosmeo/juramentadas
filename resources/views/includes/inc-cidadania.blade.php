@@ -1,81 +1,37 @@
-<!--about section-->
-<section class="feature-section section bg-gray">
-   <div class="container">
-      <div class="row">
-      </div>
+<div class="container">
+   <div class="row">
       <div class="col-md-12 col-sm-12 col-xs-12">
          <div class="accordion-section">
-            <div class="section-title">
-               <h3>CIDADANIA ITALIANA</h3>
+            <div class="section-title text-center">
+               <h3>Cidadania Italiana
+                  <span>(Assessoria Completa)</span>
+               </h3>
+               <p>Descontos Especiais em Traduções para Cidadania Italiana</p>
             </div>
             <div class="accordion-holder">
-               <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+               <div class="panel-group" id="accordion-cidadania" role="tablist" aria-multiselectable="true">
+
+                  @foreach ($cidadanias as $cidadania)
                   <div class="panel panel-default">
-                     <div class="panel-heading" role="tab" id="headingOne">
+                     <div class="panel-heading" role="tab" id="heading-cidadania-{{$cidadania -> id}}">
                         <h4 class="panel-title">
-                           <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                              Por Onde Começar?
+                           <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion-cidadania" href="#collapse-cidadania-{{$cidadania -> id}}" aria-expanded="false"
+                           aria-controls="collapse-cidadania-1">
+                           {!! $cidadania -> cidadania_titulo !!}
                            </a>
                         </h4>
                      </div>
-                     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                     <div id="collapse-cidadania-{{$cidadania -> id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-cidadania-{{$cidadania -> id}}">
                         <div class="panel-body">
-                           Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                           non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                           sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh
-                           helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
-                           vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
-                           heard of them accusamus labore sustainable VHS.
+                           {!! nl2br($cidadania -> cidadania_texto) !!}
                         </div>
                      </div>
                   </div>
-                  <div class="panel panel-default">
-                     <div class="panel-heading" role="tab" id="headingTwo">
-                        <h4 class="panel-title">
-                           <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false"
-                           aria-controls="collapseTwo">
-                           Cidadania italiana na Itália ou no Brasil
-                        </a>
-                     </h4>
-                  </div>
-                  <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                     <div class="panel-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                        non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                        sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh
-                        helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
-                        vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
-                        heard of them accusamus labore sustainable VHS.
-                     </div>
-                  </div>
-               </div>
-               <div class="panel panel-default">
-                  <div class="panel-heading" role="tab" id="headingThree">
-                     <h4 class="panel-title">
-                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false"
-                        aria-controls="collapseThree">
-                        Convenção da apostila de Haia
-                     </a>
-                  </h4>
-               </div>
-               <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                  <div class="panel-body">
-                     Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                     non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                     sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh
-                     helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
-                     vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
-                     heard of them accusamus labore sustainable VHS.
-                  </div>
+                  @endforeach
+
                </div>
             </div>
          </div>
       </div>
    </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!--End about section-->

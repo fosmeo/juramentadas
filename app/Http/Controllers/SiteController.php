@@ -13,6 +13,7 @@ use App\Header;
 use App\Navbar;
 use App\Slider;
 use App\Depoimentos;
+use App\Cidadania;
 
 use Illuminate\Http\Request;
 
@@ -32,24 +33,25 @@ class SiteController extends Controller
       $menu = $this -> TraduzMenu($lang);
       $headerTop = $this -> TraduzHeaderTop($lang);
       $headerUpper = $this -> TraduzHeaderUpper($lang);
-      $footers = $this -> TraduzFooter($lang);
       $sliders = $this -> TraduzSliders($lang);
+      $servicos = $this -> TraduzServicos($lang);
+      $sobres = $this -> TraduzSobre($lang);
+      $cidadanias = $this -> SiteCidadania();
       $depoimentos = $this -> TraduzDepoimentos();
-
-      // print_r($menu);
-      // echo $headerTop;
-      // echo $headerUpperMail;
-      // echo $headerUpperTel;
+      $footers = $this -> TraduzFooter($lang);
 
       return view('welcome',
-      [
-      'menu' => $menu,
-      'headerTop' => $headerTop,
-      'headerUpper' => $headerUpper,
-      'footer' => $footers,
-      'sliders' => $sliders,
-      'depoimentos' => $depoimentos,
-      ]);
+         [
+            'menu' => $menu,
+            'headerTop' => $headerTop,
+            'headerUpper' => $headerUpper,
+            'sliders' => $sliders,
+            'servicos' => $servicos,
+            'sobres' => $sobres,
+            'cidadanias' => $cidadanias,
+            'depoimentos' => $depoimentos,
+            'footers' => $footers,
+         ]);
    }
 
    public function SitesetIdioma($lang)
@@ -82,33 +84,43 @@ class SiteController extends Controller
       return $headerUpper;
    }
 
+   public function TraduzServicos($lang){
+
+      if ($lang == 'pt'){
+         $servicos = Locale_pt::orderby('textos_posicao') -> get();
+      }elseif ($lang == 'en'){
+         $servicos = Locale_en::orderby('textos_posicao') -> get();
+      }elseif ($lang == 'es') {
+         $servicos = Locale_es::orderby('textos_posicao') -> get();
+      }elseif ($lang == 'it') {
+         $servicos = Locale_it::orderby('textos_posicao') -> get();
+      }
+      return $servicos;
+
+   }
+
    public function TraduzFooter(){
-      // GAMBIARRA DE LANG
+// GAMBIARRA DE LANG
       $lang = \Session::get('lang');
-      $footers = Footer::where('tab_lang', 'like', $lang) -> get();
-      $footer = json_decode($footers);
-      return $footer;
+      $footers = Footer::where('tab_lang', 'like', $lang) -> get() -> toArray();
+      return $footers;
    }
 
    public function TraduzDepoimentos(){
-      // GAMBIARRA DE LANG
+// GAMBIARRA DE LANG
       $lang = \Session::get('lang');
       $depoimentos = Depoimentos::where('tab_lang', 'like', $lang) -> get();
       return $depoimentos;
    }
 
-
-
-    public function SiteSobre(){
-
-      dd($this -> TraduzDepoimentos());
-
-      // return view('paginas.sobre' );
+   public function TraduzSobre($lang){
+      $sobres = Sobre::where('tab_lang', 'like', $lang) -> get();
+      return $sobres;
    }
 
-   public function SiteServicos(){
-
-      return view('paginas.servicos' );
+   public function SiteCidadania(){
+      $cidadania = Cidadania::get();
+      return $cidadania;
    }
 
    public function SiteIdiomas(){

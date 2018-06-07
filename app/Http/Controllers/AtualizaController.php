@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Locale_pt;
 use App\Locale_en;
 use App\Locale_es;
 use App\Locale_it;
-use App\Sobre;
 use App\Idiomas;
 use App\Depoimento;
 use App\Localizacao;
@@ -53,14 +53,6 @@ class AtualizaController extends Controller
       \Session::flash('flashmsg', 'PAGINA INICIAL (Italiano) gravada com sucesso');
       $languser = \Session::get('languser');
       return redirect()->route('gerenciador.inicial', ['languser' => $languser]);
-   }
-
-   public function atualizaSobre(Request $request, $id){
-      $atualizar = Sobre::findorfail($id);
-    	$atualizar -> update($request -> all());
-      $languser = \Session::get('languser');
-      \Session::flash('flashmsg', 'TEXTO SOBRE A EMPRESA ('.$languser.') gravado com sucesso');
-      return redirect()->route('gerenciador.sobre', ['languser' => $languser]);
    }
 
    public function atualizaIdiomas(Request $request, $id){

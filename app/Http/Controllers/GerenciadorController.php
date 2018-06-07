@@ -50,12 +50,6 @@ public function gerenciadorInicial($languser)
  return view ('gerenciador.site.inicial', ['inicials' => $inicial]);
 }
 
-public function gerenciadorSobre($languser)
-{
-  $sobre = Sobre::where('tab_lang', 'like', $languser) -> orderby('id_lang') -> get();
-  return view ('gerenciador.site.sobre', ['sobres' => $sobre]);
-}
-
 public function gerenciadorIdiomas($languser)
 {
   $idioma = Idiomas::where('tab_lang', 'like', $languser) -> get();

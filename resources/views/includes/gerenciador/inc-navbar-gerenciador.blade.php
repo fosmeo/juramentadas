@@ -28,7 +28,8 @@
                </ul>
          </li>
 
-         @component('components.lang')@endcomponent
+         @component('components.lang')
+         @endcomponent
 
          <ul class="nav navbar-nav navbar-right">
 
