@@ -4,15 +4,16 @@
          <div class="cta-block">
             <div class="emmergency item">
                <i class="fa fa-phone"></i>
+               <h2>Atendimento 24h</h2>
                <h2>WhatsApp</h2>
-               <a href="#">(11) 9995-51260</a>
+               	<a href="https://api.whatsapp.com/send?phone=5511999551260" target="_blank"><span>(11)</span> 9995-51260</a>
                <p></p>
             </div>
             <div class="top-doctor item">
                <i class="fa fa-stethoscope"></i>
-               <h2>Atendimento 24h</h2>
-               <p>Apostilamento de Documentos em 24h</p>
-               <a href="#" class="btn btn-main">Read more</a>
+               <h2>Apostilamento de Documentos em 24h</h2>
+               {{-- <p>Apostilamento de Documentos em 24h</p> --}}
+               <a href="#" class="btn btn-main">Clique AQUI</a>
             </div>
             <div class="working-time item">
                <i class="fa fa-hourglass-o"></i>

@@ -1,6 +1,6 @@
 @extends('layouts.layout-dashboard')
 
-@section('content')
+@section('content_gerenciador')
    <div class="container-fluid">
       <div class="row">
          <table class="col-md-12" style="font-size:12px">

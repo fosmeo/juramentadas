@@ -1,6 +1,6 @@
 @extends('layouts.layout-dashboard')
 
-@section('content')
+@section('content_gerenciador')
 
    <div class="form-group marginsV col-md-12">
       <form class="form-group col-md-12" method="GET" action="{{ route('sobre.inserir')}}">

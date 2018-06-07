@@ -1,6 +1,6 @@
 @extends('layouts.layout-dashboard')
 
-@section('content')
+@section('content_gerenciador')
 
    <div class="container-fluid">
       <br>

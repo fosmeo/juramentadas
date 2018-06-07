@@ -1,6 +1,6 @@
 @extends('layouts.layout-dashboard')
 
-@section('content')
+@section('content_gerenciador')
    @if (!empty($errors -> all()))
       <div class="alert alert-danger">{{ $errors -> first() }}</div>
    @elseif (Session::has('flashmsg'))

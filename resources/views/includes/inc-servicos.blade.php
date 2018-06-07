@@ -18,13 +18,13 @@
                   <div class="item">
                      <div class="icon-box">
                         <figure>
-                           <a href="#">
+                           <a href="">
                               <img src="images/resource/1.png" alt="">
                               <i class="fa fa-bank" aria-hidden="true"></i>
                            </a>
                         </figure>
                      </div>
-                     <h6>{{ $servico -> textos_titulo1 }}</h6>
+                     <h6><a href="{{ route('site.servicos',[\Session::get('lang') ,$servico -> textos_posicao]) }}">{{ $servico -> textos_titulo1 }}</a></h6>
                      <p>{{ $servico -> textos_subtitulo }}</p>
                   </div>
                </div>

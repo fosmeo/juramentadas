@@ -17,8 +17,32 @@
          @include('includes.inc-navbar-paginas')
       </div>
 
+      {{-- <header id="main" class="row headers">
+         @include('includes.inc-slider')
+      </header> --}}
+
       <div id="main" class="row">
-         @yield('content')
+         <div class="page-wrapper">
+
+            <section class="feature-section section bg-gray">
+               @yield('content_single_pages')
+            </section>
+
+            <!-- ORCAMENTOS AND FAQ Section -->
+            <section class="appoinment-section section bg-gray">
+               <div class="container">
+                  <div class="row">
+                        @include('includes.inc-FAQ')
+                        @include('includes.inc-orcamento')
+                  </div>
+               </div>
+            </section>
+
+         </div>
+         <!--Scroll to top-->
+         <div class="scroll-to-top scroll-to-target" data-target=".header-top">
+            <span class="icon fa fa-angle-up"></span>
+         </div>
       </div>
 
       <footer class="footer-main">
@@ -33,17 +57,17 @@
 <script src="{{ asset('theme-assets/plugins/bootstrap.min.js') }}"></script>
 <script src="{{ asset('theme-assets/plugins/bootstrap-select.min.js') }}"></script>
 <!-- Slick Slider -->
-<script src="{{ asset('theme-assets/plugins/slick/slick.min.js') }}"></script>
+<script src="{{ asset('theme-assets/plugins/slick/slick.js') }}"></script>
 <!-- FancyBox -->
-<script src="{{ asset('theme-assets/plugins/fancybox/jquery.fancybox.min.js') }}"></script>
+{{-- <script src="{{ asset('theme-assets/plugins/fancybox/jquery.fancybox.min.js') }}"></script> --}}
 <!-- Google Map -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
 <script src="{{ asset('theme-assets/plugins/google-map/gmap.js') }}"></script>
 
-<script src="{{ asset('theme-assets/plugins/validate.js') }}"></script>
+{{-- <script src="{{ asset('theme-assets/plugins/validate.js') }}"></script> --}}
 <script src="{{ asset('theme-assets/plugins/wow.js') }}"></script>
 <script src="{{ asset('theme-assets/plugins/jquery-ui.js') }}"></script>
-<script src="{{ asset('theme-assets/plugins/timePicker.js') }}"></script>
+{{-- <script src="{{ asset('theme-assets/plugins/timePicker.js') }}"></script> --}}
 <script src="{{ asset('theme-assets/js/script.js') }}"></script>
 
 </html>

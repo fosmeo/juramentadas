@@ -1,7 +1,6 @@
 @extends('layouts.layout-dashboard')
 
-@section('content')
-
+@section('content_gerenciador')
 
    <form class="col-md-12" style="float:left" method="GET" action="{{ route('sliders.inserir')}}">
       <input type="submit" class="btn btn-success col-md-12" value="Inserir Novo Slider">

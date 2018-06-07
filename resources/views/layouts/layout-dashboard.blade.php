@@ -25,7 +25,7 @@
             @include('includes.gerenciador.inc-sidebar-gerenciador')
          </div>
          <div class="col-md-10" style="padding:10px; margin-left:0px;border:1px solid #d2d4d5">
-            @yield('content')
+            @yield('content_gerenciador')
          </div>
       </div>
 

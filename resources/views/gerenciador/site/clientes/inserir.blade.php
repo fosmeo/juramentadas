@@ -1,6 +1,6 @@
 @extends('layouts.layout-dashboard')
 
-@section('content')
+@section('content_gerenciador')
 
    <div class="container-fluid">
             <form method="POST" action="{{ route('clientes.gravar')}}" enctype="multipart/form-data">

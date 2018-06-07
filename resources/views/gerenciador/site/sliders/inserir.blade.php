@@ -1,6 +1,6 @@
 @extends('layouts.layout-dashboard')
 
-@section('content')
+@section('content_gerenciador')
 
    <h3>Inserindo novo slider</h3><br>
 

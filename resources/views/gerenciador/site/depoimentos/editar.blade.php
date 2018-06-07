@@ -1,6 +1,6 @@
 @extends('layouts.layout-dashboard')
 
-@section('content')
+@section('content_gerenciador')
 
    <form class="form-group col-md-12" method="GET" action="{{ route('depoimentos.inserir')}}">
       <input type="submit" class="btn btn-success col-md-12" value="Inserir Depoimentos">

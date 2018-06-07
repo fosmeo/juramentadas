@@ -30,26 +30,26 @@ class SiteController extends Controller
          $this->SitesetIdioma($lang);
       }
 
-      $menu = $this -> TraduzMenu($lang);
       $headerTop = $this -> TraduzHeaderTop($lang);
       $headerUpper = $this -> TraduzHeaderUpper($lang);
+      $menu = $this -> TraduzMenu($lang);
       $sliders = $this -> TraduzSliders($lang);
       $servicos = $this -> TraduzServicos($lang);
       $sobres = $this -> TraduzSobre($lang);
-      $cidadanias = $this -> SiteCidadania();
       $depoimentos = $this -> TraduzDepoimentos();
+      $cidadanias = $this -> SiteCidadania();
       $footers = $this -> TraduzFooter($lang);
 
       return view('welcome',
          [
-            'menu' => $menu,
             'headerTop' => $headerTop,
             'headerUpper' => $headerUpper,
+            'menu' => $menu,
             'sliders' => $sliders,
             'servicos' => $servicos,
             'sobres' => $sobres,
-            'cidadanias' => $cidadanias,
             'depoimentos' => $depoimentos,
+            'cidadanias' => $cidadanias,
             'footers' => $footers,
          ]);
    }
@@ -118,6 +118,23 @@ class SiteController extends Controller
       return $sobres;
    }
 
+   public function SiteServicos($lang, $textos_posicao){
+      $headerTop = $this -> TraduzHeaderTop($lang);
+      $headerUpper = $this -> TraduzHeaderUpper($lang);
+      $menu = $this -> TraduzMenu($lang);
+      $sliders = $this -> TraduzSliders($lang);
+      $footers = $this -> TraduzFooter($lang);
+
+      return view('paginas.servicos',
+         [
+            'headerTop' => $headerTop,
+            'headerUpper' => $headerUpper,
+            'menu' => $menu,
+            'sliders' => $sliders,
+            'footers' => $footers,
+         ]);
+   }
+
    public function SiteCidadania(){
       $cidadania = Cidadania::get();
       return $cidadania;
@@ -125,26 +142,26 @@ class SiteController extends Controller
 
    public function SiteIdiomas(){
 
-      return view('paginas.idiomas' );
+      return view('paginas.idiomas');
    }
 
    public function SiteQuemSomos(){
 
-      return view('paginas.quemsomos' );
+      return view('paginas.quemsomos');
    }
 
    public function SiteParceiros(){
 
-      return view('paginas.parceiros' );
+      return view('paginas.parceiros');
    }
 
    public function SiteCartas(){
 
-      return view('paginas.cartas' );
+      return view('paginas.cartas');
    }
 
    public function SiteLocalizacao(){
 
-      return view('paginas.localizacao' );
+      return view('paginas.localizacao');
    }
 }

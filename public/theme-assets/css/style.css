@@ -319,6 +319,7 @@ li {
 
 .header-uper {
   padding: 40px 0px;
+  background-color:#80171b;
 }
 
 .header-uper .logo {
@@ -386,7 +387,8 @@ li {
   font-size: 16px;
   line-height: 26px;
   font-weight: 600;
-  color: #222222;
+  /*color: #222222;*/
+  color: #ffffff;
   text-transform: capitalize;
   font-family: "Roboto", sans-serif;
 }
@@ -395,7 +397,8 @@ li {
   font-size: 15px;
   line-height: 26px;
   font-weight: 400;
-  color: #777777;
+  /*color: #777777;*/
+  color: #ffffff;
   font-family: "Roboto", sans-serif;
 }
 
@@ -545,11 +548,11 @@ li {
 }
 
 .hero-slider {
-  height: 80vh;
+  height: 70vh;
 }
 
 .hero-slider .slider-item {
-  height: 80vh;
+  height: 70vh;
   display: -webkit-box !important;
   display: -ms-flexbox !important;
   display: flex !important;

@@ -115,7 +115,7 @@
 		fade: true,
 		responsive: [
 			{
-				breakpoint: 600,
+				breakpoint: 0,
 				settings: {
 					arrows: false
 				}

@@ -1,6 +1,6 @@
 @extends('layouts.layout-dashboard')
 
-@section('content')
+@section('content_gerenciador')
 
    <div class="col-md-12">
       <form method="POST" action="{{ route('depoimentos.gravar')}}" enctype="multipart/form-data">

@@ -26,13 +26,13 @@ public function gerenciadorIndex()
 {
   // return view('setidioma');
   \Session::put('languser','pt');
-  return view('dashboard');
+  return view('gerenciador.dashboard');
 }
 
 public function gerenciadorsetIdioma($languser)
 {
   \Session::put('languser',$languser);
-  return view('dashboard');
+  return view('gerenciador.dashboard');
 }
 
 public function gerenciadorInicial($languser)

@@ -11,7 +11,7 @@ Route::get('idioma', 'GerenciadorController@indedddx') -> name('verificar.idioma
 
 Route::prefix('site') -> group(function(){
    Route::get('{lang}', 'SiteController@SitesetIdioma') -> name('site.setidioma');
-   Route::get('servicos/{lang}', 'SiteController@SiteServicos') -> name('site.servicos');
+   Route::get('servicos/{lang}/{textos_posicao}', 'SiteController@SiteServicos') -> name('site.servicos');
    Route::get('idiomas/{lang}', 'SiteController@SiteIdiomas') -> name('site.idiomas');
    Route::get('parceiros/{lang}', 'SiteController@SiteParceiros') -> name('site.parceiros');
    Route::get('cartas/{lang}', 'SiteController@SiteCartas') -> name('site.cartas');

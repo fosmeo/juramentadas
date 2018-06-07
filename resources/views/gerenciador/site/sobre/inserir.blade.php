@@ -1,6 +1,6 @@
 @extends('layouts.layout-dashboard')
 
-@section('content')
+@section('content_gerenciador')
 
    <div class="col-md-12">
       <h4 class="text-center">Inserindo em: {{ \Session::get('languser')}}</h4>
