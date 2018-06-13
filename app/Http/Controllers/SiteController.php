@@ -42,8 +42,6 @@ class SiteController extends Controller
 
    public function ConstroiLayoutIndex($lang){
       $headers = $this -> TraduzHeader($lang);
-      // $headerTop = $this -> TraduzHeaderTop($lang);
-      // $headerUpper = $this -> TraduzHeaderUpper($lang);
       $menu = $this -> TraduzMenu($lang);
       $sliders = $this -> TraduzSliders($lang);
       $servicos = $this -> TraduzServicos($lang);
@@ -51,11 +49,10 @@ class SiteController extends Controller
       $depoimentos = $this -> TraduzDepoimentos($lang);
       $cidadanias = $this -> TraduzCidadania();
       $footers = $this -> TraduzFooter($lang);
+      $traduz_global = $this -> TraduzGlobais($lang);
 
       return [
          'headers' => $headers,
-         // 'headerTop' => $headerTop,
-         // 'headerUpper' => $headerUpper,
          'menu' => $menu,
          'sliders' => $sliders,
          'servicos' => $servicos,
@@ -63,25 +60,24 @@ class SiteController extends Controller
          'depoimentos' => $depoimentos,
          'cidadanias' => $cidadanias,
          'footers' => $footers,
+         'traduz_global' => $traduz_global,
       ];
 
    }
 
    public function ConstroiLayoutPages($lang){
       $headers = $this -> TraduzHeader($lang);
-      // $headerTop = $this -> TraduzHeaderTop($lang);
-      // $headerUpper = $this -> TraduzHeaderUpper($lang);
       $menu = $this -> TraduzMenu($lang);
       $sliders = $this -> TraduzSliders($lang);
       $footers = $this -> TraduzFooter($lang);
+      $traduz_global = $this -> TraduzGlobais($lang);
 
       return [
          'headers' => $headers,
-         // 'headerTop' => $headerTop,
-         // 'headerUpper' => $headerUpper,
          'menu' => $menu,
          'sliders' => $sliders,
          'footers' => $footers,
+         'traduz_global' => $traduz_global,
       ];
    }
 
@@ -101,7 +97,7 @@ class SiteController extends Controller
 
       \Session::put('area', 'servicos');
       $itens_paginas = $this -> ConstroiLayoutPages($lang);
-      return view('paginas.servicos', $itens_paginas, ['servicos' => $servicos]);
+      return view('paginas.servicos', $itens_paginas, ['servicos' => $servicos, 'traduz_global' => $traduz_global]);
 
    }
 
@@ -111,7 +107,7 @@ class SiteController extends Controller
 
       \Session::put('area', 'idiomas');
       $itens_paginas = $this -> ConstroiLayoutPages($lang);
-      return view('paginas.idiomas', $itens_paginas, ['idiomas' => $idiomas]);
+      return view('paginas.idiomas', $itens_paginas, ['idiomas' => $idiomas, 'traduz_global' => $traduz_global]);
    }
 
    public function SiteCidadania($lang)
@@ -120,7 +116,7 @@ class SiteController extends Controller
 
       \Session::put('area', 'cidadania');
       $itens_paginas = $this -> ConstroiLayoutPages($lang);
-      return view('paginas.cidadania', $itens_paginas, ['cidadanias' => $cidadanias]);
+      return view('paginas.cidadania', $itens_paginas, ['cidadanias' => $cidadanias, 'traduz_global' => $traduz_global]);
    }
 
    public function SiteParceiros($lang)
@@ -129,7 +125,7 @@ class SiteController extends Controller
 
       \Session::put('area', 'parceiros');
       $itens_paginas = $this -> ConstroiLayoutPages($lang);
-      return view('paginas.parceiros', $itens_paginas, ['parceiros' => $parceiros]);
+      return view('paginas.parceiros', $itens_paginas, ['parceiros' => $parceiros, 'traduz_global' => $traduz_global]);
    }
 
    public function SiteCartas($lang)
@@ -144,7 +140,7 @@ class SiteController extends Controller
 
       \Session::put('area', 'local');
       $itens_paginas = $this -> ConstroiLayoutPages($lang);
-      return view('paginas.localizacao', $itens_paginas, ['locals' => $locals]);
+      return view('paginas.localizacao', $itens_paginas, ['locals' => $locals, 'traduz_global' => $traduz_global]);
    }
 
    // TRADUZ MENUS E ITENS
@@ -209,10 +205,12 @@ class SiteController extends Controller
 
    public function TraduzGlobais($lang)
    {
-         $global =
+      if ($lang == 'pt') {
+         $traduz_global =
          [
             'escolha_idioma' => 'Escolha o Idioma',
             'ligue_agora' => 'Ligue Agora',
+            'email' => 'Email',
             'solicite_orcamento' => 'Solicite um Orçamento',
 
             'painel_texto1' => 'Atendimento 24h - WhatsApp',
@@ -220,12 +218,42 @@ class SiteController extends Controller
             'painel_texto1' => 'Cidadania Italiana - Descontos Especiais em traduções para cidadania Italiana',
             'painel_botao1' => 'Saiba mais',
             'painel_botao2' => 'Clique Aqui',
+
+            'servicos_titulo1' => 'Serviços',
+            'servicos_titulo2' => 'Confira os Serviços que Nossa Empresa Oferece pra Você',
+
+            'empresa_titulo1' => 'Nossa Empresa',
+            'empresa_titulo2' => 'Conheça Nossa Trajetória',
+
+            'depoimentos' => 'Depoimentos',
+            'idiomas' => 'Idiomas',
+            'parceiros' => 'Parceiros',
+            'cartas' => 'Cartas de Recomendação',
+
+            'local_texto1' => 'Localização e Contato',
+            'local_texto_local' => 'Localização',
+            'local_texto_tel' => 'Telefone',
+            'local_texto_email' => 'Email',
+
+            'local_form_tipo_pessoa' => 'Tipo Pessoa',
+            'local_form_pf' => 'Pessoa Física',
+            'local_form_pj' => 'Pessoa Jurídica',
+            'local_form_nome' => 'Nome',
+            'local_form_cidade' => 'Cidade',
+            'local_form_estado' => 'Estado',
+            'local_form_tel' => 'Telefone',
+            'local_form_email' => 'Email',
+            'local_form_mensagem' => 'Mensagem',
+            'local_upload' => 'Anexar Arquivo',
+            'local_form_botao' => 'Enviar Mensagem',
          ];
 
-         $global =
+      }elseif ($lang == 'en') {
+         $traduz_global =
          [
             'escolha_idioma' => 'Choose the Language',
             'ligue_agora' => 'Call Now',
+            'email' => 'Email',
             'solicite_orcamento' => 'Get a Quote',
 
             'painel_texto1' => '24h Service - WhatsApp',
@@ -234,11 +262,41 @@ class SiteController extends Controller
             'painel_botao1' => 'Read More',
             'painel_botao2' => 'Click Here',
 
+            'servicos_titulo1' => 'Services',
+            'servicos_titulo2' => 'Check out the Services Our Company Offers to You',
+
+            'empresa_titulo1' => 'Our Company',
+            'empresa_titulo2' => 'Know Our History',
+
+            'depoimentos' => 'Testimony',
+            'idiomas' => 'Idioms',
+            'parceiros' => 'Our Partners',
+            'cartas' => 'References',
+
+            'local_texto1' => 'Contact and Location',
+            'local_texto_local' => 'Location',
+            'local_texto_tel' => 'Phone',
+            'local_texto_email' => 'Email',
+
+            'local_form_tipo_pessoa' => 'Requester',
+            'local_form_pf' => 'Natural Person',
+            'local_form_pj' => 'Legal Entity',
+            'local_form_nome' => 'Name',
+            'local_form_cidade' => 'City',
+            'local_form_estado' => 'State',
+            'local_form_tel' => 'Telephone',
+            'local_form_email' => 'Email',
+            'local_form_mensagem' => 'Message',
+            'local_upload' => 'Attach File',
+            'local_form_botao' => 'Send Message',
+
          ];
-         $global =
+      }elseif ($lang == 'es') {
+         $traduz_global =
          [
             'escolha_idioma' => 'Elegir el Idioma',
             'ligue_agora' => 'Llame Ahora',
+            'email' => 'Email',
             'solicite_orcamento' => 'Solicitar Pressupuesto',
 
             'painel_texto1' => 'Servicio 24h - WhatsApp',
@@ -246,12 +304,41 @@ class SiteController extends Controller
             'painel_texto1' => 'Cidadania Italiana - Descuentos Especiales Para La Traducción',
             'painel_botao1' => 'Lea Más',
             'painel_botao2' => 'Haga Clic Aquí',
-         ];
 
-         $global =
+            'servicos_titulo1' => 'Servicios',
+            'servicos_titulo2' => 'Compruebe los Servicios que Nuestra Empresa ofrece para Usted',
+
+            'empresa_titulo1' => 'Nuestra Empresa',
+            'empresa_titulo2' => 'Conozca Nuestra Historia',
+
+            'depoimentos' => 'Testimonios',
+            'idiomas' => 'Idiomas',
+            'parceiros' => 'Colaboradores',
+            'cartas' => 'Cartas de Recomendación',
+
+            'local_texto1' => 'Ubicación y Contacto',
+            'local_texto_local' => 'Ubicación',
+            'local_texto_tel' => 'Teléfono',
+            'local_texto_email' => 'Email',
+
+            'local_form_tipo_pessoa' => 'Solicitante',
+            'local_form_pf' => 'Persona Física',
+            'local_form_pj' => 'Persona Jurídica',
+            'local_form_nome' => 'Nombre',
+            'local_form_cidade' => 'Ciudad',
+            'local_form_estado' => 'Estado',
+            'local_form_tel' => 'Telephone',
+            'local_form_email' => 'Email',
+            'local_form_mensagem' => 'Mensage',
+            'local_upload' => 'Adjuntar Arquivo',
+            'local_form_botao' => 'Enviar',
+         ];
+      }elseif ($lang == 'it') {
+         $traduz_global =
          [
             'escolha_idioma' => 'Scegliere la lingua',
             'ligue_agora' => 'Chiama Ora',
+            'email' => 'Email',
             'solicite_orcamento' => 'Richiedete Ora un Preventivo ',
 
             'painel_texto1' => 'Servizio 24 Ore - WhatsApp',
@@ -259,8 +346,36 @@ class SiteController extends Controller
             'painel_texto1' => 'Cittadinanza Italiana - Sconti Speciali Per le Traduzioni',
             'painel_botao1' => 'Leggi di Più',
             'painel_botao2' => 'Clicca Qui',
+
+            'servicos_titulo1' => 'Servizi',
+            'servicos_titulo2' => 'Scopri i servizi offerti dalla nostra azienda',
+
+            'empresa_titulo1' => 'Nostra Azienda',
+            'empresa_titulo2' => 'Conosci la Nostra Storia',
+
+            'depoimentos' => 'Testimonianze',
+            'idiomas' => 'Lingue',
+            'parceiros' => 'Partner',
+            'cartas' => 'Lettera de Raccomandazione',
+
+            'local_texto1' => 'Località i Contatti',
+            'local_texto_local' => 'Località',
+            'local_texto_tel' => 'Telefono',
+            'local_texto_email' => 'Email',
+
+            'local_form_tipo_pessoa' => 'Richiedente',
+            'local_form_pf' => 'Persona Fisica',
+            'local_form_pj' => 'Persona Giuridica',
+            'local_form_nome' => 'Nome',
+            'local_form_cidade' => 'Città',
+            'local_form_estado' => 'Stato',
+            'local_form_tel' => 'Telefono',
+            'local_form_email' => 'Email',
+            'local_form_mensagem' => 'Osservazioni Importanti',
+            'local_upload' => 'Allegare File',
+            'local_form_botao' => 'Inviare',
          ];
-
+      }
+      return $traduz_global;
    }
-
 }

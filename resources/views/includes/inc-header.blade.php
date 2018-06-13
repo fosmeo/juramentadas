@@ -13,8 +13,10 @@
 
          <ul class="social-links">
             <li class="dropdown" style="margin-right:10px">
-               <a class="dropdown-toggle" type="button" data-toggle="dropdown">Escolha o Idioma
-                  <span class="caret"></span></a>
+               <a class="dropdown-toggle" type="button" data-toggle="dropdown">
+                  {{ $traduz_global['escolha_idioma'] }}
+                  <span class="caret"></span>
+               </a>
                   <ul class="dropdown-menu">
                      <li><a class="dropdown-item" href="{!! route('site.setidioma', 'pt') !!}">Portugues</a></li>
                      <li><a class="dropdown-item" href="{!! route('site.setidioma', 'en') !!}">English</a></li>
@@ -54,15 +56,7 @@
                <div class="icon-box">
                   <i class="fa fa-phone"></i>
                </div>
-               @if (\Session::get('lang') == 'pt')
-                  <strong>Ligue Agora</strong>
-               @elseif (\Session::get('lang') == 'en')
-                  <strong>Call Now</strong>
-               @elseif (\Session::get('lang') == 'es')
-                  <strong>Llame Ahora</strong>
-               @elseif (\Session::get('lang') == 'it')
-                  <strong>Chiama Ora</strong>
-               @endif
+               <strong>{{ $traduz_global['ligue_agora']}}</strong>
                <br>
                   <span>{!! $headers['header_upper_tel'] !!}</span>
             </li>
@@ -70,7 +64,7 @@
                <div class="icon-box">
                   <i class="fa fa-envelope-o"></i>
                </div>
-               <strong>Email</strong>
+               <strong>{{ $traduz_global['email'] }}</strong>
                <br>
                <a href="#">
                   <span>{!! $headers['header_upper_email'] !!}</span>
@@ -79,15 +73,7 @@
          </ul>
          <div class="link-btn">
             <a href="#" class="btn-style-one">
-               @if (\Session::get('lang') == 'pt')
-                  <span>Solicite um Orçamento</span>
-               @elseif (\Session::get('lang') == 'en')
-                  <span>Get a Quote</span>
-               @elseif (\Session::get('lang') == 'es')
-                  <span>Solicitar presupuesto</span>
-               @elseif (\Session::get('lang') == 'it')
-                  <span>Richedete ora um Preventivo</span>
-               @endif
+               <span>{{ $traduz_global['solicite_orcamento'] }}</span>
             </a>
          </div>
       </div>

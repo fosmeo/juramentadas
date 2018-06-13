@@ -12,6 +12,8 @@ Route::get('limpasession', function(){
    return redirect('/');
 }) -> name('zerar_session') ;
 
+Route::get('globais/{lang}', 'SiteController@TraduzGlobais') -> name('globais') ;
+
 // Route::prefix('site') -> group(function(){
 //    Route::get('{lang}', 'SiteController@SiteSetIdioma') -> name('site.setidioma');
 //    Route::get('servicos/{lang}/{textos_posicao}', 'SiteController@SiteServicos') -> name('site.servicos');

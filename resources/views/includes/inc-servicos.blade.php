@@ -5,8 +5,8 @@
          <div class="image-content">
 
             <div class="section-title text-center">
-               <h3>Melhores Serviços
-                  <span>de Nossa Empresa</span>
+               <h3>Serviços
+                  <span>Juramentadas.com</span>
                </h3>
                <p>Confira os Serviços que Nossa Empresa Oferece pra Você</p>
             </div>
