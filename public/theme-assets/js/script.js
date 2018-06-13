@@ -117,7 +117,7 @@
 			{
 				breakpoint: 0,
 				settings: {
-					arrows: false
+					arrows: true
 				}
 			}
 		]
@@ -134,7 +134,7 @@
 				breakpoint: 991,
 				settings: {
 					slidesToShow: 2,
-					arrows: false
+					arrows: true
 				}
 			},
 			{
@@ -149,7 +149,7 @@
 	// Testimonial Slider
 	$('.testimonial-carousel').slick({
 		infinite: true,
-		arrows: false,
+		arrows: true,
 		autoplay: true,
 		slidesToShow: 2,
 		dots: true,

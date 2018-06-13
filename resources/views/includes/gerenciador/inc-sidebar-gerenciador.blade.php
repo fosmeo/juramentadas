@@ -9,7 +9,7 @@
             <li><a href="{!! route('gerenciador.idiomas', \Session::get('languser')) !!}">Idiomas</a></li>
             <li><a href="{!! route('clientes.lista') !!}">Editar Clientes</a></li>
             <li><a href="{!! route('depoimentos.lista') !!}">Editar Depoimentos</a></li>
-            <li><a href="{!! route('gerenciador.cartas', \Session::get('languser')) !!}">Cartas</a></li>
+            {{-- <li><a href="{!! route('gerenciador.cartas') !!}">Cartas</a></li> --}}
             <li><a href="{!! route('gerenciador.localizacao', \Session::get('languser')) !!}">Localização</a></li>
             <li><a href="{!! route('gerenciador.navbar', \Session::get('languser')) !!}">Menu</a></li>
             <li><a href="{!! route('gerenciador.header', \Session::get('languser')) !!}">Header</a></li>
@@ -24,11 +24,11 @@
             <li><a href="{!! route('cidadania.exibir', 3) !!}">Apostila de Haia</a></li>
             <li><a href="{!! route('cidadania.exibir', 4) !!}">Quem Tem Direito</a></li>
             <li><a href="{!! route('cidadania.exibir', 5) !!}">Naturalização</a></li>
-            <li><a href="{!! route('cidadania.exibir', 6) !!}">Dúvidas Frequentes</a></li>
+            <li><a href="{!! route('cidadania.exibir', 6) !!}">Cidadania Trentina</a></li>
             <li><a href="{!! route('cidadania.exibir', 7) !!}">Cidadania por Sangue</a></li>
             <li><a href="{!! route('cidadania.exibir', 8) !!}">Cidadania por Casamento</a></li>
             <li><a href="{!! route('cidadania.exibir', 9) !!}">Cidadania por Eleição</a></li>
-            <li><a href="{!! route('cidadania.exibir', 10) !!}">Cidadania Trentina</a></li>
+            <li><a href="{!! route('cidadania.exibir', 10) !!}">Dúvidas Frequentes</a></li>
             <li><a href="{!! route('cidadania.exibir', 11) !!}">Apostilamento</a></li>
         </ul>
         <hr>
@@ -38,6 +38,7 @@
             <li><a href="{!! route('other.logs') !!}">Logs</a></li>
             <li><a href="{!! route('other.listausuarios') !!}">Lista de Usuários</a></li>
             <li><a href="{!! route('other.registrarusuarios') !!}">Registrar Novo Usuário</a></li>
+            <li><a href="{!! route('zerar_session') !!}">Limpar Session</a></li>
         </ul>
 
     @endif()

@@ -14,10 +14,10 @@
                <a class="dropdown-toggle" type="button" data-toggle="dropdown">Escolha o Idioma
                   <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                     <li><a class="dropdown-item" href="{!! url('site/pt') !!}">Portugues</a></li>
-                     <li><a class="dropdown-item" href="{!! url('site/en') !!}">English</a></li>
-                     <li><a class="dropdown-item" href="{!! url('site/es') !!}">Español</a></li>
-                     <li><a class="dropdown-item" href="{!! url('site/it') !!}">Italiano</a></li>
+                     <li><a class="dropdown-item" href="{!! url('/pt') !!}">Portugues</a></li>
+                     <li><a class="dropdown-item" href="{!! url('/en') !!}">English</a></li>
+                     <li><a class="dropdown-item" href="{!! url('/es') !!}">Español</a></li>
+                     <li><a class="dropdown-item" href="{!! url('/it') !!}">Italiano</a></li>
                   </ul>
             </li>
             <li>

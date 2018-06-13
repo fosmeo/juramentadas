@@ -67,7 +67,7 @@
       </div>
 
       <footer class="footer-main">
-         @include('includes.inc-footer')
+         {{-- @include('includes.inc-footer') --}}
       </footer>
 
    </div>

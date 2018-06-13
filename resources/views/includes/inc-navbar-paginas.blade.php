@@ -14,19 +14,22 @@
    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
          <li>
-            <a href="{!! route('welcome') !!}">{!! $menu[0] !!}</a>
+            <a href="{{ route('welcome') }}">{{ $menu[0] }}</a>
          </li>
          <li>
-            <a href="{!! route('site.idiomas', session() -> get('lang')) !!}">{!! $menu[1] !!}</a>
+            <a href="{{ route('site.idiomas', \Session::get('lang')) }}">{{ $menu[1] }}</a>
          </li>
          <li>
-            <a href="{!! route('site.parceiros', session() -> get('lang')) !!}">{!! $menu[2] !!}</a>
+            <a href="{{ route('site.parceiros', \Session::get('lang')) }}">{{ $menu[2] }}</a>
          </li>
          <li>
-            <a href="{!! route('site.cartas', session() -> get('lang')) !!}">{!! $menu[3] !!}</a>
+            <a href="{{ route('site.cartas', \Session::get('lang')) }}">{{ $menu[3] }}</a>
          </li>
          <li>
-            <a href="{!! route('site.localizacao', session() -> get('lang')) !!}">{!! $menu[4] !!}</a>
+            <a href="{{ route('site.cidadania', \Session::get('lang')) }}">{{ $menu[4] }}</a>
+         </li>
+         <li>
+            <a href="{{ route('site.localizacao', \Session::get('lang')) }}">{{ $menu[5] }}</a>
          </li>
       </ul>
    </div>

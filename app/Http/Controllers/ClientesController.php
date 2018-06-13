@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Cliente;
+use App\Clientes;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 
@@ -16,7 +16,7 @@ class ClientesController extends Controller
 
 public function gerenciadorClientesLista()
 {
-  $clientes = Cliente::orderBy('id', 'DESC') -> paginate(20);
+  $clientes = Clientes::orderBy('id', 'DESC') -> paginate(20);
   return view ('gerenciador.site.clientes.lista' , ['clientes' => $clientes]);
 }
 
@@ -28,12 +28,12 @@ public function gerenciadorClientesGravar(Request $request)
   ]);
 
   $arquivo_novo = $request->file('clientes_logo') -> getClientOriginalName();
-  $gravar = Cliente::insert(
+  $gravar = Clientes::insert(
     [
       'clientes_logo' => $arquivo_novo,
       'clientes_site' => $request -> clientes_site
     ]);
-  
+
   Storage::putFileAs('imagens/img_clientes/', $request -> file('clientes_logo'), $arquivo_novo);
   \Session::flash('flashmsg', 'CLIENTE GRAVADO COM SUCESSO');
   return redirect()->route('clientes.lista', ['lang' => \Session::get('languser')]);
@@ -42,7 +42,7 @@ public function gerenciadorClientesGravar(Request $request)
 public function gerenciadorClientesAtualizar(Request $request, $id)
 {
 
-  $atualizar = Cliente::findorfail($id);
+  $atualizar = Clientes::findorfail($id);
 
   if ($request -> hasFile('clientes_logo')) {
 
@@ -61,8 +61,8 @@ public function gerenciadorClientesAtualizar(Request $request, $id)
     $atualizar -> update(
     [
       'clientes_site' => $request -> clientes_site
-    ]);    
-  }  
+    ]);
+  }
 
   \Session::flash('flashmsg', 'CLIENTE GRAVADO COM SUCESSO');
   return redirect()->route('clientes.lista', ['lang' => \Session::get('languser')]);
@@ -71,13 +71,13 @@ public function gerenciadorClientesAtualizar(Request $request, $id)
 
 public function gerenciadorClientesEditar($id)
 {
-  $cliente = Cliente::findorfail($id);
+  $cliente = Clientes::findorfail($id);
   return view ('gerenciador.site.clientes.editar' , ['cliente' => $cliente]);
 }
 
 public function gerenciadorClientesExcluir($id)
 {
-  $excluir = Cliente::find($id);
+  $excluir = Clientes::find($id);
   $file = $excluir -> clientes_logo;
   $excluir -> delete();
   $files = Storage::delete('imagens/img_clientes/'.$file);

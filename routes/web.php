@@ -7,25 +7,35 @@ Auth::routes();
 
 Route::get('/', 'SiteController@Index') -> name('welcome');
 
-Route::get('idioma', 'GerenciadorController@indedddx') -> name('verificar.idioma');
+Route::get('limpasession', function(){
+   \Session::flush();
+   return redirect('/');
+}) -> name('zerar_session') ;
 
-Route::prefix('site') -> group(function(){
-   Route::get('{lang}', 'SiteController@SitesetIdioma') -> name('site.setidioma');
-   Route::get('servicos/{lang}/{textos_posicao}', 'SiteController@SiteServicos') -> name('site.servicos');
-   Route::get('idiomas/{lang}', 'SiteController@SiteIdiomas') -> name('site.idiomas');
-   Route::get('parceiros/{lang}', 'SiteController@SiteParceiros') -> name('site.parceiros');
-   Route::get('cartas/{lang}', 'SiteController@SiteCartas') -> name('site.cartas');
-   Route::get('localizacao/{lang}', 'SiteController@SiteLocalizacao') -> name('site.localizacao');
-   // Route::get('sobre/{lang}', 'SiteController@SiteSobre') -> name('site.sobre');
-   // Route::get('quemsomos/{lang}', 'SiteController@SiteQuemSomos') -> name('site.quemsomos');
-});
+Route::get('{lang}', 'SiteController@SiteSetIdioma') -> name('site.setidioma');
+Route::get('servicos/{lang}/{textos_posicao}', 'SiteController@SiteServicos') -> name('site.servicos');
+Route::get('idiomas/{lang}', 'SiteController@SiteIdiomas') -> name('site.idiomas');
+Route::get('parceiros/{lang}', 'SiteController@SiteParceiros') -> name('site.parceiros');
+Route::get('cartas/{lang}', 'SiteController@SiteCartas') -> name('site.cartas');
+Route::get('cidadania/{lang}', 'SiteController@SiteCidadania') -> name('site.cidadania');
+Route::get('localizacao/{lang}', 'SiteController@SiteLocalizacao') -> name('site.localizacao');
+
+// Route::prefix('site') -> group(function(){
+//    Route::get('{lang}', 'SiteController@SiteSetIdioma') -> name('site.setidioma');
+//    Route::get('servicos/{lang}/{textos_posicao}', 'SiteController@SiteServicos') -> name('site.servicos');
+//    Route::get('idiomas/{lang}', 'SiteController@SiteIdiomas') -> name('site.idiomas');
+//    Route::get('parceiros/{lang}', 'SiteController@SiteParceiros') -> name('site.parceiros');
+//    Route::get('cartas/{lang}', 'SiteController@SiteCartas') -> name('site.cartas');
+//    Route::get('cidadania/{lang}', 'SiteController@SiteCidadania') -> name('site.cidadania');
+//    Route::get('localizacao/{lang}', 'SiteController@SiteLocalizacao') -> name('site.localizacao');
+// });
 
 Route::prefix('gerenciador') -> group(function(){
    Route::get('/', 'GerenciadorController@gerenciadorIndex') -> name('gerenciador.index');
    Route::get('{lang}', 'GerenciadorController@gerenciadorsetIdioma') -> name('gerenciador.setidioma');
    Route::get('inicial/{lang}', 'GerenciadorController@gerenciadorInicial') -> name('gerenciador.inicial');
    Route::get('idiomas/{lang}', 'GerenciadorController@gerenciadorIdiomas') -> name('gerenciador.idiomas');
-   Route::get('cartas/{lang}', 'GerenciadorController@gerenciadorCartas') -> name('gerenciador.cartas');
+   // Route::get('cartas', 'GerenciadorController@gerenciadorCartas') -> name('gerenciador.cartas');
    Route::get('localizacao/{lang}', 'GerenciadorController@gerenciadorLocalizacao') -> name('gerenciador.localizacao');
    Route::get('navbar/{lang}', 'GerenciadorController@gerenciadorNavbar') -> name('gerenciador.navbar');
    Route::get('header/{lang}', 'GerenciadorController@gerenciadorHeader') -> name('gerenciador.header');

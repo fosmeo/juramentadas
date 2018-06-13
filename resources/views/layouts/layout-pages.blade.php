@@ -37,7 +37,9 @@
                   </div>
                </div>
             </section>
+            <section class="service-section bg-gray section">
 
+            </section>
          </div>
          <!--Scroll to top-->
          <div class="scroll-to-top scroll-to-target" data-target=".header-top">
@@ -46,7 +48,7 @@
       </div>
 
       <footer class="footer-main">
-         @include('includes.inc-footer')
+         {{-- @include('includes.inc-footer') --}}
       </footer>
 
    </div>
