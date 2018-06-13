@@ -11,7 +11,8 @@ class Header extends Model
 
    protected $fillable = [
       'header_top',
-      'header_upper'
+      'header_upper_email',
+      'header_upper_tel',
   ];
 
    protected $hidden = [

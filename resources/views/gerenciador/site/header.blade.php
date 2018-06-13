@@ -11,9 +11,13 @@
             <textarea name = "header_top" rows="2" class="form-control">
                {{ $header -> header_top }}
             </textarea>
-            <label>HEADER UPPER:</label>
-            <textarea name = "header_upper" rows="3" class="form-control">
-               {{ $header -> header_upper }}
+            <label>HEADER UPPER Email:</label>
+            <textarea name = "header_upper_email" rows="3" class="form-control">
+               {{ $header -> header_upper_email }}
+            </textarea>
+            <label>HEADER UPPER Telefone:</label>
+            <textarea name = "header_upper_tel" rows="3" class="form-control">
+               {{ $header -> header_upper_tel }}
             </textarea>
             <button type="submit" class="col-md-12 btn btn-primary">Gravar</button>
          </form>

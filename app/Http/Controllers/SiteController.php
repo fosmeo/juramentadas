@@ -23,13 +23,13 @@ class SiteController extends Controller
 
    public function Index()
    {
-      if( \Session::get('lang') !== null ){
-         $lang = \Session::get('lang');
-         $this->SitesetIdioma($lang);
-      }else{
+      if( \Session::get('lang') == null ){
          $lang = 'pt';
          $this->SitesetIdioma($lang);
       }
+
+      \Session::put('area', 'index');
+      $lang = \Session::get('lang');
       $itens_index = $this -> ConstroiLayoutIndex($lang);
       return view('welcome', $itens_index);
    }
@@ -41,8 +41,9 @@ class SiteController extends Controller
    }
 
    public function ConstroiLayoutIndex($lang){
-      $headerTop = $this -> TraduzHeaderTop($lang);
-      $headerUpper = $this -> TraduzHeaderUpper($lang);
+      $headers = $this -> TraduzHeader($lang);
+      // $headerTop = $this -> TraduzHeaderTop($lang);
+      // $headerUpper = $this -> TraduzHeaderUpper($lang);
       $menu = $this -> TraduzMenu($lang);
       $sliders = $this -> TraduzSliders($lang);
       $servicos = $this -> TraduzServicos($lang);
@@ -52,8 +53,9 @@ class SiteController extends Controller
       $footers = $this -> TraduzFooter($lang);
 
       return [
-         'headerTop' => $headerTop,
-         'headerUpper' => $headerUpper,
+         'headers' => $headers,
+         // 'headerTop' => $headerTop,
+         // 'headerUpper' => $headerUpper,
          'menu' => $menu,
          'sliders' => $sliders,
          'servicos' => $servicos,
@@ -66,15 +68,17 @@ class SiteController extends Controller
    }
 
    public function ConstroiLayoutPages($lang){
-      $headerTop = $this -> TraduzHeaderTop($lang);
-      $headerUpper = $this -> TraduzHeaderUpper($lang);
+      $headers = $this -> TraduzHeader($lang);
+      // $headerTop = $this -> TraduzHeaderTop($lang);
+      // $headerUpper = $this -> TraduzHeaderUpper($lang);
       $menu = $this -> TraduzMenu($lang);
       $sliders = $this -> TraduzSliders($lang);
       $footers = $this -> TraduzFooter($lang);
 
       return [
-         'headerTop' => $headerTop,
-         'headerUpper' => $headerUpper,
+         'headers' => $headers,
+         // 'headerTop' => $headerTop,
+         // 'headerUpper' => $headerUpper,
          'menu' => $menu,
          'sliders' => $sliders,
          'footers' => $footers,
@@ -95,19 +99,26 @@ class SiteController extends Controller
          $servicos = Locale_it::where(['textos_posicao' => $textos_posicao]) -> first();
       }
 
+      \Session::put('area', 'servicos');
       $itens_paginas = $this -> ConstroiLayoutPages($lang);
       return view('paginas.servicos', $itens_paginas, ['servicos' => $servicos]);
 
    }
 
-   public function SiteIdiomas($lang){
+   public function SiteIdiomas($lang)
+   {
       $idiomas = Idiomas::where(['tab_lang' => $lang]) -> first();
+
+      \Session::put('area', 'idiomas');
       $itens_paginas = $this -> ConstroiLayoutPages($lang);
       return view('paginas.idiomas', $itens_paginas, ['idiomas' => $idiomas]);
    }
 
-   public function SiteCidadania($lang){
+   public function SiteCidadania($lang)
+   {
       $cidadanias = Cidadania::get();
+
+      \Session::put('area', 'cidadania');
       $itens_paginas = $this -> ConstroiLayoutPages($lang);
       return view('paginas.cidadania', $itens_paginas, ['cidadanias' => $cidadanias]);
    }
@@ -115,27 +126,26 @@ class SiteController extends Controller
    public function SiteParceiros($lang)
    {
       $parceiros = Clientes::orderBy('id', 'ASC') -> paginate(50);
+
+      \Session::put('area', 'parceiros');
       $itens_paginas = $this -> ConstroiLayoutPages($lang);
       return view('paginas.parceiros', $itens_paginas, ['parceiros' => $parceiros]);
    }
 
-
-   public function SiteQuemSomos(){
-
-      return view('paginas.quemsomos');
-   }
-
-
-   public function SiteCartas()
+   public function SiteCartas($lang)
    {
-      return view('paginas.cartas');
+      \Session::put('area', 'cartas');
+      $itens_paginas = $this -> ConstroiLayoutPages($lang);
+      return view('paginas.cartas', $itens_paginas);
    }
 
-   public function SiteLocalizacao(){
+   public function SiteLocalizacao($lang){
+      $locals = Footer::where('tab_lang', 'LIKE', $lang) -> get();
 
-      return view('paginas.localizacao');
+      \Session::put('area', 'local');
+      $itens_paginas = $this -> ConstroiLayoutPages($lang);
+      return view('paginas.localizacao', $itens_paginas, ['locals' => $locals]);
    }
-
 
    // TRADUZ MENUS E ITENS
 
@@ -151,17 +161,17 @@ class SiteController extends Controller
       return $menu;
    }
 
-   public function TraduzHeaderTop($lang){
-      $headers = Header::where('tab_lang', 'like', $lang) -> get();
-      $headerTop =  $headers[0]['header_top'];
-      return $headerTop;
+   public function TraduzHeader($lang){
+      $headers = Header::where('tab_lang', 'like', $lang) -> first();
+      // $headerTop =  $headers[0]['header_top'];
+      return $headers;
    }
 
-   public function TraduzHeaderUpper($lang){
-      $headers = Header::where('tab_lang', 'like', $lang) -> get();
-      $headerUpper = $array = explode(';', $headers[0]['header_upper']);
-      return $headerUpper;
-   }
+   // public function TraduzHeaderUpper($lang){
+   //    $headers = Header::where('tab_lang', 'like', $lang) -> get();
+   //    $headerUpper = $array = explode(';', $headers[0]['header_upper']);
+   //    return $headerUpper;
+   // }
 
    public function TraduzServicos($lang){
 
@@ -195,6 +205,62 @@ class SiteController extends Controller
    public function TraduzSobre($lang){
       $sobres = Sobre::where('tab_lang', 'like', $lang) -> get();
       return $sobres;
+   }
+
+   public function TraduzGlobais($lang)
+   {
+         $global =
+         [
+            'escolha_idioma' => 'Escolha o Idioma',
+            'ligue_agora' => 'Ligue Agora',
+            'solicite_orcamento' => 'Solicite um Orçamento',
+
+            'painel_texto1' => 'Atendimento 24h - WhatsApp',
+            'painel_texto1' => 'Apostilamento de Documentos em 24h',
+            'painel_texto1' => 'Cidadania Italiana - Descontos Especiais em traduções para cidadania Italiana',
+            'painel_botao1' => 'Saiba mais',
+            'painel_botao2' => 'Clique Aqui',
+         ];
+
+         $global =
+         [
+            'escolha_idioma' => 'Choose the Language',
+            'ligue_agora' => 'Call Now',
+            'solicite_orcamento' => 'Get a Quote',
+
+            'painel_texto1' => '24h Service - WhatsApp',
+            'painel_texto1' => 'Apostilamento de Documentos em 24h (traduzir para ingles)',
+            'painel_texto1' => 'Italian Citzenship - Special Discounts for Translations',
+            'painel_botao1' => 'Read More',
+            'painel_botao2' => 'Click Here',
+
+         ];
+         $global =
+         [
+            'escolha_idioma' => 'Elegir el Idioma',
+            'ligue_agora' => 'Llame Ahora',
+            'solicite_orcamento' => 'Solicitar Pressupuesto',
+
+            'painel_texto1' => 'Servicio 24h - WhatsApp',
+            'painel_texto1' => 'Apostilamento de Documentos em 24h (traduzir para espanhol)',
+            'painel_texto1' => 'Cidadania Italiana - Descuentos Especiales Para La Traducción',
+            'painel_botao1' => 'Lea Más',
+            'painel_botao2' => 'Haga Clic Aquí',
+         ];
+
+         $global =
+         [
+            'escolha_idioma' => 'Scegliere la lingua',
+            'ligue_agora' => 'Chiama Ora',
+            'solicite_orcamento' => 'Richiedete Ora un Preventivo ',
+
+            'painel_texto1' => 'Servizio 24 Ore - WhatsApp',
+            'painel_texto1' => 'Apostilamento de Documentos em 24h (traduzir para ITALIANO)',
+            'painel_texto1' => 'Cittadinanza Italiana - Sconti Speciali Per le Traduzioni',
+            'painel_botao1' => 'Leggi di Più',
+            'painel_botao2' => 'Clicca Qui',
+         ];
+
    }
 
 }

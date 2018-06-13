@@ -6,21 +6,23 @@
          <div class="col-md-3 col-sm-5 col-xs-11">
             {{-- <h6>Services</h6> --}}
             <ul class="menu-link">
-
                <li>
-                  <a href="{{ route('welcome') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>{{ $menu[0] }}</a>
+                  <a href="{{ route('welcome') }}">{{ $menu[0] }}</a>
                </li>
                <li>
-                  <a href="{{ route('site.idiomas', session() -> get('lang')) }}"><i class="fa fa-angle-right" aria-hidden="true"></i>{{ $menu[1] }}</a>
+                  <a href="{{ route('site.idiomas', \Session::get('lang')) }}">{{ $menu[1] }}</a>
                </li>
                <li>
-                  <a href="{{ route('site.parceiros') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>{{ $menu[2] }}</a>
+                  <a href="{{ route('site.parceiros', \Session::get('lang')) }}">{{ $menu[2] }}</a>
                </li>
                <li>
-                  <a href="{{ route('site.cartas', session() -> get('lang')) }}"><i class="fa fa-angle-right" aria-hidden="true"></i>{{ $menu[4] }}</a>
+                  <a href="{{ route('site.cartas', \Session::get('lang')) }}">{{ $menu[3] }}</a>
                </li>
                <li>
-                  <a href="{{ route('site.localizacao', session() -> get('lang')) }}"><i class="fa fa-angle-right" aria-hidden="true"></i>{{ $menu[3] }}</a>
+                  <a href="{{ route('site.cidadania', \Session::get('lang')) }}">{{ $menu[4] }}</a>
+               </li>
+               <li>
+                  <a href="{{ route('site.localizacao', \Session::get('lang')) }}">{{ $menu[5] }}</a>
                </li>
             </ul>
          </div>

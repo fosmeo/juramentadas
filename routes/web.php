@@ -12,14 +12,6 @@ Route::get('limpasession', function(){
    return redirect('/');
 }) -> name('zerar_session') ;
 
-Route::get('{lang}', 'SiteController@SiteSetIdioma') -> name('site.setidioma');
-Route::get('servicos/{lang}/{textos_posicao}', 'SiteController@SiteServicos') -> name('site.servicos');
-Route::get('idiomas/{lang}', 'SiteController@SiteIdiomas') -> name('site.idiomas');
-Route::get('parceiros/{lang}', 'SiteController@SiteParceiros') -> name('site.parceiros');
-Route::get('cartas/{lang}', 'SiteController@SiteCartas') -> name('site.cartas');
-Route::get('cidadania/{lang}', 'SiteController@SiteCidadania') -> name('site.cidadania');
-Route::get('localizacao/{lang}', 'SiteController@SiteLocalizacao') -> name('site.localizacao');
-
 // Route::prefix('site') -> group(function(){
 //    Route::get('{lang}', 'SiteController@SiteSetIdioma') -> name('site.setidioma');
 //    Route::get('servicos/{lang}/{textos_posicao}', 'SiteController@SiteServicos') -> name('site.servicos');
@@ -29,6 +21,14 @@ Route::get('localizacao/{lang}', 'SiteController@SiteLocalizacao') -> name('site
 //    Route::get('cidadania/{lang}', 'SiteController@SiteCidadania') -> name('site.cidadania');
 //    Route::get('localizacao/{lang}', 'SiteController@SiteLocalizacao') -> name('site.localizacao');
 // });
+
+   Route::get('setidioma/{lang}', 'SiteController@SiteSetIdioma') -> name('site.setidioma');
+   Route::get('servicos/{lang}/{textos_posicao}', 'SiteController@SiteServicos') -> name('site.servicos');
+   Route::get('idiomas/{lang}', 'SiteController@SiteIdiomas') -> name('site.idiomas');
+   Route::get('parceiros/{lang}', 'SiteController@SiteParceiros') -> name('site.parceiros');
+   Route::get('cartas/{lang}', 'SiteController@SiteCartas') -> name('site.cartas');
+   Route::get('cidadania/{lang}', 'SiteController@SiteCidadania') -> name('site.cidadania');
+   Route::get('localizacao/{lang}', 'SiteController@SiteLocalizacao') -> name('site.localizacao');
 
 Route::prefix('gerenciador') -> group(function(){
    Route::get('/', 'GerenciadorController@gerenciadorIndex') -> name('gerenciador.index');

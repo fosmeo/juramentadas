@@ -24,9 +24,9 @@ class GerenciadorController extends Controller
 
 public function gerenciadorIndex()
 {
-  // return view('setidioma');
   \Session::put('languser','pt');
   return view('gerenciador.dashboard');
+
 }
 
 public function gerenciadorsetIdioma($languser)
