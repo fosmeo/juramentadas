@@ -3,7 +3,7 @@
       <div class="col-md-6 col-sm-12 col-xs-12">
          <div class="accordion-section">
             <div class="section-title">
-               <h3>FAQ</h3>
+               <h3>{{ $traduz_global['faq'] }}</h3>
             </div>
             <div class="accordion-holder">
                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -15,7 +15,7 @@
                            </a>
                         </h4>
                      </div>
-                     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                     <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                         <div class="panel-body">
                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,
                            non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,

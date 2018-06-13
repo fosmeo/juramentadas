@@ -8,7 +8,7 @@
                  <h3>{{ $servicos -> textos_titulo2 }}</h3>
                  <p></p>
             </div>
-
+            <br>
             <div class="tabs">
                {!! nl2br($servicos -> textos_texto) !!}
             </div>

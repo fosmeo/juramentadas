@@ -7,7 +7,8 @@
          <div class="col-md-12">
 
             <div class="section-title text-center">
-               <h3>IDIOMAS</h3>
+               <h3>{{ $traduz_global['idiomas_titulo1'] }}</h3>
+               <p>{{ $traduz_global['idiomas_titulo2'] }}</p>
             </div>
 
             <div class="tabs">

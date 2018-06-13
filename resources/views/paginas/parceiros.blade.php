@@ -6,7 +6,7 @@
       <div class="row">
 
          <div class="section-title text-center">
-            <h3>Conheça nossos Parceiros</h3>
+            <h3>{{ $traduz_global['parceiros'] }}</h3>
          </div>
          <br><br>
          @foreach ($parceiros as $parceiro)

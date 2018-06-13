@@ -97,7 +97,7 @@ class SiteController extends Controller
 
       \Session::put('area', 'servicos');
       $itens_paginas = $this -> ConstroiLayoutPages($lang);
-      return view('paginas.servicos', $itens_paginas, ['servicos' => $servicos, 'traduz_global' => $traduz_global]);
+      return view('paginas.servicos', $itens_paginas, ['servicos' => $servicos]);
 
    }
 
@@ -107,7 +107,7 @@ class SiteController extends Controller
 
       \Session::put('area', 'idiomas');
       $itens_paginas = $this -> ConstroiLayoutPages($lang);
-      return view('paginas.idiomas', $itens_paginas, ['idiomas' => $idiomas, 'traduz_global' => $traduz_global]);
+      return view('paginas.idiomas', $itens_paginas, ['idiomas' => $idiomas]);
    }
 
    public function SiteCidadania($lang)
@@ -116,7 +116,7 @@ class SiteController extends Controller
 
       \Session::put('area', 'cidadania');
       $itens_paginas = $this -> ConstroiLayoutPages($lang);
-      return view('paginas.cidadania', $itens_paginas, ['cidadanias' => $cidadanias, 'traduz_global' => $traduz_global]);
+      return view('paginas.cidadania', $itens_paginas, ['cidadanias' => $cidadanias]);
    }
 
    public function SiteParceiros($lang)
@@ -125,7 +125,7 @@ class SiteController extends Controller
 
       \Session::put('area', 'parceiros');
       $itens_paginas = $this -> ConstroiLayoutPages($lang);
-      return view('paginas.parceiros', $itens_paginas, ['parceiros' => $parceiros, 'traduz_global' => $traduz_global]);
+      return view('paginas.parceiros', $itens_paginas, ['parceiros' => $parceiros]);
    }
 
    public function SiteCartas($lang)
@@ -136,11 +136,11 @@ class SiteController extends Controller
    }
 
    public function SiteLocalizacao($lang){
-      $locals = Footer::where('tab_lang', 'LIKE', $lang) -> get();
+      $locals = localizacao::where('tab_lang', 'LIKE', $lang) -> first();
 
       \Session::put('area', 'local');
       $itens_paginas = $this -> ConstroiLayoutPages($lang);
-      return view('paginas.localizacao', $itens_paginas, ['locals' => $locals, 'traduz_global' => $traduz_global]);
+      return view('paginas.localizacao', $itens_paginas, ['locals' => $locals]);
    }
 
    // TRADUZ MENUS E ITENS
@@ -210,14 +210,15 @@ class SiteController extends Controller
          [
             'escolha_idioma' => 'Escolha o Idioma',
             'ligue_agora' => 'Ligue Agora',
-            'email' => 'Email',
             'solicite_orcamento' => 'Solicite um Orçamento',
 
             'painel_texto1' => 'Atendimento 24h - WhatsApp',
-            'painel_texto1' => 'Apostilamento de Documentos em 24h',
-            'painel_texto1' => 'Cidadania Italiana - Descontos Especiais em traduções para cidadania Italiana',
-            'painel_botao1' => 'Saiba mais',
-            'painel_botao2' => 'Clique Aqui',
+            'painel_texto2' => 'Apostilamento de Documentos em 24h',
+            'painel_texto3' => 'Cidadania Italiana - Descontos Especiais em traduções para cidadania Italiana',
+
+            'botao1' => 'Saiba mais',
+            'botao2' => 'Clique Aqui',
+            'email' => 'Email',
 
             'servicos_titulo1' => 'Serviços',
             'servicos_titulo2' => 'Confira os Serviços que Nossa Empresa Oferece pra Você',
@@ -226,14 +227,17 @@ class SiteController extends Controller
             'empresa_titulo2' => 'Conheça Nossa Trajetória',
 
             'depoimentos' => 'Depoimentos',
-            'idiomas' => 'Idiomas',
-            'parceiros' => 'Parceiros',
-            'cartas' => 'Cartas de Recomendação',
 
-            'local_texto1' => 'Localização e Contato',
+            'idiomas_titulo1' => 'Idiomas',
+            'idiomas_titulo2' => '30 Idiomas Simples e Juramentados',
+
+            'parceiros' => 'Conheça Nossos Parceiros',
+            'cartas' => 'Cartas de Recomendação',
+            'faq' => 'Perguntas Frequentes',
+
+            'local_titulo1' => 'Localização e Contato',
             'local_texto_local' => 'Localização',
             'local_texto_tel' => 'Telefone',
-            'local_texto_email' => 'Email',
 
             'local_form_tipo_pessoa' => 'Tipo Pessoa',
             'local_form_pf' => 'Pessoa Física',
@@ -253,14 +257,15 @@ class SiteController extends Controller
          [
             'escolha_idioma' => 'Choose the Language',
             'ligue_agora' => 'Call Now',
-            'email' => 'Email',
             'solicite_orcamento' => 'Get a Quote',
 
             'painel_texto1' => '24h Service - WhatsApp',
-            'painel_texto1' => 'Apostilamento de Documentos em 24h (traduzir para ingles)',
-            'painel_texto1' => 'Italian Citzenship - Special Discounts for Translations',
-            'painel_botao1' => 'Read More',
-            'painel_botao2' => 'Click Here',
+            'painel_texto2' => 'Apostilamento de Documentos em 24h (traduzir para ingles)',
+            'painel_texto3' => 'Italian Citzenship - Special Discounts for Translations',
+
+            'botao1' => 'Read More',
+            'botao2' => 'Click Here',
+            'email' => 'Email',
 
             'servicos_titulo1' => 'Services',
             'servicos_titulo2' => 'Check out the Services Our Company Offers to You',
@@ -269,14 +274,17 @@ class SiteController extends Controller
             'empresa_titulo2' => 'Know Our History',
 
             'depoimentos' => 'Testimony',
-            'idiomas' => 'Idioms',
+
+            'idiomas_titulo1' => 'Idioms',
+            'idiomas_titulo2' => '30 Simple and Sworn Idioms',
+
             'parceiros' => 'Our Partners',
             'cartas' => 'References',
+            'faq' => 'Frequent Asked Question',
 
-            'local_texto1' => 'Contact and Location',
+            'local_titulo1' => 'Contact and Location',
             'local_texto_local' => 'Location',
             'local_texto_tel' => 'Phone',
-            'local_texto_email' => 'Email',
 
             'local_form_tipo_pessoa' => 'Requester',
             'local_form_pf' => 'Natural Person',
@@ -296,14 +304,15 @@ class SiteController extends Controller
          [
             'escolha_idioma' => 'Elegir el Idioma',
             'ligue_agora' => 'Llame Ahora',
-            'email' => 'Email',
             'solicite_orcamento' => 'Solicitar Pressupuesto',
 
             'painel_texto1' => 'Servicio 24h - WhatsApp',
-            'painel_texto1' => 'Apostilamento de Documentos em 24h (traduzir para espanhol)',
-            'painel_texto1' => 'Cidadania Italiana - Descuentos Especiales Para La Traducción',
-            'painel_botao1' => 'Lea Más',
-            'painel_botao2' => 'Haga Clic Aquí',
+            'painel_texto2' => 'Apostilamento de Documentos em 24h (traduzir para espanhol)',
+            'painel_texto3' => 'Cidadania Italiana - Descuentos Especiales Para La Traducción',
+
+            'botao1' => 'Lea Más',
+            'botao2' => 'Haga Clic Aquí',
+            'email' => 'Email',
 
             'servicos_titulo1' => 'Servicios',
             'servicos_titulo2' => 'Compruebe los Servicios que Nuestra Empresa ofrece para Usted',
@@ -312,14 +321,17 @@ class SiteController extends Controller
             'empresa_titulo2' => 'Conozca Nuestra Historia',
 
             'depoimentos' => 'Testimonios',
-            'idiomas' => 'Idiomas',
-            'parceiros' => 'Colaboradores',
-            'cartas' => 'Cartas de Recomendación',
 
-            'local_texto1' => 'Ubicación y Contacto',
+            'idiomas_titulo1' => 'Idiomas',
+            'idiomas_titulo2' => 'Simples y Públicas en 30 Idiomas',
+
+            'parceiros' => 'Conozca Nuestros Colaboradores',
+            'cartas' => 'Cartas de Recomendación',
+            'faq' => 'Preguntas Frecuentes',
+
+            'local_titulo1' => 'Ubicación y Contacto',
             'local_texto_local' => 'Ubicación',
             'local_texto_tel' => 'Teléfono',
-            'local_texto_email' => 'Email',
 
             'local_form_tipo_pessoa' => 'Solicitante',
             'local_form_pf' => 'Persona Física',
@@ -338,14 +350,15 @@ class SiteController extends Controller
          [
             'escolha_idioma' => 'Scegliere la lingua',
             'ligue_agora' => 'Chiama Ora',
-            'email' => 'Email',
             'solicite_orcamento' => 'Richiedete Ora un Preventivo ',
 
             'painel_texto1' => 'Servizio 24 Ore - WhatsApp',
-            'painel_texto1' => 'Apostilamento de Documentos em 24h (traduzir para ITALIANO)',
-            'painel_texto1' => 'Cittadinanza Italiana - Sconti Speciali Per le Traduzioni',
-            'painel_botao1' => 'Leggi di Più',
-            'painel_botao2' => 'Clicca Qui',
+            'painel_texto2' => 'Apostilamento de Documentos em 24h (traduzir para ITALIANO)',
+            'painel_texto3' => 'Cittadinanza Italiana - Sconti Speciali Per le Traduzioni',
+
+            'botao1' => 'Leggi di Più',
+            'botao2' => 'Clicca Qui',
+            'email' => 'Email',
 
             'servicos_titulo1' => 'Servizi',
             'servicos_titulo2' => 'Scopri i servizi offerti dalla nostra azienda',
@@ -354,14 +367,17 @@ class SiteController extends Controller
             'empresa_titulo2' => 'Conosci la Nostra Storia',
 
             'depoimentos' => 'Testimonianze',
-            'idiomas' => 'Lingue',
+
+            'idiomas_titulo1' => 'Lingue',
+            'idiomas_titulo2' => '30 Lingue Semplice e Giurata',
+
             'parceiros' => 'Partner',
             'cartas' => 'Lettera de Raccomandazione',
+            'faq' => 'Domande Frequenti',
 
-            'local_texto1' => 'Località i Contatti',
+            'local_titulo1' => 'Località i Contatti',
             'local_texto_local' => 'Località',
             'local_texto_tel' => 'Telefono',
-            'local_texto_email' => 'Email',
 
             'local_form_tipo_pessoa' => 'Richiedente',
             'local_form_pf' => 'Persona Fisica',

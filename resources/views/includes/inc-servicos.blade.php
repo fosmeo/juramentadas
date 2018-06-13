@@ -5,10 +5,10 @@
          <div class="image-content">
 
             <div class="section-title text-center">
-               <h3>Serviços
+               <h3>{{ $traduz_global['servicos_titulo1'] }}
                   <span>Juramentadas.com</span>
                </h3>
-               <p>Confira os Serviços que Nossa Empresa Oferece pra Você</p>
+               <p>{{ $traduz_global['servicos_titulo2'] }}</p>
             </div>
             <br><br>
             <div class="row">

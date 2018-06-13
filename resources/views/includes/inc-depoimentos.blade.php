@@ -1,6 +1,6 @@
  <div class="container">
      <div class="section-title text-center">
-         <h3>Depoimentos</h3>
+         <h3>{{ $traduz_global['depoimentos'] }}</h3>
      </div>
      <div class="testimonial-carousel">
         @foreach ($depoimentos as $depoimento)

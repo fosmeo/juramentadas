@@ -1,8 +1,8 @@
 <div class="section-title text-center">
-   <h3>Nossa Empresa
+   <h3>{{ $traduz_global['empresa_titulo1'] }}
       <!-- <span>de Nossa Empresa</span> -->
    </h3>
-   <p>Conheça Nossa Trajetória</p>
+   <p>{{ $traduz_global['empresa_titulo2'] }}</p>
 </div>
 <!--Start about us area-->
 <section class="service-tab-section section">
@@ -55,7 +55,7 @@
                               <li>
                               <i class="fa fa-dot-circle-o"></i>Teeth cleaning is part of oral hygiene and involves</li>
                            </ul> --}}
-                           <a href="#" class="btn btn-style-one">Read more</a>
+                           <a href="#" class="btn btn-style-one">{{ $traduz_global['botao1'] }}</a>
                         </div>
                      </div>
                   </div>
