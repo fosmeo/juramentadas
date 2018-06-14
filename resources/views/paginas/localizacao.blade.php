@@ -13,6 +13,7 @@
 
            <div class="section-title text-center">
              <h3>{{ $locals -> localizacao_titulo }}</h3>
+             <p>{{ $traduz_global['local_titulo2'] }}</p>
            </div>
             <br><br>
             <div class="col-md-4">

@@ -15,6 +15,7 @@
             <li><a href="{!! route('gerenciador.header', \Session::get('languser')) !!}">Header</a></li>
             <li><a href="{!! route('gerenciador.footer', \Session::get('languser')) !!}">Footer</a></li>
             <li><a href="{!! route('sliders.lista') !!}">Editar Sliders</a></li>
+            <li><a href="{!! route('faq.editar', \Session::get('languser')) !!}">FAQ</a></li>
         </ul>
         <hr>
         <ul class="">
@@ -37,7 +38,7 @@
             <li><a href="{!! route('other.orcamentos') !!}">Orçamentos</a></li>
             <li><a href="{!! route('other.logs') !!}">Logs</a></li>
             <li><a href="{!! route('other.listausuarios') !!}">Lista de Usuários</a></li>
-            <li><a href="{!! route('other.registrarusuarios') !!}">Registrar Novo Usuário</a></li>
+            <li><a href="{!! route('other.registrarusuarios') !!}">Registrar Usuário</a></li>
             <li><a href="{!! route('zerar_session') !!}">Limpar Session</a></li>
         </ul>
 

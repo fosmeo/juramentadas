@@ -15,6 +15,7 @@ use App\Slider;
 use App\Clientes;
 use App\Depoimentos;
 use App\Cidadania;
+use App\Faq;
 
 use Illuminate\Http\Request;
 
@@ -49,6 +50,7 @@ class SiteController extends Controller
       $depoimentos = $this -> TraduzDepoimentos($lang);
       $cidadanias = $this -> TraduzCidadania();
       $footers = $this -> TraduzFooter($lang);
+      $faqs = $this -> TraduzFaq($lang);
       $traduz_global = $this -> TraduzGlobais($lang);
 
       return [
@@ -59,6 +61,7 @@ class SiteController extends Controller
          'sobres' => $sobres,
          'depoimentos' => $depoimentos,
          'cidadanias' => $cidadanias,
+         'faqs' => $faqs,
          'footers' => $footers,
          'traduz_global' => $traduz_global,
       ];
@@ -70,12 +73,14 @@ class SiteController extends Controller
       $menu = $this -> TraduzMenu($lang);
       $sliders = $this -> TraduzSliders($lang);
       $footers = $this -> TraduzFooter($lang);
+      $faqs = $this -> TraduzFaq($lang);
       $traduz_global = $this -> TraduzGlobais($lang);
 
       return [
          'headers' => $headers,
          'menu' => $menu,
          'sliders' => $sliders,
+         'faqs' => $faqs,
          'footers' => $footers,
          'traduz_global' => $traduz_global,
       ];
@@ -203,6 +208,12 @@ class SiteController extends Controller
       return $sobres;
    }
 
+   public function TraduzFaq($lang)
+   {
+      $faqs = Faq::where('tab_lang', 'like', $lang) -> get();
+      return $faqs;
+   }
+
    public function TraduzGlobais($lang)
    {
       if ($lang == 'pt') {
@@ -236,6 +247,7 @@ class SiteController extends Controller
             'faq' => 'Perguntas Frequentes',
 
             'local_titulo1' => 'Localização e Contato',
+            'local_titulo2' => 'Envie uma Mensagem ou Solicite um Orçamento',
             'local_texto_local' => 'Localização',
             'local_texto_tel' => 'Telefone',
 
@@ -283,6 +295,7 @@ class SiteController extends Controller
             'faq' => 'Frequent Asked Question',
 
             'local_titulo1' => 'Contact and Location',
+            'local_titulo2' => 'Send us a Message or Get a Quote',
             'local_texto_local' => 'Location',
             'local_texto_tel' => 'Phone',
 
@@ -330,6 +343,7 @@ class SiteController extends Controller
             'faq' => 'Preguntas Frecuentes',
 
             'local_titulo1' => 'Ubicación y Contacto',
+            'local_titulo2' => 'Enviar un Mensaje o Solicitar un Pressupuesto',
             'local_texto_local' => 'Ubicación',
             'local_texto_tel' => 'Teléfono',
 
@@ -376,6 +390,7 @@ class SiteController extends Controller
             'faq' => 'Domande Frequenti',
 
             'local_titulo1' => 'Località i Contatti',
+            'local_titulo2' => 'Invia un Messaggio o Richiedete ora un Preventivo ',
             'local_texto_local' => 'Località',
             'local_texto_tel' => 'Telefono',
 

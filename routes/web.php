@@ -44,24 +44,19 @@ Route::prefix('gerenciador') -> group(function(){
    Route::get('footer/{lang}', 'GerenciadorController@gerenciadorFooter') -> name('gerenciador.footer');
 });
 
-// Rotas de atualização textos do site
-Route::prefix('gerenciador/update') -> group(function(){
-   Route::patch('inicial_pt/{id}', 'AtualizaController@atualizaInicial_pt') -> name('inicial_pt.atualizar');
-   Route::patch('inicial_en/{id}', 'AtualizaController@atualizaInicial_en') -> name('inicial_en.atualizar');
-   Route::patch('inicial_es/{id}', 'AtualizaController@atualizaInicial_es') -> name('inicial_es.atualizar');
-   Route::patch('inicial_it/{id}', 'AtualizaController@atualizaInicial_it') -> name('inicial_it.atualizar');
-   Route::patch('idiomas/{id}', 'AtualizaController@atualizaIdiomas') -> name('idiomas.atualizar');
-   Route::patch('local/{id}', 'AtualizaController@atualizaLocal') -> name('local.atualizar');
-   Route::patch('header/{id}', 'AtualizaController@atualizaHeader') -> name('header.atualizar');
-   Route::patch('navbar/{id}', 'AtualizaController@atualizaNavbar') -> name('navbar.atualizar');
-   Route::patch('footer/{id}', 'AtualizaController@atualizaFooter') -> name('footer.atualizar');
+Route::prefix('gerenciador/faq') -> group(function(){
+   Route::view('inserir', 'gerenciador.site.faq.inserir')-> name('faq.inserir');
+   Route::post('gravar', 'FaqController@faqGravar') -> name('faq.gravar');
+   Route::get('editar/{languser}', 'FaqController@faqEditar') -> name('faq.editar');
+   Route::patch('atualizar/{id}/{languser}', 'FaqController@faqAtualizar') -> name('faq.atualizar');
+   Route::delete('excluir/{id}', 'FaqController@faqExcluir') -> name('faq.excluir');
 });
 
 Route::prefix('gerenciador/sobre') -> group(function(){
    Route::view('inserir', 'gerenciador.site.sobre.inserir')-> name('sobre.inserir');
    Route::post('gravar', 'SobreController@gerenciadorSobreGravar') -> name('sobre.gravar');
    Route::get('editar/{lang}', 'SobreController@gerenciadorSobreEditar') -> name('sobre.editar');
-   Route::patch('atualizar/{id}', 'SobreController@gerenciadorSobreAtualizar') -> name('sobre.atualizar');
+   Route::patch('atualizar/{id}/{languser}', 'SobreController@gerenciadorSobreAtualizar') -> name('sobre.atualizar');
    Route::delete('excluir/{id}', 'SobreController@gerenciadorSobreExcluir') -> name('sobre.excluir');
 });
 
@@ -106,3 +101,17 @@ Route::prefix('gerenciador/cidadania') -> group(function(){
    Route::get('{id}', 'CidadaniaController@cidadaniaExibir') -> name('cidadania.exibir');
    Route::patch('{id}', 'CidadaniaController@cidadaniaAtualizar') -> name('cidadania.atualizar');
 });
+
+// Rotas de atualização de textos (SINGLE PAGES)
+Route::prefix('gerenciador/update') -> group(function(){
+   Route::patch('inicial_pt/{id}', 'AtualizaController@atualizaInicial_pt') -> name('inicial_pt.atualizar');
+   Route::patch('inicial_en/{id}', 'AtualizaController@atualizaInicial_en') -> name('inicial_en.atualizar');
+   Route::patch('inicial_es/{id}', 'AtualizaController@atualizaInicial_es') -> name('inicial_es.atualizar');
+   Route::patch('inicial_it/{id}', 'AtualizaController@atualizaInicial_it') -> name('inicial_it.atualizar');
+   Route::patch('idiomas/{id}', 'AtualizaController@atualizaIdiomas') -> name('idiomas.atualizar');
+   Route::patch('local/{id}', 'AtualizaController@atualizaLocal') -> name('local.atualizar');
+   Route::patch('header/{id}', 'AtualizaController@atualizaHeader') -> name('header.atualizar');
+   Route::patch('navbar/{id}', 'AtualizaController@atualizaNavbar') -> name('navbar.atualizar');
+   Route::patch('footer/{id}', 'AtualizaController@atualizaFooter') -> name('footer.atualizar');
+});
+// fim rotas atualização
