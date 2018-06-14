@@ -223,7 +223,7 @@ class SiteController extends Controller
             'ligue_agora' => 'Ligue Agora',
             'solicite_orcamento' => 'Solicite um Orçamento',
 
-            'painel_texto1' => 'Atendimento 24h - WhatsApp',
+            'painel_texto1' => 'WhatsApp',
             'painel_texto2' => 'Apostilamento de Documentos em 24h',
             'painel_texto3' => 'Cidadania Italiana - Descontos Especiais em traduções para cidadania Italiana',
 
@@ -242,14 +242,14 @@ class SiteController extends Controller
             'idiomas_titulo1' => 'Idiomas',
             'idiomas_titulo2' => '30 Idiomas Simples e Juramentados',
 
-            'parceiros' => 'Conheça Nossos Parceiros',
+            'parceiros' => 'Conheça Nossos Clientes',
             'cartas' => 'Cartas de Recomendação',
             'faq' => 'Perguntas Frequentes',
 
             'local_titulo1' => 'Localização e Contato',
             'local_titulo2' => 'Envie uma Mensagem ou Solicite um Orçamento',
             'local_titulo_simple_page' => 'Entre em Contato',
-            
+
             'local_texto_local' => 'Localização',
             'local_texto_tel' => 'Telefone',
 
@@ -292,7 +292,7 @@ class SiteController extends Controller
             'idiomas_titulo1' => 'Idioms',
             'idiomas_titulo2' => '30 Simple and Sworn Idioms',
 
-            'parceiros' => 'Our Partners',
+            'parceiros' => 'Our Customers',
             'cartas' => 'References',
             'faq' => 'Frequent Asked Question',
 

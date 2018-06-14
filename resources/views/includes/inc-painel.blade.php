@@ -4,9 +4,10 @@
          <div class="cta-block">
             <div class="emmergency item">
                <i class="fa fa-phone"></i>
+               <p>Atendimento</p>
                <h2>{{ $traduz_global['painel_texto1'] }}</h2>
                	<a href="https://api.whatsapp.com/send?phone=5511999551260" target="_blank"><span>(11)</span> 9995-51260</a>
-               <p></p>
+                  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
             </div>
             <div class="top-doctor item">
                <i class="fa fa-stethoscope"></i>

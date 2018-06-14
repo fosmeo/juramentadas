@@ -28,7 +28,7 @@
             <label>Slider Título</label>
             <input type="text" value="{{ $slider -> slider_titulo }}" class="form-control" name="slider_titulo[]">
             <label>Slider Texto</label>
-            <input type="text" value="{{ $slider -> slider_texto }}" class="form-control" name="slider_texto[]">
+            <textarea type="text" class="form-control" name="slider_texto[]">{{ $slider -> slider_texto }}</textarea>
             <label>Slider Botão</label>
             <input type="text" value="{{ $slider -> slider_botao }}" class="form-control" name="slider_botao[]">
             <label>Slider Link Botão</label>
