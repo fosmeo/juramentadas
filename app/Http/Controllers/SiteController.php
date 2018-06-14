@@ -248,6 +248,8 @@ class SiteController extends Controller
 
             'local_titulo1' => 'Localização e Contato',
             'local_titulo2' => 'Envie uma Mensagem ou Solicite um Orçamento',
+            'local_titulo_simple_page' => 'Entre em Contato',
+            
             'local_texto_local' => 'Localização',
             'local_texto_tel' => 'Telefone',
 
@@ -296,6 +298,8 @@ class SiteController extends Controller
 
             'local_titulo1' => 'Contact and Location',
             'local_titulo2' => 'Send us a Message or Get a Quote',
+            'local_titulo_simple_page' => 'Contact Us',
+
             'local_texto_local' => 'Location',
             'local_texto_tel' => 'Phone',
 
@@ -344,6 +348,8 @@ class SiteController extends Controller
 
             'local_titulo1' => 'Ubicación y Contacto',
             'local_titulo2' => 'Enviar un Mensaje o Solicitar un Pressupuesto',
+            'local_titulo_simple_page' => 'Contacto',
+
             'local_texto_local' => 'Ubicación',
             'local_texto_tel' => 'Teléfono',
 
@@ -390,7 +396,10 @@ class SiteController extends Controller
             'faq' => 'Domande Frequenti',
 
             'local_titulo1' => 'Località i Contatti',
-            'local_titulo2' => 'Invia un Messaggio o Richiedete ora un Preventivo ',
+            'local_titulo2' => 'Invia un Messaggio o Richiedete ora un Preventivo',
+            'local_titulo_simple_page' => 'Contattaci',
+            'local_whatsapp' => '',
+
             'local_texto_local' => 'Località',
             'local_texto_tel' => 'Telefono',
 

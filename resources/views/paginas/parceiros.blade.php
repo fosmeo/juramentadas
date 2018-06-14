@@ -3,8 +3,7 @@
 @section('content_single_pages')
 
    <div class="container">
-      <div class="row">
-
+      <div class="">
          <div class="section-title text-center">
             <h3>{{ $traduz_global['parceiros'] }}</h3>
          </div>

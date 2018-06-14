@@ -7,7 +7,7 @@
       <h3></h3>
       <p></p>
   </div>
-  <div class="row items-container clearfix">
+  <section class="row items-container clearfix">
       <div class="item">
           <div class="inner-box">
               <div class="img_holder">
@@ -17,6 +17,6 @@
               </div>
           </div>
       </div>
-  </div>
+  </section>
 </div>
 @stop

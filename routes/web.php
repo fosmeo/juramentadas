@@ -1,8 +1,5 @@
 <?php
 
-// Route::get('/', function () {
-// }) -> name('welcome');
-
 Auth::routes();
 
 Route::get('/', 'SiteController@Index') -> name('welcome');
@@ -13,16 +10,6 @@ Route::get('limpasession', function(){
 }) -> name('zerar_session') ;
 
 Route::get('globais/{lang}', 'SiteController@TraduzGlobais') -> name('globais') ;
-
-// Route::prefix('site') -> group(function(){
-//    Route::get('{lang}', 'SiteController@SiteSetIdioma') -> name('site.setidioma');
-//    Route::get('servicos/{lang}/{textos_posicao}', 'SiteController@SiteServicos') -> name('site.servicos');
-//    Route::get('idiomas/{lang}', 'SiteController@SiteIdiomas') -> name('site.idiomas');
-//    Route::get('parceiros/{lang}', 'SiteController@SiteParceiros') -> name('site.parceiros');
-//    Route::get('cartas/{lang}', 'SiteController@SiteCartas') -> name('site.cartas');
-//    Route::get('cidadania/{lang}', 'SiteController@SiteCidadania') -> name('site.cidadania');
-//    Route::get('localizacao/{lang}', 'SiteController@SiteLocalizacao') -> name('site.localizacao');
-// });
 
    Route::get('setidioma/{lang}', 'SiteController@SiteSetIdioma') -> name('site.setidioma');
    Route::get('servicos/{lang}/{textos_posicao}', 'SiteController@SiteServicos') -> name('site.servicos');

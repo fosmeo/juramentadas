@@ -1,8 +1,5 @@
-<div class="col-md-6 col-sm-12 col-xs-12">
+<div class="col-md-8 col-sm-12 col-xs-12">
    <div class="contact-area">
-      <div class="section-title">
-         <h3>{{ $traduz_global['local_titulo_simple_page'] }}</h3>
-      </div>
       <form name="contact_form" class="default-form contact-form" action="sendmail.php" method="post">
          <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
