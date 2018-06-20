@@ -225,7 +225,7 @@ class SiteController extends Controller
 
             'painel_texto1' => 'WhatsApp',
             'painel_texto2' => 'Apostilamento de Documentos em 24h',
-            'painel_texto3' => 'Cidadania Italiana - Descontos Especiais em traduções para cidadania Italiana',
+            'painel_texto3' => 'Descontos Especiais em traduções para cidadania Italiana',
 
             'botao1' => 'Saiba mais',
             'botao2' => 'Clique Aqui',
@@ -275,7 +275,7 @@ class SiteController extends Controller
 
             'painel_texto1' => '24h Service - WhatsApp',
             'painel_texto2' => 'Apostilamento de Documentos em 24h (traduzir para ingles)',
-            'painel_texto3' => 'Italian Citzenship - Special Discounts for Translations',
+            'painel_texto3' => 'Italian Citzenship: Special Discounts for Translations',
 
             'botao1' => 'Read More',
             'botao2' => 'Click Here',
@@ -325,7 +325,7 @@ class SiteController extends Controller
 
             'painel_texto1' => 'Servicio 24h - WhatsApp',
             'painel_texto2' => 'Apostilamento de Documentos em 24h (traduzir para espanhol)',
-            'painel_texto3' => 'Cidadania Italiana - Descuentos Especiales Para La Traducción',
+            'painel_texto3' => 'Cidadania Italiana: Descuentos Especiales Para La Traducción',
 
             'botao1' => 'Lea Más',
             'botao2' => 'Haga Clic Aquí',
@@ -374,7 +374,7 @@ class SiteController extends Controller
 
             'painel_texto1' => 'Servizio 24 Ore - WhatsApp',
             'painel_texto2' => 'Apostilamento de Documentos em 24h (traduzir para ITALIANO)',
-            'painel_texto3' => 'Cittadinanza Italiana - Sconti Speciali Per le Traduzioni',
+            'painel_texto3' => 'Cittadinanza Italiana: Sconti Speciali Per le Traduzioni',
 
             'botao1' => 'Leggi di Più',
             'botao2' => 'Clicca Qui',

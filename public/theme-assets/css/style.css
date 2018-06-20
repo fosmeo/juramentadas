@@ -708,71 +708,76 @@ li {
   }
 }
 
-.cta .cta-block .emmergency {
-  background: #00794e;
+.cta .cta-block .painel-esq {
+  /*background: #00794e;*/
+  background-image:
+    linear-gradient(
+      #1a653e, #132646
+    );
+    color:#ffffff;
   border: 1px solid #ccc;
-
 }
 
-.cta .cta-block .emmergency a {
+.cta .cta-block .painel-esq a {
   color: #fff;
   font-size: 30px;
 }
 
-.cta .cta-block .emmergency p {
+.cta .cta-block .painel-esq p {
   padding-top: 20px;
 }
 
-
-
-.cta .cta-block .top-doctor {
-
+.cta .cta-block .painel-mid {
   background: #ffffff;
+  color:#222222;
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
 }
 
-.cta .cta-block .top-doctor .btn-main {
+.cta .cta-block .btn-main{
   margin-top: 10px;
-  color: #ccc;
-  border: 1px solid #fff;
+  color: #7c7c7c;
+  border: 1px solid #777;
   padding: 10px 20px;
   transition: all .3s ease;
 }
 
-.cta .cta-block .top-doctor .btn-main:hover {
-  background: #fff;
-  color: #ccc;
+
+.cta .cta-block .btn-main:hover {
+  background: #132646;
+  border: 1px solid #777;
+  color: #ffffff;
 }
 
-
-
-
-.cta .cta-block .working-time {
-  background: #d11f32;
+.cta .cta-block .painel-dir {
+  /*background: #d11f32;*/
+  color:#ffffff;
+  background-image:
+    linear-gradient(
+      #b10505, #132646
+    );
+  
   border: 1px solid #ccc;
 }
 
-.cta .cta-block .working-time ul {
+.cta .cta-block .painel-dir ul {
   margin: 0;
   padding: 0;
 }
 
-.cta .cta-block .working-time ul li {
+.cta .cta-block .painel-dir ul li {
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 
-.cta .cta-block .working-time ul li span {
+.cta .cta-block .painel-dir ul li span {
   float: right;
 }
 
-.cta .cta-block .working-time ul li:not(:last-child) {
+.cta .cta-block .painel-dir ul li:not(:last-child) {
   border-bottom: 1px solid #fff;
 }
-
-
 
 
 .cta .cta-block .item {
@@ -783,7 +788,6 @@ li {
 
 .cta .cta-block .item i, .cta .cta-block .item h2, .cta .cta-block .item p {
   transition: all .2s ease;
-  color: #ccc;
 }
 
 .cta .cta-block .item i {

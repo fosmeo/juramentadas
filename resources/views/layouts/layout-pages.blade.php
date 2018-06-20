@@ -73,27 +73,4 @@
 <script src="{{ asset('theme-assets/plugins/jquery-ui.js') }}"></script>
 <script src="{{ asset('theme-assets/js/script.js') }}"></script>
 
-
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCezKKIH3Pzly1Naj7_3i5BcfzdQl2j3JA&callback=initMap"></script>
-<script>
-   var labels = 'J';
-   var labelIndex = 0;
-
-   function initMap() {
-      var myLatLng = {lat: -23.5609349, lng: -46.6562577};
-         var map = new google.maps.Map(document.getElementById('map'), {
-         zoom: 18,
-         center: myLatLng,
-         mapTypeId: 'hybrid'
-
-      });
-      var marker = new google.maps.Marker({
-         position: myLatLng,
-         label: labels[labelIndex++ % labels.length],
-         map: map,
-         title: 'Juramentadas.com'
-      });
-   }
-</script>
-
 </html>
