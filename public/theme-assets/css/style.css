@@ -618,7 +618,7 @@ li {
 
 .hero-slider .content h2 {
   font-size: 35px;
-  text-transform: capitalize;
+  /*text-transform: capitalize;*/
   font-weight: 600;
   font-family: "Roboto", sans-serif;
   color: #fff;
@@ -684,6 +684,9 @@ li {
   margin-bottom: 0 !important;
 }
 
+
+/*INICIO PAINEL*/
+
 .cta {
   padding: 40px 0;
 }
@@ -720,6 +723,8 @@ li {
   padding-top: 20px;
 }
 
+
+
 .cta .cta-block .top-doctor {
 
   background: #ffffff;
@@ -739,6 +744,9 @@ li {
   background: #fff;
   color: #ccc;
 }
+
+
+
 
 .cta .cta-block .working-time {
   background: #d11f32;
@@ -764,6 +772,9 @@ li {
   border-bottom: 1px solid #fff;
 }
 
+
+
+
 .cta .cta-block .item {
   padding: 20px 30px;
   -ms-flex-preferred-size: 33.33%;
@@ -772,7 +783,7 @@ li {
 
 .cta .cta-block .item i, .cta .cta-block .item h2, .cta .cta-block .item p {
   transition: all .2s ease;
-  /*color: #fff;*/
+  color: #ccc;
 }
 
 .cta .cta-block .item i {
@@ -782,7 +793,7 @@ li {
 
 .cta .cta-block .item h2 {
   font-weight: normal;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
   letter-spacing: 1px;
   font-size: 25px;
   margin-bottom: 30px;
@@ -793,6 +804,11 @@ li {
   line-height: 19px;
 }
 
+/*END PAINEL*/
+
+
+/*GOOGLE MAPS*/
+
 .map {
   position: relative;
 }
@@ -801,6 +817,8 @@ li {
   height: 400px;
   color: white;
 }
+
+/**/
 
 .contact .contact-form .form-control {
   margin-bottom: 30px;
