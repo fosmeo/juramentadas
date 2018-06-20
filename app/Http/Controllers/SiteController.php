@@ -108,11 +108,22 @@ class SiteController extends Controller
 
    public function SiteIdiomas($lang)
    {
-      $idiomas = Idiomas::where(['tab_lang' => $lang]) -> first();
+      $idiomas = Idiomas::where(['tab_lang' => $lang]) -> get();
 
       \Session::put('area', 'idiomas');
       $itens_paginas = $this -> ConstroiLayoutPages($lang);
-      return view('paginas.idiomas', $itens_paginas, ['idiomas' => $idiomas]);
+
+      // AQUI ELE SEPARA O ARRAY QUE CONTEM O TEXTO INTEIRO EM PARTES ITERÁVEIS
+      $pattern = "/\)/";
+      $subject = $idiomas[0]['idiomas_texto'];
+      $resultado = preg_split($pattern, $subject, -1, PREG_SPLIT_DELIM_CAPTURE);
+
+      for ($i=0; $i < count($resultado) ; $i++) {
+         $array_idiomas[$i] = $resultado[$i].')';
+      }
+      //
+
+      return view('paginas.idiomas', $itens_paginas, ['idiomas' => $array_idiomas]);
    }
 
    public function SiteCidadania($lang)
@@ -167,12 +178,6 @@ class SiteController extends Controller
       // $headerTop =  $headers[0]['header_top'];
       return $headers;
    }
-
-   // public function TraduzHeaderUpper($lang){
-   //    $headers = Header::where('tab_lang', 'like', $lang) -> get();
-   //    $headerUpper = $array = explode(';', $headers[0]['header_upper']);
-   //    return $headerUpper;
-   // }
 
    public function TraduzServicos($lang){
 
@@ -242,9 +247,7 @@ class SiteController extends Controller
             'idiomas_titulo1' => 'Idiomas',
             'idiomas_titulo2' => '30 Idiomas Simples e Juramentados',
 
-            'idiomas_texto1' => 'Por que a Juramentadas.com é uma referência? A Juramentadas.com coloca a disposição de seus clientes, uma matriz completa de serviços de tradução que incluem a tradução juramentada, tradução livre, tradução técnica, localização de sites, revisão de textos, interpretação, transcrição de áudio, interpretação consecutiva e simultânea. Experimente !!! Confira abaixo os idiomas credenciados.<br><br>
-            <b>Equipe Juramentadas.com</b>
-            <br><br>',
+            'idiomas_texto1' => 'Por que a Juramentadas.com é uma referência? A Juramentadas.com coloca a disposição de seus clientes, uma matriz completa de serviços de tradução que incluem a tradução juramentada, tradução livre, tradução técnica, localização de sites, revisão de textos, interpretação, transcrição de áudio, interpretação consecutiva e simultânea. Experimente !!! Confira abaixo os idiomas credenciados.<br><br><b>Equipe Juramentadas.com</b><br><br>',
 
             'parceiros' => 'Conheça Nossos Clientes',
             'cartas' => 'Cartas de Recomendação',
@@ -397,7 +400,7 @@ class SiteController extends Controller
             'idiomas_titulo1' => 'Lingue',
             'idiomas_titulo2' => '30 Lingue Semplice e Giurata',
             'idiomas_texto1' => '',
-            
+
             'parceiros' => 'Partner',
             'cartas' => 'Lettera de Raccomandazione',
             'faq' => 'Domande Frequenti',

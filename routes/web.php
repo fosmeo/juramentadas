@@ -10,6 +10,7 @@ Route::get('limpasession', function(){
 }) -> name('zerar_session') ;
 
 Route::get('globais/{lang}', 'SiteController@TraduzGlobais') -> name('globais') ;
+Route::get('test', 'SiteController@SiteIdiomas') -> name('idiomas') ;
 
    Route::get('setidioma/{lang}', 'SiteController@SiteSetIdioma') -> name('site.setidioma');
    Route::get('servicos/{lang}/{textos_posicao}', 'SiteController@SiteServicos') -> name('site.servicos');
