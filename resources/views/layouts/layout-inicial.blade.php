@@ -37,7 +37,7 @@
          </section>
 
          <!-- DEPOIMENTOS Section -->
-         <section class="testimonial-section" style="background: url({{ asset('storage/imagens/bg/banner-depoimentos1.jpg') }}); background-attachment:fixed">
+         <section class="testimonial-section" style="background: url( {{ asset('storage/imagens/misc/banner-depoimentos.jpg') }}); background-attachment:fixed">
             @include('includes.inc-depoimentos')
          </section>
 

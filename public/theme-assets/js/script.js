@@ -169,6 +169,31 @@
 			}
 		]
 	});
+
+   // Testimonial Slider CARTAS
+   $('.testimonial-carousel-cartas').slick({
+      infinite: true,
+      arrows: true,
+      autoplay: true,
+      slidesToShow: 4,
+      dots: true,
+      slidesToScroll: 1,
+      responsive: [
+         {
+            breakpoint: 991,
+            settings: {
+               slidesToShow: 3
+            }
+         },
+         {
+            breakpoint: 525,
+            settings: {
+               slidesToShow: 2
+            }
+         }
+      ]
+   });
+
 	
 	// FancyBox Video
 	$('[data-fancybox]').fancybox({

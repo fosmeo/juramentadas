@@ -46,7 +46,7 @@
       <div class="logo">
          <figure>
             <a href="{{ url('/') }}">
-               <img src="{{ asset('storage/imagens/bg/logo-juramentadas.png') }}" alt="">
+               <img src="{{ asset('storage/imagens/misc/logo-juramentadas.png') }}" alt="">
             </a>
          </figure>
       </div>
