@@ -242,6 +242,10 @@ class SiteController extends Controller
             'idiomas_titulo1' => 'Idiomas',
             'idiomas_titulo2' => '30 Idiomas Simples e Juramentados',
 
+            'idiomas_texto1' => 'Por que a Juramentadas.com é uma referência? A Juramentadas.com coloca a disposição de seus clientes, uma matriz completa de serviços de tradução que incluem a tradução juramentada, tradução livre, tradução técnica, localização de sites, revisão de textos, interpretação, transcrição de áudio, interpretação consecutiva e simultânea. Experimente !!! Confira abaixo os idiomas credenciados.<br><br>
+            <b>Equipe Juramentadas.com</b>
+            <br><br>',
+
             'parceiros' => 'Conheça Nossos Clientes',
             'cartas' => 'Cartas de Recomendação',
             'faq' => 'Perguntas Frequentes',
@@ -291,6 +295,7 @@ class SiteController extends Controller
 
             'idiomas_titulo1' => 'Idioms',
             'idiomas_titulo2' => '30 Simple and Sworn Idioms',
+            'idiomas_texto1' => '',
 
             'parceiros' => 'Our Customers',
             'cartas' => 'References',
@@ -341,6 +346,7 @@ class SiteController extends Controller
 
             'idiomas_titulo1' => 'Idiomas',
             'idiomas_titulo2' => 'Simples y Públicas en 30 Idiomas',
+            'idiomas_texto1' => '',
 
             'parceiros' => 'Conozca Nuestros Colaboradores',
             'cartas' => 'Cartas de Recomendación',
@@ -390,7 +396,8 @@ class SiteController extends Controller
 
             'idiomas_titulo1' => 'Lingue',
             'idiomas_titulo2' => '30 Lingue Semplice e Giurata',
-
+            'idiomas_texto1' => '',
+            
             'parceiros' => 'Partner',
             'cartas' => 'Lettera de Raccomandazione',
             'faq' => 'Domande Frequenti',
