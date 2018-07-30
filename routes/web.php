@@ -9,8 +9,8 @@ Route::get('limpasession', function(){
    return redirect('/');
 }) -> name('zerar_session') ;
 
-Route::get('globais/{lang}', 'SiteController@TraduzGlobais') -> name('globais') ;
-Route::get('test', 'SiteController@SiteIdiomas') -> name('idiomas') ;
+// Route::get('globais/{lang}', 'SiteController@TraduzGlobais') -> name('globais') ;
+// Route::get('test', 'SiteController@SiteIdiomas') -> name('idiomas') ;
 
    Route::get('setidioma/{lang}', 'SiteController@SiteSetIdioma') -> name('site.setidioma');
    Route::get('servicos/{lang}/{textos_posicao}', 'SiteController@SiteServicos') -> name('site.servicos');
@@ -43,7 +43,7 @@ Route::prefix('gerenciador/faq') -> group(function(){
 Route::prefix('gerenciador/sobre') -> group(function(){
    Route::view('inserir', 'gerenciador.site.sobre.inserir')-> name('sobre.inserir');
    Route::post('gravar', 'SobreController@gerenciadorSobreGravar') -> name('sobre.gravar');
-   Route::get('editar/{lang}', 'SobreController@gerenciadorSobreEditar') -> name('sobre.editar');
+   Route::get('editar/{languser}', 'SobreController@gerenciadorSobreEditar') -> name('sobre.editar');
    Route::patch('atualizar/{id}/{languser}', 'SobreController@gerenciadorSobreAtualizar') -> name('sobre.atualizar');
    Route::delete('excluir/{id}', 'SobreController@gerenciadorSobreExcluir') -> name('sobre.excluir');
 });

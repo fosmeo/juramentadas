@@ -8,7 +8,7 @@
       </form>
       @foreach ($sobres as $sobre)
          <br><br>
-         <form class="row" method="POST" action="{{route('sobre.atualizar', $sobre -> id)}}" enctype="multipart/form-data">
+         <form class="row" method="POST" action="{{route('sobre.atualizar', [$sobre -> id, \Session::get('languser')] )}}" enctype="multipart/form-data">
             {{csrf_field()}}
             <input name="_method" type="hidden" value="PATCH">
             <img style="width:200px;" alt="{{ $sobre -> sobre_imagem }}" src="{{ asset('storage/imagens/img_sobre/'.$sobre -> sobre_imagem) }}">

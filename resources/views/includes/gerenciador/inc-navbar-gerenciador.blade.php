@@ -59,6 +59,7 @@
             <li>
                LANGUSER: {{ \Session::get('languser') }}
                LANG: {{ \Session::get('lang') }}
+               Area : {{ \Session::get('area') }}
             </li>
          @endif
 

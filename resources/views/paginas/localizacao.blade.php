@@ -1,9 +1,9 @@
 @extends('layouts.layout-pages')
 
 @section('content_single_pages')
+
    <section class="map">
-       <!-- Google Map -->
-       <div id="map"></div>
+      <div id="map"></div>
    </section>
 
    <section class="section contact">

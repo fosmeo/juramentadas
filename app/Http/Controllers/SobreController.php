@@ -20,7 +20,7 @@ class SobreController extends Controller
      return view ('gerenciador.site.sobre.editar', ['sobres' => $sobre]);
    }
 
-   public function gerenciadorSobreAtualizar(Request $request, $id){
+   public function gerenciadorSobreAtualizar(Request $request, $id, $languser){
 
       $sobre = Sobre::findorfail($id);
       $id_sobre = $sobre -> id_sobre;

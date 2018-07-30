@@ -5,14 +5,26 @@
             <div class="item painel-esq">
                <i class="fa fa-phone"></i>
                <h2>{{ $traduz_global['painel_texto1'] }}</h2>
-               	<a href="https://api.whatsapp.com/send?phone=5511999551260" target="_blank"><span>(11)</span> 99955-1260</a>
-                  {{-- <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p> --}}
+            	<a href="https://api.whatsapp.com/send?phone=5511999551260" target="_blank"><span>(11)</span> 99955-1260</a>
+               <p>Nós ligamos para você</p>
+               <form name="contact_form" class="default-form contact-form" action="sendmail.php" method="post">
+                  <div class="row">
+                     <div class="col-md-8 col-sm-12 col-xs-12">
+                        <div class="form-group">
+                           <input type="text" name="telefone" class="form-control main" placeholder="{{ $traduz_global['local_form_tel'] }}" required>
+                        </div>
+                     </div>
+
+                     <a href="{{ Request::url() }}/servicos/pt/10" class="btn-main">{{ $traduz_global['botao2'] }}</a>
+
+                  </div>
+               </form>
             </div>
             <div class="item painel-mid">
                <i class="fa fa-hourglass"></i>
                <h2>{{ $traduz_global['painel_texto2'] }}</h2>
                <div class="btn-bottom">
-                  <a href="#" class="btn-main">{{ $traduz_global['botao2'] }}</a>
+                  <a href="{{ Request::url() }}/servicos/pt/10" class="btn-main">{{ $traduz_global['botao2'] }}</a>
                </div>
             </div>
             <div class="item painel-dir">
