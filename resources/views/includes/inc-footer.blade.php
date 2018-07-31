@@ -29,13 +29,13 @@
 
          <div class="col-md-3 col-sm-5 col-xs-11">
             <div class="about-widget">
-               <div class="footer-logo">
+               {{-- <div class="footer-logo">
                   <figure>
                      <a href="index.html">
-                        <img src="images/logo-2.png" alt="">
+                        <img src="" alt="">
                      </a>
                   </figure>
-               </div>
+               </div> --}}
 
                <ul class="location-link">
                   <li class="item">
@@ -47,13 +47,13 @@
          </div>
          <div class="col-md-3 col-sm-5 col-xs-11">
             <div class="about-widget">
-               <div class="footer-logo">
+               {{-- <div class="footer-logo">
                   <figure>
                      <a href="index.html">
                         <img src="images/logo-2.png" alt="">
                      </a>
                   </figure>
-               </div>
+               </div> --}}
 
                <ul class="location-link">
                   <li class="item">
@@ -66,13 +66,13 @@
 
          <div class="col-md-3 col-sm-5 col-xs-11">
             <div class="about-widget">
-               <div class="footer-logo">
+               {{-- <div class="footer-logo">
                   <figure>
                      <a href="index.html">
-                        <img src="images/logo-2.png" alt="">
+                        <img src="" alt="">
                      </a>
                   </figure>
-               </div>
+               </div> --}}
 
                <ul class="location-link">
                   <li class="item">
@@ -80,7 +80,7 @@
                      <p>{!! nl2br($footers[0]['footer_col4']) !!}</p>
                   </li>
                </ul>
-               <ul class="list-inline social-icons text-center">
+               <ul class="list-inline social-icons text-left">
                   <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                   <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                   <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
@@ -95,11 +95,11 @@
 <div class="footer-bottom">
    <div class="container clearfix">
       <div class="copyright-text">
-         <p>&copy; Copyright 2018. All Rights Reserved by
-            <a href="index.html">juramentadas.com</a>
-         </p>
+            <a href="{{ route('welcome') }}">
+               <img class="float-left" src="{{ asset('storage/imagens/misc/logo-juramentadas.png') }}" alt="logo-juramentadas">
+               <span class="float-left">&copy; Copyright 2018. All Rights Reserved</span>
+            </a>
       </div>
    </div>
 </div>
-
-               <!--End footer-main-->
+<!--End footer-main-->

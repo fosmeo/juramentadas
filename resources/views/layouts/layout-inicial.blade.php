@@ -27,7 +27,7 @@
          </section>
 
          <!-- SERVICOS Section -->
-         <section class="feature-section section bg-gray">
+         <section class="feature-section section" style="background: url( {{ asset('storage/imagens/misc/imagem-predio.jpg') }}); background-attachment:fixed">
             @include('includes.inc-servicos')
          </section>
 
@@ -42,9 +42,9 @@
          </section>
 
          <!-- CIDADANIA Section -->
-         <section class="feature-section section ">
+         {{-- <section class="feature-section section ">
             @include('includes.inc-cidadania')
-         </section>
+         </section> --}}
 
          <!-- ORCAMENTOS AND FAQ Section -->
          <section class="appoinment-section section bg-gray">

@@ -9,34 +9,27 @@
                <p>Nós ligamos para você</p>
                <form name="contact_form" class="default-form contact-form" action="sendmail.php" method="post">
                   <div class="row">
-                     <div class="col-md-8 col-sm-12 col-xs-12">
+                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="form-group">
-                           <input type="text" name="telefone" class="form-control main" placeholder="{{ $traduz_global['local_form_tel'] }}" required>
+                           <input type="text" name="nome" class="form-control main" placeholder="Nome" required>
+                           <input type="tel" name="telefone" class="form-control main" placeholder="Telefone" required>
+
                         </div>
+                        <button type="submit" class="col-md-12 btn-main" \>Enviar</button>
                      </div>
-
-                     <a href="{{ Request::url() }}/servicos/pt/10" class="btn-main">{{ $traduz_global['botao2'] }}</a>
-
                   </div>
                </form>
             </div>
             <div class="item painel-mid">
                <i class="fa fa-hourglass"></i>
                <h2>{{ $traduz_global['painel_texto2'] }}</h2>
-               <div class="btn-bottom">
-                  <a href="{{ Request::url() }}/servicos/pt/10" class="btn-main">{{ $traduz_global['botao2'] }}</a>
-               </div>
+                  <br>
+                  <a class="col-md-12 btn-main text-center" href="{{ Request::url() }}/servicos/pt/10" class="btn-main">Saiba Mais</a>
             </div>
             <div class="item painel-dir">
                <i class="fa fa-flag-o"></i>
                <h2>{{ htmlspecialchars($traduz_global['painel_texto3']) }}</h2>
-               {{-- <div class="btn-bottom">
-                  <a href="#" class="btn-main">{{ $traduz_global['botao1'] }}</a>
-               </div> --}}
-               {{-- <ul class="w-hours">
-                  <li>Descontos Especiais em traduções para cidadania Italiana</li>
-                  <li><a href="#" class="btn btn-main">Clique AQUI</a></li>
-               </ul> --}}
+               <a class="col-md-12 btn-main text-center" href="{{ Request::url() }}/cidadania/pt" class="btn-main">Saiba Mais</a>
             </div>
          </div>
       </div>

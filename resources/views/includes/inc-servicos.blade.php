@@ -1,9 +1,7 @@
 <div class="container">
-   <div class="row">
+   <div class="row" >
       <div class="col-sm-12 col-xs-12">
-
          <div class="image-content">
-
             <div class="section-title text-center">
                <h3>{{ $traduz_global['servicos_titulo1'] }}
                   <span>Juramentadas.com</span>
@@ -12,7 +10,6 @@
             </div>
             <br><br>
             <div class="row">
-
                @foreach ($servicos as $servico)
                <div class="col-sm-6">
                   <div class="item">
@@ -21,7 +18,6 @@
                   </div>
                </div>
                @endforeach
-
             </div>
          </div>
       </div>

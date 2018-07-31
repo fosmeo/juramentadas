@@ -228,7 +228,7 @@ class SiteController extends Controller
             'ligue_agora' => 'Ligue Agora',
             'solicite_orcamento' => 'Solicite um Orçamento',
 
-            'painel_texto1' => 'WhatsApp',
+            'painel_texto1' => 'WhatsApp -24h',
             'painel_texto2' => 'Apostilamento de Documentos em 24h',
             'painel_texto3' => 'Descontos Especiais em traduções para cidadania Italiana',
 
