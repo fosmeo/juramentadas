@@ -159,7 +159,13 @@ class SiteController extends Controller
       return view('paginas.localizacao', $itens_paginas, ['locals' => $locals]);
    }
 
-   // TRADUZ MENUS E ITENS
+   public function Notification($lang){
+      $itens_paginas = $this -> ConstroiLayoutPages($lang);
+      return view('notifications', $itens_paginas);
+   }
+   
+
+   // TRADUZ MENUS E ITENS ----------------------------------------------------------------
 
    public function TraduzSliders($lang){
       $sliders = Slider::where('tab_lang', 'like', $lang) -> get();
@@ -271,6 +277,7 @@ class SiteController extends Controller
             'local_form_mensagem' => 'Mensagem',
             'local_upload' => 'Anexar Arquivo',
             'local_form_botao' => 'Enviar Mensagem',
+
          ];
 
       }elseif ($lang == 'en') {
@@ -373,6 +380,7 @@ class SiteController extends Controller
             'local_form_mensagem' => 'Mensage',
             'local_upload' => 'Adjuntar Arquivo',
             'local_form_botao' => 'Enviar',
+
          ];
       }elseif ($lang == 'it') {
          $traduz_global =
@@ -424,6 +432,7 @@ class SiteController extends Controller
             'local_form_mensagem' => 'Osservazioni Importanti',
             'local_upload' => 'Allegare File',
             'local_form_botao' => 'Inviare',
+
          ];
       }
       return $traduz_global;

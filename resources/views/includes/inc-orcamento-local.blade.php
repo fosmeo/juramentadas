@@ -27,6 +27,9 @@
                <div class="form-group">
                   <textarea name="mensagem" rows="15" class="form-control main" placeholder="{{ $traduz_global['local_form_mensagem'] }}"></textarea>
                </div>
+               <div class="form-group">
+                  <input type="file" class="form-control main" name="arquivo_orcamento" />
+               </div>
                <div class="form-group text-center">
                   <button class="btn btn-style-one" type="submit">{{ $traduz_global['local_form_botao'] }}</button>
                </div>

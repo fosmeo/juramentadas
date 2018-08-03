@@ -9,7 +9,9 @@ Route::get('limpasession', function(){
    return redirect('/');
 }) -> name('zerar_session') ;
 
-// Route::get('globais/{lang}', 'SiteController@TraduzGlobais') -> name('globais') ;
+   Route::patch('wppmail', 'MailController@whatsappEnviarMail') -> name('email.whatsapp');
+
+   Route::get('globais/{lang}', 'SiteController@TraduzGlobais') -> name('globais') ;
 // Route::get('test', 'SiteController@SiteIdiomas') -> name('idiomas') ;
 
    Route::get('setidioma/{lang}', 'SiteController@SiteSetIdioma') -> name('site.setidioma');
@@ -19,6 +21,8 @@ Route::get('limpasession', function(){
    Route::get('cartas/{lang}', 'SiteController@SiteCartas') -> name('site.cartas');
    Route::get('cidadania/{lang}', 'SiteController@SiteCidadania') -> name('site.cidadania');
    Route::get('localizacao/{lang}', 'SiteController@SiteLocalizacao') -> name('site.localizacao');
+   Route::get('notification/{lang}', 'SiteController@Notification') -> name('site.notification');
+
 
 Route::prefix('gerenciador') -> group(function(){
    Route::get('/', 'GerenciadorController@gerenciadorIndex') -> name('gerenciador.index');

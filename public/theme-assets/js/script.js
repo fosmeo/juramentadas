@@ -170,14 +170,14 @@
 		]
 	});
 
-   // Testimonial Slider CARTAS
-   $('.testimonial-carousel-cartas').slick({
+   // Testimonial Slider
+   $('.cartas-carousel').slick({
       infinite: true,
       arrows: true,
       autoplay: true,
       slidesToShow: 4,
       dots: true,
-      slidesToScroll: 1,
+      slidesToScroll: 2,
       responsive: [
          {
             breakpoint: 991,
@@ -188,7 +188,7 @@
          {
             breakpoint: 525,
             settings: {
-               slidesToShow: 2
+               slidesToShow: 1
             }
          }
       ]

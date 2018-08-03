@@ -36,6 +36,7 @@
         <ul class="">
             <h4>Consultas</h4>
             <li><a href="{!! route('other.orcamentos') !!}">Orçamentos</a></li>
+            <li><a href="#">WhatsApp</a></li>
             <li><a href="{!! route('other.logs') !!}">Logs</a></li>
             <li><a href="{!! route('other.listausuarios') !!}">Lista de Usuários</a></li>
             <li><a href="{!! route('other.registrarusuarios') !!}">Registrar Usuário</a></li>

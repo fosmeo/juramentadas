@@ -27,7 +27,7 @@
          </section>
 
          <!-- SERVICOS Section -->
-         <section class="feature-section section" style="background: url( {{ asset('storage/imagens/misc/imagem-predio.jpg') }}); background-attachment:fixed">
+         <section class="feature-section section" style="background: url( {{ asset('storage/imagens/misc/imagem-predio.jpg') }}); background-attachment:fixed;">
             @include('includes.inc-servicos')
          </section>
 
@@ -37,7 +37,7 @@
          </section>
 
          <!-- DEPOIMENTOS Section -->
-         <section class="testimonial-section" style="background: url( {{ asset('storage/imagens/misc/banner-depoimentos.jpg') }}); background-attachment:fixed">
+         <section class="testimonial-section" style="background: url( {{ asset('storage/imagens/misc/banner-depoimentos.jpg') }}); background-attachment:fixed;">
             @include('includes.inc-depoimentos')
          </section>
 
