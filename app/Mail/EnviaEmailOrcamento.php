@@ -11,14 +11,16 @@ class EnviaEmailOrcamento extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $orcamentodados;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($orcamentodados)
     {
-        //
+      $this -> orcamentodados = $orcamentodados;
     }
 
     /**

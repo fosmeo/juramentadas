@@ -9,7 +9,8 @@ Route::get('limpasession', function(){
    return redirect('/');
 }) -> name('zerar_session') ;
 
-   Route::patch('wppmail', 'MailController@whatsappEnviarMail') -> name('email.whatsapp');
+   Route::post('wpp-mail', 'MailController@whatsappEnviarMail') -> name('email.whatsapp');
+   Route::post('orcamento-mail', 'MailController@orcamentoEnviarMail') -> name('email.orcamento');
 
    Route::get('globais/{lang}', 'SiteController@TraduzGlobais') -> name('globais') ;
 // Route::get('test', 'SiteController@SiteIdiomas') -> name('idiomas') ;

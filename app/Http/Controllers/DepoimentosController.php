@@ -69,10 +69,10 @@ class DepoimentosController extends Controller
 
   public function gerenciadorDepoimentosGravar(Request $request)
   {
-    $this -> validate($request,[
-      'depoimentos_imagem' => ['required'],
-      'depoimentos_texto' => ['required'],
-    ]);
+   //  $this -> validate($request,[
+   //    'depoimentos_imagem' => ['required'],
+   //    'depoimentos_texto' => ['required'],
+   //  ]);
 
     $id_ultimo = Depoimentos::select('id_depoimento') -> orderby('id_depoimento', 'DESC') -> first();
 

@@ -49,6 +49,10 @@
          @include('includes.inc-footer')
       </footer>
 
+      <div id="voltarTopo">
+           <a href="#" id="topo"><img src="{{ asset('storage/imagens/misc/scroll-top.png') }}" alt=""></a>
+      </div>
+
    </div>
 
 </body>
@@ -56,6 +60,7 @@
 <script src="{{ asset('theme-assets/plugins/jquery.js') }}"></script>
 <script src="{{ asset('theme-assets/plugins/bootstrap.min.js') }}"></script>
 <script src="{{ asset('theme-assets/plugins/bootstrap-select.min.js') }}"></script>
+<script src="{{ asset('theme-assets/js/scrollTop.js') }}"></script>
 
 <!-- Slick Slider -->
 <script src="{{ asset('theme-assets/plugins/slick/slick.js') }}"></script>

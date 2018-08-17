@@ -12,10 +12,10 @@
                      <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="form-group">
                            {{csrf_field()}}
-                           <input name="_method" type="hidden" value="PATCH">
+                           <input name="_method" type="hidden" value="POST">
                            <input type="text" name="nome" class="form-control main" placeholder="Nome" required>
                            <input type="tel" name="telefone" class="form-control main" placeholder="Telefone" required>
-                           <input type="text" name="cityb" class="form-control main" style="display:none">
+                           <input type="text" name="stobait" class="form-control main" style="display:none">
                         </div>
                         <button type="submit" class="col-md-12 btn-main" \>Enviar</button>
                      </div>
