@@ -177,7 +177,7 @@
       autoplay: true,
       slidesToShow: 4,
       dots: true,
-      slidesToScroll: 2,
+      slidesToScroll: 1,
       responsive: [
          {
             breakpoint: 991,
@@ -190,7 +190,14 @@
             settings: {
                slidesToShow: 1
             }
+         },
+         {
+            breakpoint: 350,
+            settings: {
+               slidesToShow: 1
+            }
          }
+
       ]
    });
 

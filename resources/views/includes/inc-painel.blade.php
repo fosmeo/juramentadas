@@ -17,7 +17,7 @@
                            <input type="tel" name="telefone" class="form-control main" placeholder="Telefone" required>
                            <input type="text" name="stobait" class="form-control main" style="display:none">
                         </div>
-                        <button type="submit" class="col-md-12 btn-main" \>Enviar</button>
+                        <button type="submit" class="col-md-12 btn-main" \>{{ $traduz_global['botao1'] }}</button>
                      </div>
                   </div>
                </form>
@@ -26,12 +26,12 @@
                <i class="fa fa-hourglass"></i>
                <h2>{{ $traduz_global['painel_texto2'] }}</h2>
                   <br>
-                  <a class="col-md-12 btn-main text-center" href="{{ Request::url() }}/servicos/pt/10" class="btn-main">Saiba Mais</a>
+                  <a class="col-md-12 btn-main text-center scroll-contato" href="#">{{ $traduz_global['botao2'] }}</a>
             </div>
             <div class="item painel-dir">
                <i class="fa fa-flag-o"></i>
                <h2>{{ htmlspecialchars($traduz_global['painel_texto3']) }}</h2>
-               <a class="col-md-12 btn-main text-center" href="{{ Request::url() }}/cidadania/{{\Session::get('lang')}}" class="btn-main">Saiba Mais</a>
+               <a class="col-md-12 btn-main text-center" href="{{ Request::url() }}/cidadania/{{\Session::get('lang')}}" class="btn-main">{{ $traduz_global['botao3'] }}</a>
             </div>
          </div>
       </div>

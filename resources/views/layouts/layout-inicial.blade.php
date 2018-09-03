@@ -47,34 +47,41 @@
          </section> --}}
 
          <!-- ORCAMENTOS AND FAQ Section -->
-         <section class="appoinment-section section bg-gray">
-            <div class="container">
-               <div class="row">
-                     @include('includes.inc-FAQ')
-                     @include('includes.inc-orcamento')
+         <div id="section-height">
+
+            <section class="appoinment-section section bg-gray" >
+               <div class="container">
+                  <div class="row">
+                        @include('includes.inc-FAQ')
+                        @include('includes.inc-orcamento')
+                  </div>
                </div>
+            </section>
+
+            <!--Scroll to top-->
+            <div class="scroll-to-top scroll-to-target" data-target=".header-top">
+               <span class="icon fa fa-angle-up"></span>
             </div>
-         </section>
 
-         <!--Scroll to top-->
-         <div class="scroll-to-top scroll-to-target" data-target=".header-top">
-            <span class="icon fa fa-angle-up"></span>
+            <footer class="footer-main">
+               @include('includes.inc-footer')
+            </footer>
+            
          </div>
-      </div>
 
-      <footer class="footer-main">
-         @include('includes.inc-footer')
-      </footer>
+      </div>
 
       <a href="#" id="topo"><img src="{{ asset('storage/imagens/misc/scroll-top.png') }}" alt=""></a>
 
    </div>
+
 </body>
 
 <script src="{{ asset('theme-assets/plugins/jquery.js') }}"></script>
 <script src="{{ asset('theme-assets/plugins/bootstrap.min.js') }}"></script>
 <script src="{{ asset('theme-assets/plugins/bootstrap-select.min.js') }}"></script>
 <script src="{{ asset('theme-assets/js/scrollTop.js') }}"></script>
+<script src="{{ asset('theme-assets/js/scrollBottom.js') }}"></script>
 
 <!-- Slick Slider -->
 <script src="{{ asset('theme-assets/plugins/slick/slick.js') }}"></script>

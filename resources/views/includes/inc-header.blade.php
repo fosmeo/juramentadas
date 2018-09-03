@@ -72,7 +72,7 @@
             </li>
          </ul>
          <div class="link-btn">
-            <a href="#" class="btn-style-one" id="contato">
+            <a href="#" class="btn-style-one scroll-contato">
                <span>{{ $traduz_global['solicite_orcamento'] }}</span>
             </a>
          </div>

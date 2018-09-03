@@ -15,7 +15,10 @@
                <div class="content style text-center">
                   <h2 class="text-white text-bold mb-2">{{ $slider -> slider_titulo }}</h2>
                   <p class="tag-text mb-5">{{ $slider -> slider_texto }}</p>
-                     <a href="{{ $slider -> slider_link_botao }}" class="btn btn-main btn-white" target="_blank">{{ $slider -> slider_botao }}</a>
+                     @if ($slider -> slider_link_botao != '')
+                        <a href="{{ $slider -> slider_link_botao }}" class="btn btn-main btn-white" target="_blank">{{ $slider -> slider_botao}}</a>
+                     @endif
+
                   </div>
                   <!-- Slide Content End -->
                </div>

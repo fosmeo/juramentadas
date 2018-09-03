@@ -26,32 +26,27 @@
             @yield('content_single_pages')
          </section>
 
-         <!-- ORCAMENTOS AND FAQ Section -->
-         @if (\Session::get('area') !== 'local')
-            <section class="appoinment-section section bg-gray">
-               <div class="container">
-                  <div class="row">
-                        @include('includes.inc-FAQ')
-                        @include('includes.inc-orcamento')
+         <div id="section-height">
+
+            <!-- ORCAMENTOS AND FAQ Section -->
+            @if (\Session::get('area') !== 'local')
+               <section class="appoinment-section section bg-gray">
+                  <div class="container">
+                     <div class="row">
+                           @include('includes.inc-FAQ')
+                           @include('includes.inc-orcamento')
+                     </div>
                   </div>
-               </div>
-            </section>
-         @endif
+               </section>
+            @endif
+            <footer class="footer-main">
+               @include('includes.inc-footer')
+            </footer>
+         </div>
 
       </div>
 
-      <!--Scroll to top-->
-      <div class="scroll-to-top scroll-to-target" data-target=".header-top">
-         <span class="icon fa fa-angle-up"></span>
-      </div>
-
-      <footer class="footer-main">
-         @include('includes.inc-footer')
-      </footer>
-
-      <div id="voltarTopo">
-           <a href="#" id="topo"><img src="{{ asset('storage/imagens/misc/scroll-top.png') }}" alt=""></a>
-      </div>
+      <a href="#" id="topo"><img src="{{ asset('storage/imagens/misc/scroll-top.png') }}" alt=""></a>
 
    </div>
 
@@ -61,6 +56,7 @@
 <script src="{{ asset('theme-assets/plugins/bootstrap.min.js') }}"></script>
 <script src="{{ asset('theme-assets/plugins/bootstrap-select.min.js') }}"></script>
 <script src="{{ asset('theme-assets/js/scrollTop.js') }}"></script>
+<script src="{{ asset('theme-assets/js/scrollBottom.js') }}"></script>
 
 <!-- Slick Slider -->
 <script src="{{ asset('theme-assets/plugins/slick/slick.js') }}"></script>

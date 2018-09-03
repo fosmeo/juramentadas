@@ -238,8 +238,9 @@ class SiteController extends Controller
             'painel_texto2' => 'Apostilamento de Documentos em 24h',
             'painel_texto3' => 'Descontos Especiais em traduções para cidadania Italiana',
 
-            'botao1' => 'Saiba mais',
-            'botao2' => 'Clique Aqui',
+            'botao1' => 'Enviar',
+            'botao2' => 'Entre em Contato',
+            'botao3' => 'Saiba Mais',
             'email' => 'Email',
 
             'servicos_titulo1' => 'Serviços',
@@ -291,8 +292,9 @@ class SiteController extends Controller
             'painel_texto2' => 'Apostilamento de Documentos em 24h (traduzir para ingles)',
             'painel_texto3' => 'Italian Citzenship: Special Discounts for Translations',
 
-            'botao1' => 'Read More',
-            'botao2' => 'Click Here',
+            'botao1' => 'Send',
+            'botao2' => 'Contact Us',
+            'botao3' => 'Read More',
             'email' => 'Email',
 
             'servicos_titulo1' => 'Services',
@@ -342,8 +344,9 @@ class SiteController extends Controller
             'painel_texto2' => 'Apostilamento de Documentos em 24h (traduzir para espanhol)',
             'painel_texto3' => 'Cidadania Italiana: Descuentos Especiales Para La Traducción',
 
-            'botao1' => 'Lea Más',
-            'botao2' => 'Haga Clic Aquí',
+            'botao1' => 'Enviar',
+            'botao2' => 'Entre en Contacto',
+            'botao3' => 'Lea Más',
             'email' => 'Email',
 
             'servicos_titulo1' => 'Servicios',
@@ -393,8 +396,9 @@ class SiteController extends Controller
             'painel_texto2' => 'Apostilamento de Documentos em 24h (traduzir para ITALIANO)',
             'painel_texto3' => 'Cittadinanza Italiana: Sconti Speciali Per le Traduzioni',
 
-            'botao1' => 'Leggi di Più',
-            'botao2' => 'Clicca Qui',
+            'botao1' => 'Inviare',
+            'botao2' => 'Contattaci',
+            'botao3' => 'Leggi di Più',
             'email' => 'Email',
 
             'servicos_titulo1' => 'Servizi',
